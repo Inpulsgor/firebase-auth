@@ -1,15 +1,10 @@
 import React from "react";
-import "./menuListModal.scss";
+import "./modal.scss";
 
-import ColorBadge from "../ColorBadge/ColorBadge";
+import ColorBadge from "../Badge/Badge";
 import { ReactComponent as CloseSvg } from "../../assets/icons/close.svg";
 
-const MenuListModal = ({
-  colors,
-  selectedColor,
-  handleSelectColor,
-  setShowModal,
-}) => {
+const Modal = ({ colors, selectedColor, handleSelectColor, setShowModal }) => {
   return (
     <div className="create-list__modal modal">
       <button
@@ -46,4 +41,4 @@ const MenuListModal = ({
   );
 };
 
-export default MenuListModal;
+export default Modal;

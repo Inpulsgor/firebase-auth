@@ -1,30 +1,30 @@
 import React from "react";
 import classnames from "classnames";
 
-import ColorBadge from "../ColorBadge/ColorBadge";
-import "./menuList.scss";
+import Badge from "../Badge/Badge";
+import "./list.scss";
 
-const MenuList = ({ items, handleCLick }) => {
+const List = ({ items, handleCLick }) => {
   return (
     <ul className="list">
       {items.map((item, index) => (
         <li
-          key={index}
-          onClick={handleCLick}
-          className={classnames(item.className, {
+          key={item.id ? item.id : index}
+          className={classnames("list__item", {
             active: item.active,
           })}
+          onClick={handleCLick}
         >
           {item.icon ? (
             <i className="list__icon">{item.icon}</i>
           ) : (
-            <ColorBadge color={item.color} />
+            <Badge color={item.color} />
           )}
-          <span>{item.title}</span>
+          <span>{item.name}</span>
         </li>
       ))}
     </ul>
   );
 };
 
-export default MenuList;
+export default List;

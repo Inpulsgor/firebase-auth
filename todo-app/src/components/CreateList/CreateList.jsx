@@ -1,34 +1,33 @@
 import React, { useState } from "react";
 
-import MenuList from "../MenuList/MenuList";
-import MenuListModal from "../MenuListModal/MenuListModal";
-import "./menuListBtn.scss";
+import List from "../List/List";
+import Modal from "../Modal/Modal";
+import "./createList.scss";
 
 const MenuListBtn = ({ colors }) => {
   const [showModal, setShowModal] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(colors[0].id);
 
   const handleSelectColor = (colorID) => {
-    console.log(colorID);
     setSelectedColor(colorID);
   };
 
   return (
     <div className="create-list">
-      <MenuList
+      <List
         handleCLick={() => setShowModal(!showModal)}
         items={[
           {
             icon: null,
             color: null,
-            title: "Create new list",
+            name: "Create new list",
             active: false,
             className: "list__item",
           },
         ]}
       />
       {showModal && (
-        <MenuListModal
+        <Modal
           colors={colors}
           selectedColor={selectedColor}
           handleSelectColor={handleSelectColor}
