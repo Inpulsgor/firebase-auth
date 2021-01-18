@@ -1,0 +1,18 @@
+@import "normalize";
+@import "base";
+@import "variables";
+@import "mixins";
+
+.App {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  left: 50%;
+  top: 50%;
+  max-width: 750px;
+  width: 100%;
+  max-height: 530px;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}

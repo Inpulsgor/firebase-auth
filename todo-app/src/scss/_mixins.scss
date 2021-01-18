@@ -1,0 +1,84 @@
+@mixin for-phone-xs {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin for-phone-sm {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin for-phone-sm-only {
+  @media (min-width: 576px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-md-only {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-lg {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-lg-only {
+  @media (min-width: 1200px) and (max-width: 1499px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-xl {
+  @media (min-width: 1500px) {
+    @content;
+  }
+}
+
+// font
+@mixin font($ff: "Raleway", $fw: 400, $fs: 16px, $lh: 1.2, $color: inherit) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+  color: $color;
+}
+
+// font size (rem)
+@function rem($px) {
+  @return ($px / 16) + rem;
+}
+
+// font family
+@mixin font-face($font-family, $url, $weight) {
+  @font-face {
+    font-family: "#{$font-family}";
+    src: url("../../fonts/#{$url}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+  }
+}
