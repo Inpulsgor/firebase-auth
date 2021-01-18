@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./scss/App.scss";
 
-import MenuList from "./components/Sidebar/MenuList";
-import Content from "./components/Content/Content";
+import json from "./services/api/db.json";
+import MenuList from "./components/MenuList/MenuList";
+import MenuListBtn from "./components/MenuListBtn/MenuListBtn";
+// import Content from "./components/Content/Content";
 
 const App = () => {
+  const [state, setstate] = useState(null);
+
   return (
     <div className="app">
       <div className="app__sidebar">
@@ -28,19 +32,44 @@ const App = () => {
               color: null,
               title: "All tasks",
               active: true,
+              className: "list__item",
             },
           ]}
         />
         <MenuList
           items={[
-            { icon: null, color: "blue", title: "Frontend", active: false },
-            { icon: null, color: "green", title: "Java", active: false },
-            { icon: null, color: "red", title: "React", active: false },
-            { icon: null, color: "orange", title: "Vue", active: false },
+            {
+              icon: null,
+              color: "blue",
+              title: "Frontend",
+              active: false,
+              className: "list__item",
+            },
+            {
+              icon: null,
+              color: "green",
+              title: "Java",
+              active: false,
+              className: "list__item",
+            },
+            {
+              icon: null,
+              color: "red",
+              title: "React",
+              active: false,
+              className: "list__item",
+            },
+            {
+              icon: null,
+              color: "orange",
+              title: "Vue",
+              active: false,
+              className: "list__item",
+            },
           ]}
         />
+        <MenuListBtn colors={json.colors} />
       </div>
-      <Content />
     </div>
   );
 };
