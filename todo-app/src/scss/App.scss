@@ -3,7 +3,8 @@
 @import "variables";
 @import "mixins";
 
-.App {
+.app {
+  font-size: $font-size;
   position: absolute;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
@@ -15,4 +16,14 @@
   max-height: 530px;
   height: 100%;
   transform: translate(-50%, -50%);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  &__sidebar {
+    background-color: #f4f6f8;
+    grid-column: 1 / 4;
+    grid-row: 1 / 10;
+    padding: 60px 20px;
+  }
 }

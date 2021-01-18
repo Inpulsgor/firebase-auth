@@ -1,0 +1,51 @@
+.list {
+  &:first-child {
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    // margin-bottom: 5px;
+    cursor: pointer;
+
+    &.active {
+      background: #fff;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
+      border-radius: 4px;
+    }
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &__svg {
+    fill: #7c7c7c;
+  }
+
+  &__badge {
+    position: relative;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    padding-left: 5px;
+    margin-right: 18px;
+
+    &--green {
+      background-color: #42b883;
+    }
+
+    &--red {
+      background-color: #ff0000;
+    }
+    &--blue {
+      background-color: #0000ff;
+    }
+    &--orange {
+      background-color: #ffa500;
+    }
+  }
+}
