@@ -1,0 +1,40 @@
+.tasks {
+  &__title {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 39px;
+    color: #64c4ed;
+    margin-bottom: 30px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.task {
+  input {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    border: 2px solid #e8e8e8;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  input:checked + label {
+    background-color: #4dd599;
+    border-color: #4dd599;
+  }
+}

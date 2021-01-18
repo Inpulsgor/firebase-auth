@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./scss/App.scss";
 
-import json from "./services/api/db.json";
+import JSON from "./services/api/db.json";
 import List from "./components/List/List";
 import CreateList from "./components/CreateList/CreateList";
 import { filterColorByID } from "./services/helpers";
+import Tasks from "./components/Tasks/Tasks";
 
 const App = () => {
   const [items, setItems] = useState([
@@ -29,14 +30,26 @@ const App = () => {
       className: "list__item",
     },
   ]);
-  const [lists, setLists] = useState(filterColorByID(json));
+  const [lists, setLists] = useState(filterColorByID(JSON));
+
+  const addToList = (newObject) => {
+    const newList = [...lists, newObject];
+    setLists(newList);
+  };
+
+  const handleRemove = (item) => {
+    console.log(item);
+  };
 
   return (
     <div className="app">
       <div className="app__sidebar">
         <List items={items} />
-        <List items={lists} />
-        <CreateList colors={json.colors} />
+        <List items={lists} handleRemove={handleRemove} isRemovable />
+        <CreateList colors={JSON.colors} onAdd={addToList} />
+      </div>
+      <div className="app__tasks">
+        <Tasks />
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 import React from "react";
 import classnames from "classnames";
 
+import { ReactComponent as RemoveSvg } from "../../assets/icons/remove.svg";
 import Badge from "../Badge/Badge";
 import "./list.scss";
 
-const List = ({ items, handleCLick }) => {
+const List = ({ items, handleCLick, isRemovable, handleRemove }) => {
   return (
     <ul className="list">
       {items.map((item, index) => (
@@ -21,6 +22,15 @@ const List = ({ items, handleCLick }) => {
             <Badge color={item.color} />
           )}
           <span>{item.name}</span>
+          {isRemovable && (
+            <button
+              className="list__remove"
+              type="button"
+              onClick={() => handleRemove(item)}
+            >
+              <RemoveSvg />
+            </button>
+          )}
         </li>
       ))}
     </ul>
