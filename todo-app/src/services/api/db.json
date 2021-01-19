@@ -19,6 +19,11 @@
       "name": "Music",
       "colorId": 5,
       "id": 5
+    },
+    {
+      "name": "Holiday",
+      "colorId": 3,
+      "id": 6
     }
   ],
   "tasks": [

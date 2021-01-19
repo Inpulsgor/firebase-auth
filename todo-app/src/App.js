@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 
 import { List, CreateList, Tasks } from "./components";
-import { filterColorByID } from "./services/helpers";
-import JSON from "./services/api/db.json";
 import api from "./services/api/api";
-
 import "./scss/App.scss";
 
 const App = () => {
-  const [lists, setLists] = useState(filterColorByID(JSON));
+  const [lists, setLists] = useState(null);
+  const [colors, setColors] = useState(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    api.getListsWithExpand().then(({ data }) => {
+      setLists(data);
+    });
+
+    api.getColors().then(({ data }) => {
+      setColors(data);
+    });
+  }, []);
 
   const addToList = (modifiedObject) => {
     const updatedList = [...lists, modifiedObject];
@@ -26,13 +32,14 @@ const App = () => {
   return (
     <div className="app">
       <div className="app__sidebar">
-        <List items={[{ name: "All tasks" }]} />
-        <List items={lists} handleRemove={handleRemove} isRemovable />
-        <CreateList colors={JSON.colors} onAdd={addToList} />
+        <List items={[{ name: "All tasks", id: 123 }]} />
+        {lists && (
+          <List items={lists} handleRemove={handleRemove} isRemovable />
+        )}
+        <CreateList colors={colors} onAdd={addToList} />
       </div>
-      <div className="app__tasks">
-        <Tasks />
-      </div>
+
+      <div className="app__tasks">{lists && <Tasks list={lists[1]} />}</div>
     </div>
   );
 };

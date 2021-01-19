@@ -4,6 +4,8 @@ axios.defaults.baseURL = "http://localhost:4000";
 
 const getLists = () => axios.get("/lists");
 
+const getListsWithExpand = () => axios.get("/lists?_expand=color&_embed=tasks");
+
 const getTasks = () => axios.get("/tasks");
 
 const getColors = () => axios.get("/colors");
@@ -18,6 +20,7 @@ const deleteList = (id) => axios.delete(`/lists/${id}`);
 
 export default {
   getLists,
+  getListsWithExpand,
   getTasks,
   getColors,
   createList,

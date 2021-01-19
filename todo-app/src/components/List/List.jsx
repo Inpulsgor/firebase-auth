@@ -8,15 +8,15 @@ import "./list.scss";
 const List = ({ items, handleCLick, isRemovable, handleRemove }) => {
   return (
     <ul className="list">
-      {items.map((item, index) => (
+      {items.map((item) => (
         <li
-          key={item.id ? item.id : index}
+          key={item.id}
           className={classnames("list__item", {
             active: item.active,
           })}
           onClick={handleCLick}
         >
-          <Badge color={item.color} />
+          {item.color && <Badge color={item.color.name} />}
           <span>{item.name}</span>
 
           {isRemovable && (
