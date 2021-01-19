@@ -11,9 +11,29 @@
       "colorId": 4
     },
     {
-      "name": "Moviesasd",
+      "name": "Books",
+      "colorId": 3,
+      "id": 3
+    },
+    {
+      "name": "Cinema",
       "colorId": 7,
       "id": 4
+    },
+    {
+      "name": "Sports",
+      "colorId": 8,
+      "id": 5
+    },
+    {
+      "name": "Shopping",
+      "colorId": 3,
+      "id": 6
+    },
+    {
+      "name": "Internet",
+      "colorId": 1,
+      "id": 7
     }
   ],
   "tasks": [
@@ -76,6 +96,48 @@
       "text": "222",
       "completed": true,
       "id": 12
+    },
+    {
+      "listId": 2,
+      "text": "asd",
+      "comleted": false,
+      "id": 13
+    },
+    {
+      "listId": 2,
+      "text": "asd",
+      "comleted": false,
+      "id": 14
+    },
+    {
+      "listId": 2,
+      "text": "asdd",
+      "comleted": false,
+      "id": 15
+    },
+    {
+      "listId": 2,
+      "text": "asdasd",
+      "comleted": false,
+      "id": 16
+    },
+    {
+      "listId": 2,
+      "text": "asdasd",
+      "comleted": false,
+      "id": 17
+    },
+    {
+      "listId": 1,
+      "text": "sadasd",
+      "comleted": false,
+      "id": 18
+    },
+    {
+      "listId": 1,
+      "text": "asd",
+      "comleted": false,
+      "id": 19
     }
   ],
   "colors": [

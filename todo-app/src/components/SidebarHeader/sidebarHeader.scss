@@ -1,0 +1,12 @@
+.sidebar {
+  &__header {
+    margin-bottom: 20px;
+  }
+}
+
+.header__btn-all {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+}

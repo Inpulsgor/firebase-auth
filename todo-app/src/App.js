@@ -45,6 +45,16 @@ const App = () => {
     setLists(setLists);
   };
 
+  const handleAddTask = (id, object) => {
+    const newList = lists.map((list) => {
+      if (list.id === id) {
+        list.tasks = [...list.tasks, object];
+      }
+      return list;
+    });
+    setLists(newList);
+  };
+
   return (
     <div className="App">
       <aside className="sidebar">
@@ -63,7 +73,11 @@ const App = () => {
 
       <section className="tasks">
         {lists && activeList && (
-          <Tasks list={activeList} handleEditTitle={handleEditTitle} />
+          <Tasks
+            list={activeList}
+            handleEditTitle={handleEditTitle}
+            handleAddTask={handleAddTask}
+          />
         )}
       </section>
     </div>

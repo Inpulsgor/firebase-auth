@@ -12,7 +12,7 @@ const getColors = () => axios.get("/colors");
 
 const createList = (credentials) => axios.post("/lists", credentials);
 
-// const createTask = (credentials) => axios.post("/tasks", credentials);
+const createTask = (credentials) => axios.post("/tasks", credentials);
 
 // const createColor = (credentials) => axios.post("/colors", credentials);
 
@@ -25,10 +25,10 @@ export default {
   getListsWithExpand,
   getColors,
   createList,
+  createTask,
   deleteList,
   updateListTitle,
 };
 
 // getTasks,
-// createTask,
 // createColor,

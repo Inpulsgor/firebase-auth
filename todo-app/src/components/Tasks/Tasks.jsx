@@ -1,10 +1,10 @@
 import React from "react";
 
-import { TasksHeader, TasksList } from "../../components";
+import { TasksHeader, TasksList, TasksCreator } from "../../components";
 import api from "../../services/api/api";
 import "./Tasks.scss";
 
-const Tasks = ({ list, handleEditTitle }) => {
+const Tasks = ({ list, handleEditTitle, handleAddTask }) => {
   const handleEdit = () => {
     const newTitle = window.prompt("List name", list.name);
 
@@ -23,6 +23,7 @@ const Tasks = ({ list, handleEditTitle }) => {
     <>
       <TasksHeader name={list.name} handleEdit={handleEdit} />
       <TasksList list={list} />
+      <TasksCreator list={list} handleAddTask={handleAddTask} />
     </>
   );
 };

@@ -61,7 +61,7 @@ const CreateList = ({ colors, onAdd }) => {
         handleCloseModal();
       })
       .catch((error) => setError(error))
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   return (
