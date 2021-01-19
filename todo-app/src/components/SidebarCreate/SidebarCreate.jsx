@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { Modal } from "../../components";
+import { SidebarModal } from "..";
 import api from "../../services/api/api";
-import "./createList.scss";
+import "./sidebarCreate.scss";
 
 const CreateList = ({ colors, onAdd }) => {
   const [showModal, setShowModal] = useState(false);
@@ -74,7 +74,7 @@ const CreateList = ({ colors, onAdd }) => {
         Create new list
       </button>
       {showModal && (
-        <Modal
+        <SidebarModal
           colors={colors}
           inputValue={inputValue}
           inputValueErr={inputValueErr}

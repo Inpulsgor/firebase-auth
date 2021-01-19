@@ -1,9 +1,9 @@
 import React from "react";
 import classnames from "classnames";
 
-import "./badge.scss";
+import "./sidebarBadge.scss";
 
-const Badge = ({ color, onClick, className }) => {
+const SidebarBadge = ({ color, onClick, className }) => {
   return (
     <i
       onClick={onClick}
@@ -12,4 +12,4 @@ const Badge = ({ color, onClick, className }) => {
   );
 };
 
-export default Badge;
+export default SidebarBadge;

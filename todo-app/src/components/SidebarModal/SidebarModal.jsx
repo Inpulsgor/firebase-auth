@@ -1,8 +1,8 @@
 import React from "react";
 
 import { ReactComponent as CloseSvg } from "../../assets/icons/close.svg";
-import { Badge } from "../../components";
-import "./modal.scss";
+import { SidebarBadge } from "../../components";
+import "./sidebarModal.scss";
 
 const Modal = ({
   colors,
@@ -43,7 +43,7 @@ const Modal = ({
         {colors &&
           colors.map((color) => (
             <li key={color.id} className="colors__item">
-              <Badge
+              <SidebarBadge
                 color={color.name}
                 onClick={() => handleSelectColor(color.id)}
                 className={selectedColor === color.id && "active"}

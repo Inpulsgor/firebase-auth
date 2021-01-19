@@ -2,10 +2,10 @@ import React from "react";
 import classnames from "classnames";
 
 import { ReactComponent as RemoveSvg } from "../../assets/icons/remove.svg";
-import { Badge } from "../../components";
-import "./list.scss";
+import { SidebarBadge } from "../../components";
+import "./sidebarList.scss";
 
-const List = ({
+const SidebarList = ({
   items,
   handleCLick,
   isRemovable,
@@ -22,7 +22,7 @@ const List = ({
           })}
           onClick={() => handleCLick(item)}
         >
-          {item.color && <Badge color={item.color.name} />}
+          {item.color && <SidebarBadge color={item.color.name} />}
           <span>
             {item.name}
             {item.tasks && `(${item.tasks.length})`}
@@ -43,4 +43,4 @@ const List = ({
   );
 };
 
-export default List;
+export default SidebarList;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { List, CreateList, Tasks } from "./components";
+import { SidebarHeader, SidebarList, SidebarCreate, Tasks } from "./components";
 import api from "./services/api/api";
 import "./scss/App.scss";
 
@@ -46,11 +46,11 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <div className="app__sidebar">
-        <List items={[{ name: "All tasks", id: 123 }]} />
+    <div className="App">
+      <aside className="sidebar">
+        <SidebarHeader />
         {lists && (
-          <List
+          <SidebarList
             items={lists}
             handleCLick={handleCLick}
             handleRemove={handleRemove}
@@ -58,14 +58,14 @@ const App = () => {
             isRemovable
           />
         )}
-        <CreateList colors={colors} onAdd={addToList} />
-      </div>
+        <SidebarCreate colors={colors} onAdd={addToList} />
+      </aside>
 
-      <div className="app__tasks">
+      <section className="tasks">
         {lists && activeList && (
           <Tasks list={activeList} handleEditTitle={handleEditTitle} />
         )}
-      </div>
+      </section>
     </div>
   );
 };
