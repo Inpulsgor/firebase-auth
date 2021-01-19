@@ -5,19 +5,28 @@ import { ReactComponent as RemoveSvg } from "../../assets/icons/remove.svg";
 import { Badge } from "../../components";
 import "./list.scss";
 
-const List = ({ items, handleCLick, isRemovable, handleRemove }) => {
+const List = ({
+  items,
+  handleCLick,
+  isRemovable,
+  handleRemove,
+  activeList,
+}) => {
   return (
     <ul className="list">
       {items.map((item) => (
         <li
           key={item.id}
           className={classnames("list__item", {
-            active: item.active,
+            active: activeList && activeList.id === item.id,
           })}
-          onClick={handleCLick}
+          onClick={() => handleCLick(item)}
         >
           {item.color && <Badge color={item.color.name} />}
-          <span>{item.name}</span>
+          <span>
+            {item.name}
+            {item.tasks && `(${item.tasks.length})`}
+          </span>
 
           {isRemovable && (
             <button

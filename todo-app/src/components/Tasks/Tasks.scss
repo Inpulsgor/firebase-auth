@@ -36,6 +36,15 @@
 }
 
 .task {
+  &__empty {
+    position: absolute;
+    font-size: 26px;
+    font-weight: 500;
+    color: #c9d1d3;
+    left: 50%;
+    top: 50%;
+  }
+
   &__item {
     display: flex;
     align-items: center;
