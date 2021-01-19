@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import Modal from "../Modal/Modal";
+import { Modal } from "../../components";
 import "./createList.scss";
 
 const CreateList = ({ colors, onAdd }) => {

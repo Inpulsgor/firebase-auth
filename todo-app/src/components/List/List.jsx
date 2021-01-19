@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 import { ReactComponent as RemoveSvg } from "../../assets/icons/remove.svg";
-import Badge from "../Badge/Badge";
+import { Badge } from "../../components";
 import "./list.scss";
 
 const List = ({ items, handleCLick, isRemovable, handleRemove }) => {

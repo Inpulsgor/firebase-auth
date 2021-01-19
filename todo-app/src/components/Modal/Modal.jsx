@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ReactComponent as CloseSvg } from "../../assets/icons/close.svg";
-import ColorBadge from "../Badge/Badge";
+import { Badge } from "../../components";
 import "./modal.scss";
 
 const Modal = ({
@@ -42,7 +42,7 @@ const Modal = ({
         {colors &&
           colors.map((color) => (
             <li key={color.id} className="colors__item">
-              <ColorBadge
+              <Badge
                 color={color.name}
                 onClick={() => handleSelectColor(color.id)}
                 className={selectedColor === color.id && "active"}

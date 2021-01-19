@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import "./scss/App.scss";
 
-import JSON from "./services/api/db.json";
-import List from "./components/List/List";
-import CreateList from "./components/CreateList/CreateList";
+import { List, CreateList, Tasks } from "./components";
 import { filterColorByID } from "./services/helpers";
-import Tasks from "./components/Tasks/Tasks";
+import JSON from "./services/api/db.json";
+import "./scss/App.scss";
 
 const App = () => {
   const [items, setItems] = useState([
