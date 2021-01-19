@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState, useEffect } from "react";
 
 import { Modal } from "../../components";
+import api from "../../services/api/api";
 import "./createList.scss";
 
 const CreateList = ({ colors, onAdd }) => {
@@ -10,6 +10,14 @@ const CreateList = ({ colors, onAdd }) => {
   const [inputValue, setInputValue] = useState("");
   const [inputValueErr, setInputValueErr] = useState(null);
   const [ColorErr, setColorErr] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (Array.isArray(colors)) {
+      setSelectedColor(colors[0].id);
+    }
+  }, [colors]);
 
   const handleSelectColor = (colorID) => {
     setSelectedColor(colorID);
@@ -41,15 +49,19 @@ const CreateList = ({ colors, onAdd }) => {
     }
     setColorErr("");
 
-    const color = colors.filter((col) => col.id === selectedColor)[0].name;
-    const createdData = {
-      id: uuidv4(),
-      name: inputValue,
-      color: color,
-    };
+    const credentials = { name: inputValue, colorId: selectedColor };
+    setIsLoading(true);
 
-    onAdd(createdData);
-    handleCloseModal();
+    api
+      .createList(credentials)
+      .then(({ data }) => {
+        const color = colors.filter((col) => col.id === selectedColor)[0].name;
+        const modifiedData = { ...data, color: { name: color } };
+        onAdd(modifiedData);
+        handleCloseModal();
+      })
+      .catch((error) => setError(error))
+      .finally(setIsLoading(false));
   };
 
   return (
@@ -72,6 +84,7 @@ const CreateList = ({ colors, onAdd }) => {
           handleSelectColor={handleSelectColor}
           handleCloseModal={handleCloseModal}
           handleCreateItem={handleCreateItem}
+          isLoading={isLoading}
         />
       )}
     </div>

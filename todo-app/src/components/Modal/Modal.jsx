@@ -14,6 +14,7 @@ const Modal = ({
   handleCreateItem,
   inputValueErr,
   ColorErr,
+  isLoading,
 }) => {
   return (
     <div className="create-list__modal modal">
@@ -61,7 +62,7 @@ const Modal = ({
         type="button"
         onClick={handleCreateItem}
       >
-        Create
+        {isLoading ? "Creating..." : "Create"}
       </button>
     </div>
   );

@@ -16,17 +16,14 @@ const List = ({ items, handleCLick, isRemovable, handleRemove }) => {
           })}
           onClick={handleCLick}
         >
-          {item.icon ? (
-            <i className="list__icon">{item.icon}</i>
-          ) : (
-            <Badge color={item.color} />
-          )}
+          <Badge color={item.color} />
           <span>{item.name}</span>
+
           {isRemovable && (
             <button
               className="list__remove"
               type="button"
-              onClick={() => handleRemove(item)}
+              onClick={() => handleRemove(item.id)}
             >
               <RemoveSvg />
             </button>

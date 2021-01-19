@@ -1,4 +1,5 @@
 import React from "react";
+
 import { ReactComponent as CheckedSvg } from "../../assets/icons/checked.svg";
 import "./Tasks.scss";
 
@@ -15,6 +16,7 @@ const Tasks = () => {
           <input
             className="task__edit"
             value="React.js Hooks (useState, useReducer, useEffect...)"
+            onChange={() => {}}
           />
         </li>
       </ul>
