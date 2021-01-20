@@ -3,26 +3,30 @@
 @import "variables";
 @import "mixins";
 
+#root {
+  padding: 100px 0;
+}
+
 .App {
   font-size: $font-size;
-  position: absolute;
+  display: block;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, auto);
-  left: 50%;
-  top: 50%;
   max-width: 750px;
   width: 100%;
-  min-height: 700px;
+  // width: calc(100vw - 50px);
+  height: 700px;
+  // height: calc(100vh - 100px);
   overflow: hidden;
   border-radius: 5px;
-  transform: translate(-50%, -50%);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .sidebar {
   grid-column: 1 / 4;
-  grid-row: 1 / 11;
+  grid-row: 1 / 10;
   padding: 60px 20px;
   background-color: #e7e7e7;
   display: flex;
@@ -33,6 +37,13 @@
   grid-column: 4 / 10;
   grid-row: 1 / 10;
   padding: 60px;
+  overflow-y: auto;
+
+  &__container {
+    &:not(:last-of-type) {
+      margin-bottom: 40px;
+    }
+  }
 }
 
 .field {

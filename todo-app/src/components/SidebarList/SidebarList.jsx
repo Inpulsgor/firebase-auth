@@ -7,8 +7,8 @@ import "./sidebarList.scss";
 
 const SidebarList = ({
   items,
-  handleCLick,
   isRemovable,
+  handleClick,
   handleRemove,
   activeList,
 }) => {
@@ -20,7 +20,7 @@ const SidebarList = ({
           className={classnames("list__item", {
             active: activeList && activeList.id === item.id,
           })}
-          onClick={() => handleCLick(item)}
+          onClick={() => handleClick(item)}
         >
           {item.color && <SidebarBadge color={item.color.name} />}
           <span>

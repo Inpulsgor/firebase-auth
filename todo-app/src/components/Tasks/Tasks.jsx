@@ -20,11 +20,15 @@ const Tasks = ({ list, handleEditTitle, handleAddTask }) => {
   };
 
   return (
-    <>
-      <TasksHeader name={list.name} handleEdit={handleEdit} />
+    <div className="tasks__container">
+      <TasksHeader
+        color={list.color.hex}
+        name={list.name}
+        handleEdit={handleEdit}
+      />
       <TasksList list={list} />
       <TasksCreator list={list} handleAddTask={handleAddTask} />
-    </>
+    </div>
   );
 };
 

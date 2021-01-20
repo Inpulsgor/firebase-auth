@@ -7,4 +7,5 @@ export { default as SidebarModal } from "./SidebarModal/SidebarModal";
 export { default as Tasks } from "./Tasks/Tasks";
 export { default as TasksHeader } from "./TasksHeader/TasksHeader";
 export { default as TasksList } from "./TasksList/TasksList";
+export { default as Task } from "./Task/Task";
 export { default as TasksCreator } from "./TasksCreator/TasksCreator";

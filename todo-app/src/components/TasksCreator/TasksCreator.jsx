@@ -8,7 +8,6 @@ const TasksCreator = ({ list, handleAddTask }) => {
   const [visibleForm, setVisibleForm] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const handleChange = ({ target: { value } }) => {
     setInputValue(value);
@@ -35,7 +34,7 @@ const TasksCreator = ({ list, handleAddTask }) => {
         handleAddTask(list.id, data);
         toggleOpenForm();
       })
-      .catch((error) => setError(error))
+      .catch((error) => console.log(error))
       .finally(() => setIsLoading(false));
   };
 

@@ -1,12 +1,22 @@
 .sidebar {
-  &__header {
+  &__heading {
     margin-bottom: 20px;
   }
 }
 
-.header__btn-all {
-  display: flex;
-  align-items: center;
-  border: none;
-  background: transparent;
+.header {
+  margin-bottom: 15px;
+
+  &__btn {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: transparent;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
 }

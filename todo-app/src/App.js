@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Route, useHistory } from "react-router-dom";
 
 import { SidebarHeader, SidebarList, SidebarCreate, Tasks } from "./components";
 import api from "./services/api/api";
@@ -8,6 +9,7 @@ const App = () => {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeList, setActiveList] = useState(null);
+  let history = useHistory();
 
   useEffect(() => {
     api.getListsWithExpand().then(({ data }) => {
@@ -19,13 +21,28 @@ const App = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const listId = history.location.pathname.split("lists/")[1];
+    if (lists) {
+      const list = lists.find((list) => list.id === Number(listId));
+      console.log("useEffect List", list);
+      setActiveList(list);
+    }
+  }, [lists, history.location.pathname]);
+
   const addToList = (modifiedObject) => {
     const updatedList = [...lists, modifiedObject];
     setLists(updatedList);
   };
 
-  const handleCLick = (item) => {
-    setActiveList(item);
+  const handleClick = (list) => {
+    history.push(`/lists/${list.id}`);
+    console.log("Click List", list);
+    setActiveList(list);
+  };
+
+  const showAllLists = () => {
+    history.push("/");
   };
 
   const handleRemove = (id) => {
@@ -35,7 +52,7 @@ const App = () => {
   };
 
   const handleEditTitle = (id, newTitle) => {
-    const listWithUpdatedTitle = lists.map((item) => {
+    lists.map((item) => {
       if (item.id === id) {
         item.name = newTitle;
       }
@@ -58,11 +75,11 @@ const App = () => {
   return (
     <div className="App">
       <aside className="sidebar">
-        <SidebarHeader />
+        <SidebarHeader showAllLists={showAllLists} />
         {lists && (
           <SidebarList
             items={lists}
-            handleCLick={handleCLick}
+            handleClick={handleClick}
             handleRemove={handleRemove}
             activeList={activeList}
             isRemovable
@@ -72,13 +89,26 @@ const App = () => {
       </aside>
 
       <section className="tasks">
-        {lists && activeList && (
-          <Tasks
-            list={activeList}
-            handleEditTitle={handleEditTitle}
-            handleAddTask={handleAddTask}
-          />
-        )}
+        <Route exact path="/">
+          {lists &&
+            lists.map((list) => (
+              <Tasks
+                key={list.id}
+                list={list}
+                handleEditTitle={handleEditTitle}
+                handleAddTask={handleAddTask}
+              />
+            ))}
+        </Route>
+        <Route path="/lists/:id">
+          {activeList && (
+            <Tasks
+              list={activeList}
+              handleEditTitle={handleEditTitle}
+              handleAddTask={handleAddTask}
+            />
+          )}
+        </Route>
       </section>
     </div>
   );

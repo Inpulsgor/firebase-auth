@@ -11,7 +11,6 @@ const CreateList = ({ colors, onAdd }) => {
   const [inputValueErr, setInputValueErr] = useState(null);
   const [ColorErr, setColorErr] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (Array.isArray(colors)) {
@@ -60,7 +59,7 @@ const CreateList = ({ colors, onAdd }) => {
         onAdd(modifiedData);
         handleCloseModal();
       })
-      .catch((error) => setError(error))
+      .catch((error) => console.log(error))
       .finally(() => setIsLoading(false));
   };
 
