@@ -22,10 +22,13 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    console.log("useEffect", history.location.pathname);
     const listId = history.location.pathname.split("lists/")[1];
+
     if (lists) {
       const list = lists.find((list) => list.id === Number(listId));
-      console.log("useEffect List", list);
+      console.log(list);
+
       setActiveList(list);
     }
   }, [lists, history.location.pathname]);
@@ -37,8 +40,7 @@ const App = () => {
 
   const handleClick = (list) => {
     history.push(`/lists/${list.id}`);
-    console.log("Click List", list);
-    setActiveList(list);
+    // setActiveList(list);
   };
 
   const showAllLists = () => {
@@ -101,7 +103,7 @@ const App = () => {
             ))}
         </Route>
         <Route path="/lists/:id">
-          {activeList && (
+          {lists && activeList && (
             <Tasks
               list={activeList}
               handleEditTitle={handleEditTitle}

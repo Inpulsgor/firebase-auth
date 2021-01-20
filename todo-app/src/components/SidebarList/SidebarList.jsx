@@ -20,7 +20,7 @@ const SidebarList = ({
           className={classnames("list__item", {
             active: activeList && activeList.id === item.id,
           })}
-          onClick={() => handleClick(item)}
+          onClick={handleClick ? () => handleClick(item) : null}
         >
           {item.color && <SidebarBadge color={item.color.name} />}
           <span>

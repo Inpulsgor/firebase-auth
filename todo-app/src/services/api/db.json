@@ -9,31 +9,6 @@
       "id": 2,
       "name": "Фронтенд",
       "colorId": 4
-    },
-    {
-      "name": "Cinema",
-      "colorId": 7,
-      "id": 4
-    },
-    {
-      "name": "Sportsss",
-      "colorId": 8,
-      "id": 5
-    },
-    {
-      "name": "Shopping",
-      "colorId": 3,
-      "id": 6
-    },
-    {
-      "name": "Internet",
-      "colorId": 1,
-      "id": 7
-    },
-    {
-      "name": "abc",
-      "colorId": 3,
-      "id": 8
     }
   ],
   "tasks": [

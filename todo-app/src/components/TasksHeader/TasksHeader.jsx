@@ -5,7 +5,7 @@ import "./tasksHeader.scss";
 
 const TasksHeader = ({ color, name, handleEdit }) => {
   return (
-    <header className="tasks__her heading">
+    <header className="tasks__heading heading">
       <h2 style={{ color }} className="heading__title">
         {name}
       </h2>
