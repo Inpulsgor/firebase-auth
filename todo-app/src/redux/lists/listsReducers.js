@@ -6,13 +6,16 @@ const listsReducer = (state = [], { type, payload }) => {
     case ActionType.FETCH_LISTS_SUCCESS:
       return payload.lists;
 
+    case ActionType.DELETE_LIST_SUCCESS:
+      return state.filter((item) => item.id !== payload.id);
+
     default:
       return state;
   }
 };
 
-const loadingReducer = (state = false, action) => {
-  switch (action.type) {
+const loadingReducer = (state = false, { type }) => {
+  switch (type) {
     case ActionType.FETCH_LISTS_REQUEST:
       return true;
 
@@ -25,8 +28,22 @@ const loadingReducer = (state = false, action) => {
   }
 };
 
+const errorReducer = (state = null, { type, payload }) => {
+  switch (type) {
+    case ActionType.FETCH_LISTS_REQUEST:
+    case ActionType.FETCH_LISTS_SUCCESS:
+      return null;
+
+    case ActionType.FETCH_LISTS_ERROR:
+      return payload.error;
+
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   items: listsReducer,
   loading: loadingReducer,
-  // error: errorReducer,
+  error: errorReducer,
 });

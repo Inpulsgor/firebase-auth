@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import { ReactComponent as PlusSvg } from "../../assets/icons/plus.svg";
 import * as api from "../../services/api/api";
-import "./tasksCreator.scss";
 
 const TasksCreator = ({ list, handleAddTask }) => {
   const [visibleForm, setVisibleForm] = useState(false);

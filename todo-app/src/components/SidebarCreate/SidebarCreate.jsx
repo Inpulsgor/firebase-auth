@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import { SidebarModal } from "..";
 import * as api from "../../services/api/api";
-import "./sidebarCreate.scss";
 
 const CreateList = ({ colors, onAdd }) => {
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +12,7 @@ const CreateList = ({ colors, onAdd }) => {
   const [isLoading, setIsLoading] = useState(null);
 
   useEffect(() => {
-    if (Array.isArray(colors)) {
+    if (colors && colors.length > 0 && Array.isArray(colors)) {
       setSelectedColor(colors[0].id);
     }
   }, [colors]);

@@ -1,8 +1,6 @@
 import React from "react";
 import classnames from "classnames";
 
-import "./sidebarBadge.scss";
-
 const SidebarBadge = ({ color, onClick, className }) => {
   return (
     <i

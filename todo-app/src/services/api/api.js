@@ -1,26 +1,62 @@
 import axios from "axios";
 
-// const config = {
-//   baseURL: "http://localhost:4000",
-// };
+const instance = axios.create({
+  baseURL: "http://localhost:4000",
+});
 
-// const instance = axios.create(config);
+// LISTS REQUESTS
+export const getLists = () =>
+  instance({
+    method: "GET",
+    url: "/lists",
+  });
 
-axios.defaults.baseURL = "http://localhost:4000";
+export const createList = (credentials) =>
+  instance(
+    {
+      method: "POST",
+      url: "/lists",
+    },
+    credentials
+  );
 
-export const getLists = () => axios.get("/lists");
-
-export const createList = (credentials) => axios.post("/lists", credentials);
-
-export const deleteList = (id) => axios.delete(`/lists/${id}`);
+export const deleteList = (id) =>
+  instance({
+    method: "DELETE",
+    url: `/lists/${id}`,
+  });
 
 export const getListsWithExpand = () =>
-  axios.get("/lists?_expand=color&_embed=tasks");
+  instance({ method: "GET", url: "/lists?_expand=color&_embed=tasks" });
 
-export const updateListTitle = (id, list) => axios.patch(`/lists/${id}`, list);
+export const updateListTitle = (id, list) =>
+  instance(
+    {
+      method: "PATCH",
+      url: `/lists/${id}`,
+    },
+    list
+  );
 
-export const getTasks = () => axios.get("/tasks");
+// TASKS REQUESTS
+export const getTasks = () =>
+  instance({
+    method: "GET",
+    url: "/tasks",
+  });
 
-export const createTask = (credentials) => axios.post("/tasks", credentials);
+export const createTask = (credentials) =>
+  instance(
+    {
+      method: "POST",
+      url: "/tasks",
+    },
+    credentials
+  );
 
-export const getColors = () => axios.get("/colors");
+// COLORS REQUESTS
+export const getColors = () =>
+  instance({
+    method: "GET",
+    url: "/colors",
+  });

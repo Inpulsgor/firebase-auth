@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Task } from "../../components";
-import "./tasksList.scss";
 
 const TasksList = ({ list }) => {
   return (

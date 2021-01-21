@@ -1,15 +1,16 @@
 import React from "react";
+import { connect } from "react-redux";
 import classnames from "classnames";
 
 import { ReactComponent as RemoveSvg } from "../../assets/icons/remove.svg";
+import * as listsOperations from "../../redux/lists/listsOperations";
 import { SidebarBadge } from "../../components";
-import "./sidebarList.scss";
 
 const SidebarList = ({
   items,
   isRemovable,
   handleClick,
-  handleRemove,
+  handleRemoveList,
   activeList,
 }) => {
   return (
@@ -32,7 +33,7 @@ const SidebarList = ({
             <button
               className="list__remove"
               type="button"
-              onClick={() => handleRemove(item.id)}
+              onClick={() => handleRemoveList(item.id)}
             >
               <RemoveSvg />
             </button>
@@ -43,4 +44,8 @@ const SidebarList = ({
   );
 };
 
-export default SidebarList;
+const mapDispatchToProps = {
+  handleRemoveList: listsOperations.removeList,
+};
+
+export default connect(null, mapDispatchToProps)(SidebarList);

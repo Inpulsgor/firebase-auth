@@ -2,7 +2,6 @@ import React from "react";
 
 import { TasksHeader, TasksList, TasksCreator } from "../../components";
 import * as api from "../../services/api/api";
-import "./Tasks.scss";
 
 const Tasks = ({ list, handleEditTitle, handleAddTask }) => {
   const handleEdit = () => {
@@ -22,7 +21,7 @@ const Tasks = ({ list, handleEditTitle, handleAddTask }) => {
   return (
     <div className="tasks__container">
       <TasksHeader
-        color={list.color.hex}
+        // color={list.color.hex}
         name={list.name}
         handleEdit={handleEdit}
       />

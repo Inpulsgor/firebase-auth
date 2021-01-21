@@ -2,7 +2,6 @@ import React from "react";
 
 import { ReactComponent as CloseSvg } from "../../assets/icons/close.svg";
 import { SidebarBadge } from "../../components";
-import "./sidebarModal.scss";
 
 const Modal = ({
   colors,
@@ -41,6 +40,7 @@ const Modal = ({
 
       <ul className="modal__list colors">
         {colors &&
+          colors.length > 0 &&
           colors.map((color) => (
             <li key={color.id} className="colors__item">
               <SidebarBadge
