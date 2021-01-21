@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import { getLists } from "../../services/api/api";
 import {
   fetchListsRequest,
@@ -12,7 +10,7 @@ export const fetchLists = () => (dispatch) => {
 
   getLists()
     .then((response) => {
-      dispatch(fetchListsSuccess(response.lists));
+      dispatch(fetchListsSuccess(response.data));
     })
     .catch((error) => dispatch(fetchListsError(error)));
 };

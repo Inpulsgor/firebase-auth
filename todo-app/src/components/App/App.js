@@ -1,34 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { Route, useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 
-import { SidebarHeader, SidebarList, SidebarCreate, Tasks } from "./components";
-import * as api from "./services/api/api";
-import "./scss/main.scss";
+// LOCAL IMPORTS
+import { AppLayout } from "../../layout";
+import {
+  SidebarHeader,
+  SidebarList,
+  SidebarCreate,
+  Tasks,
+} from "../../components";
+import * as api from "../../services/api/api";
+import * as listsOperations from "../../redux/lists/listsOperations";
 
-const App = () => {
+// STYLES
+import "../../scss/main.scss";
+
+const App = ({ fetchLists }) => {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeList, setActiveList] = useState(null);
   let history = useHistory();
 
   useEffect(() => {
-    api.getListsWithExpand().then(({ data }) => {
-      setLists(data);
-    });
+    fetchLists();
+  }, [fetchLists]);
 
-    api.getColors().then(({ data }) => {
-      setColors(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   api.getListsWithExpand().then(({ data }) => {
+  //     setLists(data);
+  //   });
 
-  useEffect(() => {
-    const listId = history.location.pathname.split("lists/")[1];
+  //   api.getColors().then(({ data }) => {
+  //     setColors(data);
+  //   });
+  // }, []);
 
-    if (lists) {
-      const list = lists.find((list) => list.id === Number(listId));
-      setActiveList(list);
-    }
-  }, [lists, history.location.pathname]);
+  // useEffect(() => {
+  //   const listId = history.location.pathname.split("lists/")[1];
+
+  //   if (lists) {
+  //     const list = lists.find((list) => list.id === Number(listId));
+  //     setActiveList(list);
+  //   }
+  // }, [lists, history.location.pathname]);
 
   const addToList = (modifiedObject) => {
     const updatedList = [...lists, modifiedObject];
@@ -72,7 +87,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <AppLayout>
       <aside className="sidebar">
         <SidebarHeader showAllLists={showAllLists} />
         {lists && (
@@ -109,8 +124,12 @@ const App = () => {
           )}
         </Route>
       </section>
-    </div>
+    </AppLayout>
   );
 };
 
-export default App;
+const mapDispatchToProps = {
+  fetchLists: listsOperations.fetchLists,
+};
+
+export default connect(null, mapDispatchToProps)(App);
