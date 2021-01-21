@@ -1,8 +1,4 @@
-export const ActionType = {
-  FETCH_COLORS_REQUEST: "FETCH_COLORS_REQUEST",
-  FETCH_COLORS_SUCCESS: "FETCH_COLORS_SUCCESS",
-  FETCH_COLORS_ERROR: "FETCH_COLORS_ERROR",
-};
+import { ActionType } from "./colorsTypes";
 
 export const fetchColorsRequest = () => ({
   type: ActionType.FETCH_COLORS_REQUEST,

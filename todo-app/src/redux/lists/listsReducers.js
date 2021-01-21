@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { ActionType } from "./listsActions";
+import { ActionType } from "./listsTypes";
 
 const listsReducer = (state = [], { type, payload }) => {
   switch (type) {

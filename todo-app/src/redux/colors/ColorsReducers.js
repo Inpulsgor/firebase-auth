@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { ActionType } from "./colorsActions";
+import { ActionType } from "./colorsTypes";
 
 const colorsReducer = (state = [], { type, payload }) => {
   switch (type) {

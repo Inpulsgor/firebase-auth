@@ -7,7 +7,7 @@ import { ReactComponent as RemoveSvg } from "../../assets/icons/remove.svg";
 import * as listsOperations from "../../redux/lists/listsOperations";
 import { SidebarBadge } from "../../components";
 
-const SidebarList = ({ items, isRemovable, handleRemoveList, activeList }) => {
+const SidebarList = ({ lists, handleRemoveList, activeList }) => {
   let history = useHistory();
 
   const handleClick = (list) => {
@@ -37,30 +37,28 @@ const SidebarList = ({ items, isRemovable, handleRemoveList, activeList }) => {
 
   return (
     <ul className="list">
-      {items &&
-        items.map((item) => (
+      {lists &&
+        lists.map((list) => (
           <li
-            key={item.id}
+            key={list.id}
             className={classnames("list__item", {
-              active: activeList && activeList.id === item.id,
+              active: activeList && activeList.id === list.id,
             })}
-            onClick={handleClick ? () => handleClick(item) : null}
+            onClick={handleClick ? () => handleClick(list) : null}
           >
-            {item.color && <SidebarBadge color={item.color.name} />}
+            {list.color && <SidebarBadge color={list.color.name} />}
             <span>
-              {item.name}
-              {item.tasks && `(${item.tasks.length})`}
+              {list.name}
+              {list.tasks && `(${list.tasks.length})`}
             </span>
 
-            {isRemovable && (
-              <button
-                className="list__remove"
-                type="button"
-                onClick={() => handleRemoveList(item.id)}
-              >
-                <RemoveSvg />
-              </button>
-            )}
+            <button
+              className="list__remove"
+              type="button"
+              onClick={() => handleRemoveList(list.id)}
+            >
+              <RemoveSvg />
+            </button>
           </li>
         ))}
     </ul>
