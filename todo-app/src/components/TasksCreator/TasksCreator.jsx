@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { ReactComponent as PlusSvg } from "../../assets/icons/plus.svg";
 import * as api from "../../services/api/api";
 
-const TasksCreator = ({ list, handleAddTask }) => {
+const TasksCreator = ({ list }) => {
   const [visibleForm, setVisibleForm] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -35,6 +35,16 @@ const TasksCreator = ({ list, handleAddTask }) => {
       })
       .catch((error) => console.log(error))
       .finally(() => setIsLoading(false));
+  };
+
+  const handleAddTask = (id, object) => {
+    // const newList = lists.map((list) => {
+    //   if (list.id === id) {
+    //     list.tasks = [...list.tasks, object];
+    //   }
+    //   return list;
+    // });
+    // setLists(newList);
   };
 
   return (

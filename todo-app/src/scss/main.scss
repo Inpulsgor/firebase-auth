@@ -11,12 +11,12 @@
 
 // COMPONENTS
 @import "./components/app";
-@import "./components/badge";
-@import "./components/create";
-@import "./components/list";
-@import "./components/modal";
-@import "./components/task";
+@import "./components/sidebarList";
+@import "./components/sidebarBadge";
+@import "./components/sidebarModal";
+@import "./components/sidebarFooter";
 @import "./components/tasks";
+@import "./components/task";
 @import "./components/tasksCreator";
 @import "./components/tasksHeader";
 @import "./components/tasksList";

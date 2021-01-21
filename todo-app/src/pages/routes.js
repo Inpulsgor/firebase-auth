@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-export const routes = [
+const routes = [
   {
     path: "/",
     label: "MainPage",
@@ -8,8 +8,6 @@ export const routes = [
     component: lazy(() =>
       import("./MainPage/MainPage" /* webpackChunkName: "MainPage" */)
     ),
-    private: false,
-    restricted: false,
   },
   {
     path: "/lists/:id",
@@ -18,17 +16,7 @@ export const routes = [
     component: lazy(() =>
       import("./ListPage/ListPage" /* webpackChunkName: "ListsPage" */)
     ),
-    private: false,
-    restricted: false,
-  },
-  {
-    path: "/lists/:id",
-    label: "ListsPage",
-    exact: false,
-    component: lazy(() =>
-      import("./ListPage/ListPage" /* webpackChunkName: "ListsPage" */)
-    ),
-    private: false,
-    restricted: false,
   },
 ];
+
+export default routes;

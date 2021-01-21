@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Route, useHistory } from "react-router-dom";
+import React, { Suspense, useEffect } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { CommonLoading } from "react-loadingg";
 
-import { AppLayout, AsideLayout } from "../Layout";
+// local imports
+import { AppLayout, AsideLayout, MainLayout } from "../Layout";
+import routes from "../../pages/routes";
+// operations
 import * as listsOperations from "../../redux/lists/listsOperations";
 import * as colorsOperations from "../../redux/colors/colorsOperations";
-
+// styles
 import "../../scss/main.scss";
 
-const App = ({ fetchLists, fetchColors, lists, colors }) => {
-  const [activeList, setActiveList] = useState(null);
-
+const App = ({ fetchLists, fetchColors }) => {
   useEffect(() => {
     fetchLists();
   }, [fetchLists]);
@@ -19,88 +21,31 @@ const App = ({ fetchLists, fetchColors, lists, colors }) => {
     fetchColors();
   }, [fetchColors]);
 
-  // useEffect(() => {
-  //   const listId = history.location.pathname.split("lists/")[1];
-
-  //   if (lists) {
-  //     const list = lists.find((list) => list.id === Number(listId));
-  //     setActiveList(list);
-  //   }
-  // }, [lists, history.location.pathname]);
-
-  const addToList = (modifiedObject) => {
-    const updatedList = [...lists, modifiedObject];
-    // setLists(updatedList);
-  };
-
-  const handleClick = (list) => {
-    history.push(`/lists/${list.id}`);
-    // setActiveList(list);
-  };
-
-  const handleRemove = (id) => {
-    api.deleteList(id);
-    const updatedList = lists.filter((list) => list.id !== id);
-    // setLists(updatedList);
-  };
-
-  const handleEditTitle = (id, newTitle) => {
-    lists.map((item) => {
-      if (item.id === id) {
-        item.name = newTitle;
-      }
-      return item;
-    });
-
-    // setLists(setLists);
-  };
-
-  const handleAddTask = (id, object) => {
-    const newList = lists.map((list) => {
-      if (list.id === id) {
-        list.tasks = [...list.tasks, object];
-      }
-      return list;
-    });
-    // setLists(newList);
-  };
-
   return (
-    <AppLayout>
-      <AsideLayout />
-
-      <Route exact path="/">
-        {lists &&
-          lists.map((list) => (
-            <Tasks
-              key={list.id}
-              list={list}
-              handleEditTitle={handleEditTitle}
-              handleAddTask={handleAddTask}
-            />
-          ))}
-      </Route>
-      <Route path="/lists/:id">
-        {lists && activeList && (
-          <Tasks
-            list={activeList}
-            handleEditTitle={handleEditTitle}
-            handleAddTask={handleAddTask}
-          />
-        )}
-      </Route>
-    </AppLayout>
+    <Suspense fallback={<CommonLoading color="orange" size="large" />}>
+      <AppLayout>
+        <AsideLayout />
+        <MainLayout>
+          <Switch>
+            {routes.map((route) => {
+              <Route
+                key={route.label}
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+              />;
+            })}
+            <Redirect to="/" />
+          </Switch>
+        </MainLayout>
+      </AppLayout>
+    </Suspense>
   );
 };
-
-const mapStateToProps = (state) => ({
-  lists: state.lists.items,
-  colors: state.colors.items,
-});
 
 const mapDispatchToProps = {
   fetchLists: listsOperations.fetchLists,
   fetchColors: colorsOperations.fetchColors,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

@@ -1,9 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import { ReactComponent as TasksSvg } from "../../assets/icons/tasks.svg";
 import "./sidebarHeader.scss";
 
-const SidebarHeader = ({ showAllLists }) => {
+const SidebarHeader = () => {
+  let history = useHistory();
+
+  const showAllLists = () => {
+    history.push("/");
+  };
+
   return (
     <header className="sidebar__header header">
       <button onClick={showAllLists} className="header__btn">

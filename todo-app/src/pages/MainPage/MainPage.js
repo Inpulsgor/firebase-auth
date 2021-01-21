@@ -1,7 +1,9 @@
 import React from "react";
 
+import { Tasks } from "../../components";
+
 const MainPage = () => {
-  return <div></div>;
+  return <Tasks />;
 };
 
 export default MainPage;

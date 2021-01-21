@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { SidebarModal } from "..";
 import * as api from "../../services/api/api";
 
-const CreateList = ({ colors, onAdd }) => {
+const SidebarFooter = ({ colors, onAdd }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
   const [inputValue, setInputValue] = useState("");
@@ -89,4 +89,4 @@ const CreateList = ({ colors, onAdd }) => {
   );
 };
 
-export default CreateList;
+export default SidebarFooter;
