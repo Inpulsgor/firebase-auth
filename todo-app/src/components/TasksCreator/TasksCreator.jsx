@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { ReactComponent as PlusSvg } from "../../assets/icons/plus.svg";
-import api from "../../services/api/api";
+import * as api from "../../services/api/api";
 import "./tasksCreator.scss";
 
 const TasksCreator = ({ list, handleAddTask }) => {

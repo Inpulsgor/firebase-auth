@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { SidebarModal } from "..";
-import api from "../../services/api/api";
+import * as api from "../../services/api/api";
 import "./sidebarCreate.scss";
 
 const CreateList = ({ colors, onAdd }) => {

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Route, useHistory } from "react-router-dom";
 
 import { SidebarHeader, SidebarList, SidebarCreate, Tasks } from "./components";
-import api from "./services/api/api";
-import "./scss/App.scss";
+import * as api from "./services/api/api";
+import "./scss/main.scss";
 
 const App = () => {
   const [lists, setLists] = useState(null);
@@ -22,13 +22,10 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log("useEffect", history.location.pathname);
     const listId = history.location.pathname.split("lists/")[1];
 
     if (lists) {
       const list = lists.find((list) => list.id === Number(listId));
-      console.log(list);
-
       setActiveList(list);
     }
   }, [lists, history.location.pathname]);

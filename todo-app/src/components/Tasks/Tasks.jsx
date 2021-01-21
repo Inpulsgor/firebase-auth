@@ -1,7 +1,7 @@
 import React from "react";
 
 import { TasksHeader, TasksList, TasksCreator } from "../../components";
-import api from "../../services/api/api";
+import * as api from "../../services/api/api";
 import "./Tasks.scss";
 
 const Tasks = ({ list, handleEditTitle, handleAddTask }) => {
