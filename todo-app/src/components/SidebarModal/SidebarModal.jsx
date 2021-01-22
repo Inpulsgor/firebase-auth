@@ -1,43 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import { ReactComponent as CloseSvg } from "../../assets/icons/close.svg";
 import { SidebarBadge } from "../../components";
 
-const Modal = ({ colors }) => {
+const Modal = ({ colors, handleCloseModal }) => {
+  const [inputValue, setInputValue] = useState("");
+
   const handleSelectColor = (colorID) => {
     // setSelectedColor(colorID);
   };
 
   const handleChange = (e) => {
     const value = e.target.value;
-    // setInputValue(value);
-  };
-
-  const handleCloseModal = () => {
-    // setShowModal(false);
-    // setSelectedColor(null);
-    // setInputValue("");
-    // setInputValueErr("");
-    // setColorErr("");
+    setInputValue(value);
   };
 
   return (
     <div className="create-list__modal modal">
       <button
-        className="modal__btn-close"
         type="button"
-        // onClick={handleCloseModal}
+        className="modal__btn-close"
+        onClick={handleCloseModal}
       >
         <CloseSvg />
       </button>
 
       <input
-        // onChange={handleChange}
-        // value={inputValue}
-        className="modal__field field"
         type="text"
+        className="modal__field field"
         placeholder="enter name..."
+        value={inputValue}
+        onChange={handleChange}
       />
 
       <ul className="modal__list colors">
@@ -58,7 +52,6 @@ const Modal = ({ colors }) => {
         type="button"
         // onClick={handleCreateItem}
       >
-        {/* {isLoading ? "Creating..." : "Create"} */}
         Create
       </button>
     </div>

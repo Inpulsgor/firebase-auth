@@ -34,6 +34,12 @@ const SidebarFooter = ({ colors, onAdd }) => {
     //   .finally(() => setIsLoading(false));
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedColor(null);
+    setInputValue("");
+  };
+
   return (
     <div className="create-list">
       <button
@@ -43,7 +49,7 @@ const SidebarFooter = ({ colors, onAdd }) => {
       >
         Create new list
       </button>
-      {showModal && <SidebarModal />}
+      {showModal && <SidebarModal handleCloseModal={handleCloseModal} />}
     </div>
   );
 };
