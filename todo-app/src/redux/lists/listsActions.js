@@ -1,19 +1,19 @@
-import { ActionType } from "./listsTypes";
+import { listsTypes } from "./listsTypes";
 
 // GET
 export const fetchListsRequest = () => ({
-  type: ActionType.FETCH_LISTS_REQUEST,
+  type: listsTypes.FETCH_LISTS_REQUEST,
 });
 
 export const fetchListsSuccess = (lists) => ({
-  type: ActionType.FETCH_LISTS_SUCCESS,
+  type: listsTypes.FETCH_LISTS_SUCCESS,
   payload: {
     lists,
   },
 });
 
 export const fetchListsError = (error) => ({
-  type: ActionType.FETCH_LISTS_ERROR,
+  type: listsTypes.FETCH_LISTS_ERROR,
   payload: {
     error,
   },
@@ -21,18 +21,18 @@ export const fetchListsError = (error) => ({
 
 // DELETE
 export const deleteListRequest = () => ({
-  type: ActionType.DELETE_LIST_REQUEST,
+  type: listsTypes.DELETE_LIST_REQUEST,
 });
 
 export const deleteListSuccess = (id) => ({
-  type: ActionType.DELETE_LIST_REQUEST,
+  type: listsTypes.DELETE_LIST_REQUEST,
   payload: {
     id,
   },
 });
 
 export const deleteListError = (error) => ({
-  type: ActionType.DELETE_LIST_REQUEST,
+  type: listsTypes.DELETE_LIST_REQUEST,
   payload: {
     error,
   },

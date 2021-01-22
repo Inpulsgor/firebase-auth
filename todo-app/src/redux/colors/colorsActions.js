@@ -1,18 +1,18 @@
-import { ActionType } from "./colorsTypes";
+import { colorsTypes } from "./colorsTypes";
 
 export const fetchColorsRequest = () => ({
-  type: ActionType.FETCH_COLORS_REQUEST,
+  type: colorsTypes.FETCH_COLORS_REQUEST,
 });
 
 export const fetchColorsSuccess = (colors) => ({
-  type: ActionType.FETCH_COLORS_SUCCESS,
+  type: colorsTypes.FETCH_COLORS_SUCCESS,
   payload: {
     colors,
   },
 });
 
 export const fetchColorsError = (error) => ({
-  type: ActionType.FETCH_COLORS_ERROR,
+  type: colorsTypes.FETCH_COLORS_ERROR,
   payload: {
     error,
   },

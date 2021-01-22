@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import { ActionType } from "./colorsTypes";
+import { colorsTypes } from "./colorsTypes";
 
 const colorsReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case ActionType.FETCH_COLORS_SUCCESS:
+    case colorsTypes.FETCH_COLORS_SUCCESS:
       return payload.colors;
 
     default:
@@ -13,11 +13,11 @@ const colorsReducer = (state = [], { type, payload }) => {
 
 const loadingReducer = (state = false, { type }) => {
   switch (type) {
-    case ActionType.FETCH_COLORS_REQUEST:
+    case colorsTypes.FETCH_COLORS_REQUEST:
       return true;
 
-    case ActionType.FETCH_COLORS_SUCCESS:
-    case ActionType.FETCH_COLORS_ERROR:
+    case colorsTypes.FETCH_COLORS_SUCCESS:
+    case colorsTypes.FETCH_COLORS_ERROR:
       return false;
 
     default:
@@ -27,11 +27,11 @@ const loadingReducer = (state = false, { type }) => {
 
 const errorReducer = (state = null, { type, payload }) => {
   switch (type) {
-    case ActionType.FETCH_COLORS_REQUEST:
-    case ActionType.FETCH_COLORS_SUCCESS:
+    case colorsTypes.FETCH_COLORS_REQUEST:
+    case colorsTypes.FETCH_COLORS_SUCCESS:
       return null;
 
-    case ActionType.FETCH_COLORS_ERROR:
+    case colorsTypes.FETCH_COLORS_ERROR:
       return payload.error;
 
     default:

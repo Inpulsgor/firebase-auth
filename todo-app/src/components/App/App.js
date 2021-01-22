@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { CommonLoading } from "react-loadingg";
 
 // local imports
@@ -12,14 +12,16 @@ import * as colorsOperations from "../../redux/colors/colorsOperations";
 // styles
 import "../../scss/main.scss";
 
-const App = ({ fetchLists, fetchColors }) => {
-  useEffect(() => {
-    fetchLists();
-  }, [fetchLists]);
+const App = () => {
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchColors();
-  }, [fetchColors]);
+    dispatch(listsOperations.fetchLists());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(colorsOperations.fetchColors());
+  }, [dispatch]);
 
   return (
     <Suspense fallback={<CommonLoading color="orange" size="large" />}>
@@ -28,12 +30,14 @@ const App = ({ fetchLists, fetchColors }) => {
         <MainLayout>
           <Switch>
             {routes.map((route) => {
-              <Route
-                key={route.label}
-                path={route.path}
-                exact={route.exact}
-                component={route.component}
-              />;
+              return (
+                <Route
+                  key={route.label}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.component}
+                />
+              );
             })}
             <Redirect to="/" />
           </Switch>
@@ -43,9 +47,4 @@ const App = ({ fetchLists, fetchColors }) => {
   );
 };
 
-const mapDispatchToProps = {
-  fetchLists: listsOperations.fetchLists,
-  fetchColors: colorsOperations.fetchColors,
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;
