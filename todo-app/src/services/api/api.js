@@ -4,6 +4,31 @@ const instance = axios.create({
   baseURL: "http://localhost:4000",
 });
 
+export const token = {
+  set(token) {
+    instance.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    instance.headers.common.Authorization = '';
+  },
+};
+
+// AUTORIZATION
+export const login = credentials => instance({
+  method: "POST",
+  url: "/auth/login",
+}, credentials);
+
+export const logout = () => instance({
+  method: "POST",
+  url: "/auth/logout",
+});
+
+export const register = credentials => instance({
+  method: "POST",
+  url: "/auth/register",
+}, credentials);
+
 // LISTS REQUESTS
 export const getLists = () =>
   instance({
