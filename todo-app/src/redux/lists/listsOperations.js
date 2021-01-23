@@ -1,4 +1,4 @@
-import { getLists, deleteList } from "../../services/api/api";
+import api from "../../services/api/api";
 import {
   fetchListsRequest,
   fetchListsSuccess,
@@ -11,7 +11,7 @@ import {
 export const fetchLists = () => (dispatch) => {
   dispatch(fetchListsRequest());
 
-  getLists()
+  api.getLists()
     .then((response) => {
       dispatch(fetchListsSuccess(response.data));
     })
@@ -21,7 +21,7 @@ export const fetchLists = () => (dispatch) => {
 export const removeList = (id) => (dispatch) => {
   dispatch(deleteListRequest());
 
-  deleteList(id)
+  api.deleteList(id)
     .then((response) => {
       console.log("detelePostSuccess", response);
       dispatch(deleteListSuccess(id));

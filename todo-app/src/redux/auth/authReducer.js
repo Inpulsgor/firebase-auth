@@ -14,7 +14,7 @@ const user = (state = null, { type, payload }) => {
   }
 }
 
-const userAuthorized = (state = false, { type, payload }) => {
+const userAuthorized = (state = false, { type }) => {
   switch (type) {
     case authTypes.LOGIN_SUCCESS:
       return true

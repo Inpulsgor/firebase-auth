@@ -1,10 +1,12 @@
 import axios from "axios";
 
+// INSTANCE
 const instance = axios.create({
   baseURL: "http://localhost:4000",
 });
 
-export const token = {
+// TOKEN
+const token = {
   set(token) {
     instance.headers.common.Authorization = `Bearer ${token}`;
   },
@@ -13,30 +15,30 @@ export const token = {
   },
 };
 
-// AUTORIZATION
-export const login = credentials => instance({
+// AUTHORIZATION REQUESTS
+const login = credentials => instance({
   method: "POST",
   url: "/auth/login",
 }, credentials);
 
-export const logout = () => instance({
+const logout = () => instance({
   method: "POST",
   url: "/auth/logout",
 });
 
-export const register = credentials => instance({
+const register = credentials => instance({
   method: "POST",
   url: "/auth/register",
 }, credentials);
 
 // LISTS REQUESTS
-export const getLists = () =>
+const getLists = () =>
   instance({
     method: "GET",
     url: "/lists",
   });
 
-export const createList = (credentials) =>
+const createList = (credentials) =>
   instance(
     {
       method: "POST",
@@ -45,16 +47,16 @@ export const createList = (credentials) =>
     credentials
   );
 
-export const deleteList = (id) =>
+const deleteList = (id) =>
   instance({
     method: "DELETE",
     url: `/lists/${id}`,
   });
 
-export const getListsWithExpand = () =>
+const getListsWithExpand = () =>
   instance({ method: "GET", url: "/lists?_expand=color&_embed=tasks" });
 
-export const updateListTitle = (id, list) =>
+const updateListTitle = (id, list) =>
   instance(
     {
       method: "PATCH",
@@ -64,13 +66,13 @@ export const updateListTitle = (id, list) =>
   );
 
 // TASKS REQUESTS
-export const getTasks = () =>
+const getTasks = () =>
   instance({
     method: "GET",
     url: "/tasks",
   });
 
-export const createTask = (credentials) =>
+const createTask = (credentials) =>
   instance(
     {
       method: "POST",
@@ -80,8 +82,23 @@ export const createTask = (credentials) =>
   );
 
 // COLORS REQUESTS
-export const getColors = () =>
+const getColors = () =>
   instance({
     method: "GET",
     url: "/colors",
   });
+
+  export default {
+    token,
+    login,
+    logout,
+    register,
+    getLists,
+    createList,
+    deleteList,
+    getListsWithExpand,
+    updateListTitle,
+    getTasks,
+    createTask,
+    getColors
+  };

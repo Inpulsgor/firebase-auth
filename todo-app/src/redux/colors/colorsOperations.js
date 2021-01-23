@@ -1,4 +1,4 @@
-import { getColors } from "../../services/api/api";
+import api from "../../services/api/api";
 
 import {
   fetchColorsRequest,
@@ -9,7 +9,7 @@ import {
 export const fetchColors = () => (dispatch) => {
   dispatch(fetchColorsRequest());
 
-  getColors()
+  api.getColors()
     .then((response) => {
       dispatch(fetchColorsSuccess(response.data));
     })
