@@ -1,0 +1,11 @@
+const authTypes = {
+  LOGIN_REQUEST: 'auth/LOGIN_REQUEST',
+  LOGIN_SUCCESS: 'auth/LOGIN_SUCCESS',
+  LOGIN_ERROR: 'auth/LOGIN_ERROR',
+  SIGNUP_REQUEST: 'auth/SIGNUP_REQUEST',
+  SIGNUP_SUCCESS: 'auth/SIGNUP_SUCCESS',
+  SIGNUP_ERROR: 'auth/SIGNUP_ERROR',
+  LOGOUT: 'auth/LOGOUT'
+}
+
+export default authTypes;
