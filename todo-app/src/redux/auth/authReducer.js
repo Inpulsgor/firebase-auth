@@ -3,10 +3,10 @@ import authTypes from "./authTypes";
 
 const user = (state = null, { type, payload }) => {
   switch (type) {
-    case authTypes.SIGNUP_SUCCESS:
+    case authTypes.SIGN_UP_SUCCESS:
       return payload.response;
 
-    case authTypes.LOGIN_SUCCESS:
+    case authTypes.SIGN_IN_SUCCESS:
       return payload.response.user;
 
     case authTypes.LOGOUT:
@@ -19,11 +19,11 @@ const user = (state = null, { type, payload }) => {
 
 const isAuthenticated = (state = false, { type }) => {
   switch (type) {
-    case authTypes.SIGNUP_SUCCESS:
-    case authTypes.LOGIN_SUCCESS:
+    case authTypes.SIGN_UP_SUCCESS:
+    case authTypes.SIGN_IN_SUCCESS:
       return true;
 
-    case authTypes.LOGOUT:
+    case authTypes.SIGN_OUT:
       return null;
 
     default:
@@ -33,10 +33,11 @@ const isAuthenticated = (state = false, { type }) => {
 
 const token = (state = null, { type, payload }) => {
   switch (type) {
-    case authTypes.LOGIN_SUCCESS:
-      return payload.response.token;
+    case authTypes.SIGN_IN_SUCCESS:
+    case authTypes.SIGN_UP_SUCCESS:
+      return payload.response;
 
-    case authTypes.LOGOUT:
+    case authTypes.SIGN_OUT:
       return null;
 
     default:
@@ -46,7 +47,8 @@ const token = (state = null, { type, payload }) => {
 
 const error = (state = null, { type, payload }) => {
   switch (type) {
-    case authTypes.LOGIN_ERROR:
+    case authTypes.SIGN_IN_ERROR:
+    case authTypes.SIGN_UP_ERROR:
       return payload.error;
 
     default:

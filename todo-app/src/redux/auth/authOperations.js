@@ -1,40 +1,53 @@
+import { firebaseAuth } from '../../services/firebase/firebase';
 import {
-  loginRequest,
-  loginSuccess,
-  loginError,
+  signInRequest,
+  signInSuccess,
+  signInError,
   signUpRequest,
   signUpSuccess,
   signUpError,
-  logout,
+  signOut
 } from "./authActions";
-import api from "../../services/api/api";
 
-export const login = (credentials) => (dispatch) => {
-  dispatch(loginRequest());
+// SingIn
+export const signIn = (email, password) => (dispatch) => {
+  dispatch(signInRequest());
 
-  api
-    .login(credentials)
-    .then((response) => {
-      console.log(response);
-      dispatch(loginSuccess(response));
-    })
-    .catch((error) => {
-      console.log(error);
-      dispatch(loginError(error));
-    });
+  firebaseAuth.signInWithEmailAndPassword(email, password)
+  .then(response => {
+    dispatch(signInSuccess(response.user))
+  })
+  .catch(error => {
+    console.log('error.code', error.code);
+    console.log('error.message', error.message);
+    dispatch(signInError(error))
+  })
 };
 
-export const signUp = (credentials) => (dispatch) => {
+// SignUp
+export const signUp = (email, password) => (dispatch) => {
   dispatch(signUpRequest());
 
-  api
-    .signUp(credentials)
-    .then((response) => {
-      console.log(response);
-      dispatch(signUpSuccess(response));
-    })
-    .catch((error) => {
-      console.log(error);
-      dispatch(signUpError(error));
-    });
+  firebaseAuth.createUserWithEmailAndPassword(email, password)
+  .then(response => {
+    dispatch(signUpSuccess(response.user))
+  })
+  .catch(error => {
+    console.log('error.code', error.code);
+    console.log('error.message', error.message);
+    dispatch(signUpError(error))
+  })
 };
+
+// LogOut
+export const logOut = () => (dispatch) => {
+  firebaseAuth.signOut()
+  .then(response => {
+    console.log(response);
+    dispatch(signOut())
+  })
+  .catch(error => {
+    console.log('error', error)
+  })
+
+}

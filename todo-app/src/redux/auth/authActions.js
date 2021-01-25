@@ -1,38 +1,47 @@
 import authTypes from "./authTypes";
 
-export const loginRequest = () => ({
-  type: authTypes.LOGIN_REQUEST,
+// SIGN IN
+export const signInRequest = () => ({
+  type: authTypes.SIGN_IN_REQUEST,
 });
 
-export const loginSuccess = (response) => ({
-  type: authTypes.LOGIN_SUCCESS,
+export const signInSuccess = (response) => ({
+  type: authTypes.SIGN_IN_SUCCESS,
   payload: {
     response,
   },
 });
 
-export const loginError = (error) => ({
-  type: authTypes.LOGIN_ERROR,
+export const signInError = (error) => ({
+  type: authTypes.SIGN_IN_ERROR,
   payload: {
     error,
   },
 });
 
-export const logout = (error) => ({
-  type: authTypes.LOGIN_ERROR,
-  payload: {
-    error,
-  },
-});
-
+// SIGN UP
 export const signUpRequest = () => ({
-  type: authTypes.SIGNUP_REQUEST,
+  type: authTypes.SIGN_UP_REQUEST,
 });
 
-export const signUpSuccess = () => ({
-  type: authTypes.LOGIN_SUCCESS,
+export const signUpSuccess = (response) => ({
+  type: authTypes.SIGN_UP_SUCCESS,
+  payload: {
+    response,
+  }
 });
 
-export const signUpError = () => ({
-  type: authTypes.SIGNUP_ERROR,
+export const signUpError = (error) => ({
+  type: authTypes.SIGN_UP_ERROR,
+  payload: {
+    error,
+  }
+});
+
+// SIGN OUT
+export const signOut = (error) => ({
+  type: authTypes.SIGN_OUT,
+  payload: {
+    error,
+  },
 });

@@ -1,10 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 
 import { SignUpSchema } from "./SignUpSchema";
-import { firebaseAuth } from "../../../services/firebase/firebase";
+import { signUp } from '../../../redux/auth/authOperations'
 
 const SignUp = () => {
+const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -13,13 +16,14 @@ const SignUp = () => {
     },
     SignUpSchema,
     onSubmit: (values, { setSubmitting }) => {
-      if (values.password === values.passwordConfirmation) {
-        firebaseAuth
-          .createUserWithEmailAndPassword(values.email, values.password)
-          .then((response) => console.log(response))
-          .catch((error) => console.log(error));
+      if (values.email && values.password === values.passwordConfirmation) {
+        const credentials = {
+          email: values.email,
+          password: values.password
+        }
+
+        dispatch(signUp(...credentials));
       } else {
-        alert("Password doesn't match");
         return;
       }
     },
