@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import classnames from "classnames";
 
 import { ReactComponent as RemoveSvg } from "../../assets/icons/remove.svg";
 import * as listsOperations from "../../redux/lists/listsOperations";
@@ -41,9 +40,7 @@ const SidebarList = ({ lists, handleRemoveList, activeList }) => {
         lists.map((list) => (
           <li
             key={list.id}
-            className={classnames("list__item", {
-              active: activeList && activeList.id === list.id,
-            })}
+            className={`list__item`}
             onClick={handleClick ? () => handleClick(list) : null}
           >
             {list.color && <SidebarBadge color={list.color.name} />}

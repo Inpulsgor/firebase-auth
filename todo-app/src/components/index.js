@@ -9,3 +9,6 @@ export { default as TasksHeader } from "./TasksHeader/TasksHeader";
 export { default as TasksList } from "./TasksList/TasksList";
 export { default as Task } from "./Task/Task";
 export { default as TasksCreator } from "./TasksCreator/TasksCreator";
+
+export { default as Login } from "./Authorization/Login/Login";
+export { default as SignUp } from "./Authorization/SignUp/SignUp";

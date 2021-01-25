@@ -11,25 +11,34 @@ const token = {
     instance.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    instance.headers.common.Authorization = '';
+    instance.headers.common.Authorization = "";
   },
 };
 
 // AUTHORIZATION REQUESTS
-const login = credentials => instance({
-  method: "POST",
-  url: "/auth/login",
-}, credentials);
+const login = (credentials) =>
+  instance(
+    {
+      method: "POST",
+      url: "/auth/login",
+    },
+    credentials
+  );
 
-const logout = () => instance({
-  method: "POST",
-  url: "/auth/logout",
-});
+const logout = () =>
+  instance({
+    method: "POST",
+    url: "/auth/logout",
+  });
 
-const register = credentials => instance({
-  method: "POST",
-  url: "/auth/register",
-}, credentials);
+const signUp = (credentials) =>
+  instance(
+    {
+      method: "POST",
+      url: "/auth/register",
+    },
+    credentials
+  );
 
 // LISTS REQUESTS
 const getLists = () =>
@@ -88,17 +97,17 @@ const getColors = () =>
     url: "/colors",
   });
 
-  export default {
-    token,
-    login,
-    logout,
-    register,
-    getLists,
-    createList,
-    deleteList,
-    getListsWithExpand,
-    updateListTitle,
-    getTasks,
-    createTask,
-    getColors
-  };
+export default {
+  token,
+  login,
+  logout,
+  signUp,
+  getLists,
+  createList,
+  deleteList,
+  getListsWithExpand,
+  updateListTitle,
+  getTasks,
+  createTask,
+  getColors,
+};

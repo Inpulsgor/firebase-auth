@@ -80,14 +80,6 @@ button[disabled] {
   color: #fff;
 }
 
-input:focus:invalid {
-  border: 1px solid #ff0000;
-}
-
-input:focus:valid {
-  border: 1px solid #008600;
-}
-
 // container
 .container {
   margin: 0 auto;
@@ -116,10 +108,10 @@ input:focus:valid {
 }
 
 #root {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  background: rgb(238, 238, 238);
 }

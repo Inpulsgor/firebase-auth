@@ -1,58 +1,62 @@
 import { combineReducers } from "redux";
-import authTypes from './authTypes'
+import authTypes from "./authTypes";
 
 const user = (state = null, { type, payload }) => {
   switch (type) {
+    case authTypes.SIGNUP_SUCCESS:
+      return payload.response;
+
     case authTypes.LOGIN_SUCCESS:
-      return payload.response.user
+      return payload.response.user;
 
     case authTypes.LOGOUT:
-      return null
+      return null;
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-const userAuthorized = (state = false, { type }) => {
+const isAuthenticated = (state = false, { type }) => {
   switch (type) {
+    case authTypes.SIGNUP_SUCCESS:
     case authTypes.LOGIN_SUCCESS:
-      return true
+      return true;
 
     case authTypes.LOGOUT:
-      return null
+      return null;
 
     default:
-      return state
+      return state;
   }
-}
+};
 
 const token = (state = null, { type, payload }) => {
   switch (type) {
     case authTypes.LOGIN_SUCCESS:
-      return payload.response.token
+      return payload.response.token;
 
     case authTypes.LOGOUT:
-      return null
+      return null;
 
     default:
-      return state
+      return state;
   }
-}
+};
 
 const error = (state = null, { type, payload }) => {
   switch (type) {
     case authTypes.LOGIN_ERROR:
-      return payload.error
+      return payload.error;
 
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default combineReducers({
-  userAuthorized,
+  isAuthenticated,
   user,
   token,
-  error
+  error,
 });

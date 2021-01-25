@@ -8,6 +8,18 @@ const routes = [
     component: lazy(() =>
       import("./MainPage/MainPage" /* webpackChunkName: "MainPage" */)
     ),
+    private: true,
+    restricted: false,
+  },
+  {
+    path: "/auth",
+    label: "AuthPage",
+    exact: false,
+    component: lazy(() =>
+      import("./AuthPage/AuthPage" /* webpackChunkName: "MainPage" */)
+    ),
+    private: false,
+    restricted: true,
   },
   {
     path: "/lists/:id",
@@ -16,6 +28,8 @@ const routes = [
     component: lazy(() =>
       import("./ListPage/ListPage" /* webpackChunkName: "ListsPage" */)
     ),
+    private: true,
+    restricted: false,
   },
 ];
 

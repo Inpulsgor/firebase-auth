@@ -5,10 +5,13 @@
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, auto);
+  min-width: 550px;
   max-width: 750px;
   width: 100%;
   // width: calc(100vw - 50px);
-  height: 700px;
+  min-height: 600px;
+  max-height: max-content;
+  // height: 700px;
   // height: calc(100vh - 100px);
   overflow: hidden;
   border-radius: 5px;
