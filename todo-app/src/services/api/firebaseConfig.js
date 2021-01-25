@@ -1,11 +1,18 @@
-import firebase from 'firebase';
-  
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
+import firebase from "firebase";
 
-  };
+const API_KEY = process.env.REACT_APP_API_KEY;
 
-  // Initialize Firebase
-  const firebaseInit = firebase.initializeApp(firebaseConfig);
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: API_KEY,
+  authDomain: "react-todo-app-58350.firebaseapp.com",
+  projectId: "react-todo-app-58350",
+  storageBucket: "react-todo-app-58350.appspot.com",
+  messagingSenderId: "962539806500",
+  appId: "1:962539806500:web:206c46bf771f186c685db1",
+};
 
-  export default firebaseInit;
+// Initialize Firebase
+const firebaseInit = firebase.initializeApp(firebaseConfig);
+
+export default firebaseInit;

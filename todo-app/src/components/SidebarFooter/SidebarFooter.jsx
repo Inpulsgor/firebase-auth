@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import { SidebarModal } from "..";
-import * as api from "../../services/api/api";
 
 const SidebarFooter = ({ colors, onAdd }) => {
   const [showModal, setShowModal] = useState(false);
