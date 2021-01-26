@@ -1,10 +1,18 @@
 import React, { useState } from "react";
-import { Login, SignUp } from "../../components";
+import { SignIn, SignUp } from "../../components";
 
 const AuthPage = () => {
-  const [loginAuth, setLoginAuth] = useState(false);
+  const [signInType, setSignInType] = useState(false);
 
-  return <>{loginAuth ? <Login /> : <SignUp />}</>;
+  return (
+    <>
+      {signInType ? (
+        <SignIn signInType={signInType} setSignInType={setSignInType} />
+      ) : (
+        <SignUp signInType={signInType} setSignInType={setSignInType} />
+      )}
+    </>
+  );
 };
 
 export default AuthPage;

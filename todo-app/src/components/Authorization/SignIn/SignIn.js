@@ -2,27 +2,26 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 
-import { SignUpSchema } from "./SignUpSchema";
-import { signUp } from "../../../redux/auth/authOperations";
+import { SignInSchema } from "./SignInSchema";
+import { signIn } from "../../../redux/auth/authOperations";
 
-const SignUp = ({ signInType, setSignInType }) => {
+const SignIn = ({ signInType, setSignInType }) => {
   const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      passwordConfirmation: "",
     },
-    SignUpSchema,
+    SignInSchema,
     onSubmit: (values, { setSubmitting }) => {
-      if (values.email && values.password === values.passwordConfirmation) {
+      if (values.email && values.password) {
         const credentials = {
           email: values.email,
           password: values.password,
         };
 
-        dispatch(signUp(...credentials));
+        dispatch(signIn(...credentials));
       } else {
         return;
       }
@@ -61,30 +60,15 @@ const SignUp = ({ signInType, setSignInType }) => {
         </label>
       </div>
 
-      <div className="form__group">
-        <input
-          id="passwordConfirmation"
-          type="password"
-          name="passwordConfirmation"
-          placeholder=" "
-          className="form__input"
-          onChange={formik.handleChange}
-          value={formik.values.passwordConfirmation}
-        />
-        <label htmlFor="passwordConfirmation" className="form__label">
-          Password confirmation
-        </label>
-      </div>
-
       <button className="form__button" type="submit">
-        SignUp
+        SignIn
       </button>
 
       <div className="form__footer">
         <p className="form__footer-text">
-          Have an account ?{" "}
+          Don't have an account ?{" "}
           <button type="button" onClick={() => setSignInType(!signInType)}>
-            Sign In
+            Sign Up
           </button>
         </p>
       </div>
@@ -92,4 +76,4 @@ const SignUp = ({ signInType, setSignInType }) => {
   );
 };
 
-export default SignUp;
+export default SignIn;

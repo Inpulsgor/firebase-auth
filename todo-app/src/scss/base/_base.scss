@@ -67,17 +67,19 @@ button:focus {
   outline: none;
 }
 
-input:focus,
-input:active,
-button:active,
-button:focus {
-  outline: none;
-}
-
 button:disabled,
 button[disabled] {
   background-color: #cccccc;
   color: #fff;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(238, 238, 238);
 }
 
 // container
@@ -105,13 +107,4 @@ button[disabled] {
   @include for-desktop-xl {
     width: 1140px;
   }
-}
-
-#root {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(238, 238, 238);
 }
