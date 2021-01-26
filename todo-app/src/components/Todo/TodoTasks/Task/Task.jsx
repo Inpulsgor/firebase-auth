@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ReactComponent as CheckedSvg } from "../../assets/icons/checked.svg";
+import { ReactComponent as CheckedSvg } from "../../../../assets/icons/checked.svg";
 
 const Task = ({ id, text }) => {
   return (

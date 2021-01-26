@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { SidebarModal } from "..";
+import { SidebarModal } from "../../../../components";
 
 const SidebarFooter = ({ colors, onAdd }) => {
   const [showModal, setShowModal] = useState(false);

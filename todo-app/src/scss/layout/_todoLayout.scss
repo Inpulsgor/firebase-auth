@@ -1,0 +1,43 @@
+@import "../base/variables";
+
+.todo {
+  font-size: $font-size;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, auto);
+  min-width: 550px;
+  max-width: 750px;
+  width: 100%;
+  margin: auto;
+  min-height: 600px;
+  max-height: max-content;
+  // width: calc(100vw - 50px);
+  // height: 700px;
+  // height: calc(100vh - 100px);
+  overflow: hidden;
+  border-radius: 5px;
+  background: $color-white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  &__sidebar {
+    grid-column: 1 / 4;
+    grid-row: 1 / 11;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 10px;
+    background: $background-gradient;
+  }
+
+  &__tasks {
+    grid-column: 4 / 10;
+    grid-row: 1 / 10;
+    padding: 60px;
+    overflow-y: auto;
+
+    &__container {
+      &:not(:last-of-type) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

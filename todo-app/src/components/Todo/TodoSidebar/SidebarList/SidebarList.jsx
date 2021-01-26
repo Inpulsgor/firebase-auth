@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { ReactComponent as RemoveSvg } from "../../assets/icons/remove.svg";
-import * as listsOperations from "../../redux/lists/listsOperations";
-import { SidebarBadge } from "../../components";
+import { ReactComponent as RemoveSvg } from "../../../../assets/icons/remove.svg";
+// import * as listsOperations from "../../../redux/lists/listsOperations";
+import { SidebarBadge } from "../../../../components";
 
 const SidebarList = ({ lists, handleRemoveList, activeList }) => {
   let history = useHistory();
@@ -62,13 +62,13 @@ const SidebarList = ({ lists, handleRemoveList, activeList }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  lists: state.lists.items,
-  colors: state.colors.items,
-});
+// const mapStateToProps = (state) => ({
+//   lists: state.lists.items,
+//   colors: state.colors.items,
+// });
 
-const mapDispatchToProps = {
-  handleRemoveList: listsOperations.removeList,
-};
+// const mapDispatchToProps = {
+//   handleRemoveList: listsOperations.removeList,
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SidebarList);
+export default connect()(SidebarList);

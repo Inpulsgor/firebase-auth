@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { ReactComponent as CloseSvg } from "../../assets/icons/close.svg";
-import { SidebarBadge } from "../../components";
+import { ReactComponent as CloseSvg } from "../../../../assets/icons/close.svg";
+import { SidebarBadge } from "../../../../components";
 
 const Modal = ({ colors, handleCloseModal }) => {
   const [inputValue, setInputValue] = useState("");

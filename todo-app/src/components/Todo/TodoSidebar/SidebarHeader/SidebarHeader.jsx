@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import { ReactComponent as TasksSvg } from "../../assets/icons/tasks.svg";
+import { ReactComponent as TasksSvg } from "../../../../assets/icons/tasks.svg";
 
 const SidebarHeader = () => {
   let history = useHistory();
