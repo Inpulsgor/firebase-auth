@@ -28,20 +28,28 @@ export const signUpSuccess = (response) => ({
   type: authTypes.SIGN_UP_SUCCESS,
   payload: {
     response,
-  }
+  },
 });
 
 export const signUpError = (error) => ({
   type: authTypes.SIGN_UP_ERROR,
   payload: {
     error,
-  }
+  },
 });
 
 // SIGN OUT
-export const signOut = (error) => ({
-  type: authTypes.SIGN_OUT,
+export const signOutSuccess = () => ({
+  type: authTypes.SIGN_OUT_SUCCESS,
+});
+
+export const signOutError = (error) => ({
+  type: authTypes.SIGN_OUT_ERROR,
   payload: {
     error,
   },
+});
+
+export const clearError = () => ({
+  type: authTypes.CLEAR_ERROR,
 });

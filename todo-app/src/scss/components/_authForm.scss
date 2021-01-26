@@ -37,7 +37,7 @@
     color: #fff;
     background-color: transparent;
     border-bottom: 1px solid #e0e0e0;
-    transition: 0.3s;
+    transition: border 0.3s linear;
 
     &:focus {
       border-bottom: 1px solid #1a73a8;
@@ -69,12 +69,13 @@
     padding: 15px 0;
     color: #fff;
     background: #603bbb;
-    transition: 0.3s;
+    transition: background 0.3s linear;
     margin-bottom: 10px;
 
     &:focus,
     &:hover {
-      background-color: rgba(0, 113, 240, 0.7);
+      background: rgba(0, 113, 240, 0.7);
+      transition: background 0.3s linear;
     }
   }
 
@@ -93,10 +94,11 @@
       border: none;
       outline: none;
       background: transparent;
-      transition: all 400ms ease-in-out;
+      transition: color 0.3s linear;
 
       &:hover {
         color: #1a73a8;
+        transition: color 0.3s linear;
       }
     }
   }

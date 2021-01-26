@@ -16,12 +16,7 @@ const SignIn = ({ signInType, setSignInType }) => {
     SignInSchema,
     onSubmit: (values, { setSubmitting }) => {
       if (values.email && values.password) {
-        const credentials = {
-          email: values.email,
-          password: values.password,
-        };
-
-        dispatch(signIn(...credentials));
+        dispatch(signIn(values.email, values.password));
       } else {
         return;
       }

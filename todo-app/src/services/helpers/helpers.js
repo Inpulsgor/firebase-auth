@@ -25,7 +25,7 @@ export const PublicRoute = ({ component: Component, ...routeProps }) => {
       {...routeProps}
       render={(props) =>
         isAuthenticated && routeProps.restricted ? (
-          <Redirect to="/operations" />
+          <Redirect to="/" />
         ) : (
           <Component {...props} />
         )

@@ -17,12 +17,7 @@ const SignUp = ({ signInType, setSignInType }) => {
     SignUpSchema,
     onSubmit: (values, { setSubmitting }) => {
       if (values.email && values.password === values.passwordConfirmation) {
-        const credentials = {
-          email: values.email,
-          password: values.password,
-        };
-
-        dispatch(signUp(...credentials));
+        dispatch(signUp(values.email, values.password));
       } else {
         return;
       }
@@ -82,7 +77,7 @@ const SignUp = ({ signInType, setSignInType }) => {
 
       <div className="form__footer">
         <p className="form__footer-text">
-          Have an account ?{" "}
+          Have an account ?
           <button type="button" onClick={() => setSignInType(!signInType)}>
             Sign In
           </button>

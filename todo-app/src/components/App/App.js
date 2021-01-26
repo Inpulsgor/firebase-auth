@@ -1,11 +1,12 @@
 import React, { Suspense, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CommonLoading } from "react-loadingg";
 
 // local imports
 import routes from "../../pages/routes";
 import { PrivateRoute, PublicRoute } from "../../services/helpers/helpers";
+import { Loader } from "../../components";
 // operations
 // import * as listsOperations from "../../redux/lists/listsOperations";
 // import * as colorsOperations from "../../redux/colors/colorsOperations";
@@ -13,18 +14,20 @@ import { PrivateRoute, PublicRoute } from "../../services/helpers/helpers";
 import "../../scss/main.scss";
 
 const App = () => {
+  const isLoading = useSelector((state) => state.isLoading);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // dispatch(listsOperations.fetchLists());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(listsOperations.fetchLists());
+  // }, [dispatch]);
 
-  useEffect(() => {
-    // dispatch(colorsOperations.fetchColors());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(colorsOperations.fetchColors());
+  // }, [dispatch]);
 
   return (
     <Suspense fallback={<CommonLoading color="orange" size="large" />}>
+      {isLoading && <Loader />}
       <Switch>
         {routes.map((route) => {
           return route.private ? (

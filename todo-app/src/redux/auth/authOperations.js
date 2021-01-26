@@ -1,4 +1,5 @@
-import { firebaseAuth } from '../../services/firebase/firebase';
+import { firebaseAuth } from "../../services/firebase/firebase";
+import { loaderActive, loaderDisabled } from "../loader/loaderActions";
 import {
   signInRequest,
   signInSuccess,
@@ -6,48 +7,58 @@ import {
   signUpRequest,
   signUpSuccess,
   signUpError,
-  signOut
+  signOutSuccess,
+  signOutError,
+  clearError,
 } from "./authActions";
 
 // SingIn
 export const signIn = (email, password) => (dispatch) => {
   dispatch(signInRequest());
+  dispatch(loaderActive());
 
-  firebaseAuth.signInWithEmailAndPassword(email, password)
-  .then(response => {
-    dispatch(signInSuccess(response.user))
-  })
-  .catch(error => {
-    console.log('error.code', error.code);
-    console.log('error.message', error.message);
-    dispatch(signInError(error))
-  })
+  firebaseAuth
+    .signInWithEmailAndPassword(email, password)
+    .then((response) => {
+      dispatch(signInSuccess(response));
+      dispatch(clearError());
+    })
+    .catch((error) => {
+      dispatch(signInError(error));
+    })
+    .finally(() => dispatch(loaderDisabled()));
 };
 
 // SignUp
 export const signUp = (email, password) => (dispatch) => {
   dispatch(signUpRequest());
+  dispatch(loaderActive());
 
-  firebaseAuth.createUserWithEmailAndPassword(email, password)
-  .then(response => {
-    dispatch(signUpSuccess(response.user))
-  })
-  .catch(error => {
-    console.log('error.code', error.code);
-    console.log('error.message', error.message);
-    dispatch(signUpError(error))
-  })
+  firebaseAuth
+    .createUserWithEmailAndPassword(email, password)
+    .then((response) => {
+      dispatch(signUpSuccess(response));
+      dispatch(clearError());
+    })
+    .catch((error) => {
+      dispatch(signUpError(error));
+    })
+    .finally(() => dispatch(loaderDisabled()));
 };
 
-// LogOut
+// SignOut
 export const logOut = () => (dispatch) => {
-  firebaseAuth.signOut()
-  .then(response => {
-    console.log(response);
-    dispatch(signOut())
-  })
-  .catch(error => {
-    console.log('error', error)
-  })
+  dispatch(loaderActive());
 
-}
+  firebaseAuth
+    .signOut()
+    .then((response) => {
+      console.log("signOut success", response);
+      dispatch(signOutSuccess());
+      dispatch(clearError());
+    })
+    .catch((error) => {
+      dispatch(signOutError(error));
+    })
+    .finally(() => dispatch(loaderDisabled()));
+};

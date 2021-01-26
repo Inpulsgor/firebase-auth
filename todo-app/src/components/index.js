@@ -12,3 +12,4 @@ export { default as TasksCreator } from "./TasksCreator/TasksCreator";
 
 export { default as SignIn } from "./Authorization/SignIn/SignIn";
 export { default as SignUp } from "./Authorization/SignUp/SignUp";
+export { default as Loader } from "./Authorization/Loader/Loader";
