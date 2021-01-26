@@ -2,9 +2,9 @@ import React from "react";
 
 const HeaderLayout = ({ children, ...props }) => {
   return (
-    <div className="header" {...props}>
+    <header className="header" {...props}>
       {children}
-    </div>
+    </header>
   );
 };
 

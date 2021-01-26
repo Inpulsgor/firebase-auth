@@ -9,7 +9,7 @@ import { CommonLoading } from "react-loadingg";
 import routes from "../../pages/routes";
 import { PrivateRoute, PublicRoute } from "../../services/helpers/helpers";
 import { Loader } from "../../components";
-import { firebaseAuth } from "../../services/firebase/firebase";
+// import { firebaseAuth } from "../../services/firebase/firebase";
 // operations
 // import * as listsOperations from "../../redux/lists/listsOperations";
 // import * as colorsOperations from "../../redux/colors/colorsOperations";

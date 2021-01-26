@@ -1,3 +1,5 @@
+export { default as Header } from "./Header/Header";
+
 export { default as SidebarHeader } from "./SidebarHeader/SidebarHeader";
 export { default as SidebarBadge } from "./SidebarBadge/SidebarBadge";
 export { default as SidebarList } from "./SidebarList/SidebarList";

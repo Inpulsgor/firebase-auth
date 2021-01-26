@@ -1,19 +1,16 @@
 import React from "react";
 
-import {
-  AppLayout,
-  HeaderLayout,
-  // AsideLayout,
-  MainLayout,
-} from "../../components/Layout";
-import { Tasks } from "../../components";
+import { AppLayout, HeaderLayout, MainLayout } from "../../components/Layout";
+import { Header, Tasks } from "../../components";
 
 const MainPage = () => {
   return (
     <>
-      <HeaderLayout />
       <AppLayout>
-        {/* <AsideLayout /> */}
+        <HeaderLayout>
+          <Header />
+        </HeaderLayout>
+
         <MainLayout>
           <Tasks />;
         </MainLayout>
