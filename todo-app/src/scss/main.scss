@@ -1,18 +1,20 @@
 // BASE
-@import "./base/variables";
 @import "./base/normalize";
+@import "./base/variables";
 @import "./base/mixins";
 @import "./base/base";
+@import "./base/container";
 
 // LAYOUT
-@import "./layout/headerLayout";
 @import "./layout/appLayout";
-@import "./layout/asideLayout";
+@import "./layout/headerLayout";
 @import "./layout/mainLayout";
+@import "./layout/footerLayout";
 
 // COMPONENTS
-@import "./components/app";
+@import "./components/todo";
 @import "./components/sidebarList";
+@import "./components/sidebarHeader";
 @import "./components/sidebarBadge";
 @import "./components/sidebarModal";
 @import "./components/sidebarFooter";

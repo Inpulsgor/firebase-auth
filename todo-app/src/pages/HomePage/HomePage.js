@@ -1,21 +1,31 @@
 import React from "react";
 
-import { AppLayout, HeaderLayout, MainLayout } from "../../components/Layout";
-import { Header, Tasks } from "../../components";
+import {
+  AppLayout,
+  HeaderLayout,
+  MainLayout,
+  FooterLayout,
+  TodoLayout,
+} from "../../components/Layout";
+import { Header, Tasks, Footer } from "../../components";
 
 const MainPage = () => {
   return (
-    <>
-      <AppLayout>
-        <HeaderLayout>
-          <Header />
-        </HeaderLayout>
+    <AppLayout>
+      <HeaderLayout>
+        <Header />
+      </HeaderLayout>
 
-        <MainLayout>
+      <MainLayout>
+        <TodoLayout>
           <Tasks />;
-        </MainLayout>
-      </AppLayout>
-    </>
+        </TodoLayout>
+      </MainLayout>
+
+      <FooterLayout>
+        <Footer />
+      </FooterLayout>
+    </AppLayout>
   );
 };
 

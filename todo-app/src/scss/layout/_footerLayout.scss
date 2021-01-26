@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  min-height: 50px;
+  max-height: 50px;
+  color: $color-white;
+  background: $background-gradient;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__copy {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 5px;
+  }
+
+  &__logo {
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+  }
+}

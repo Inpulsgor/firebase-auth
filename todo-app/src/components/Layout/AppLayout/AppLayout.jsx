@@ -2,7 +2,7 @@ import React from "react";
 
 const AppLayout = ({ children, ...props }) => {
   return (
-    <div className="App" {...props}>
+    <div className="app" {...props}>
       {children}
     </div>
   );

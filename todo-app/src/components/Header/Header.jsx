@@ -14,12 +14,12 @@ const Header = () => {
 
   return (
     <div className="header__container container">
-      <Link className="header__logo" to="/">
+      <Link className="logo" to="/">
         Todo-app
       </Link>
-      <nav className="header__nav">
-        <span className="header__user">{currentUser}</span>
-        <button type="button" className="header__btn" onClick={handleLogOut}>
+      <nav className="header__nav nav">
+        <span className="nav__user">{currentUser}</span>
+        <button className="nav__btn" type="button" onClick={handleLogOut}>
           SignOut
         </button>
       </nav>

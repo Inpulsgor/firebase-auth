@@ -1,3 +1,5 @@
+@import "../base/variables";
+
 .form {
   padding: 120px 40px;
   max-width: 520px;
@@ -68,7 +70,7 @@
     width: 100%;
     padding: 15px 0;
     color: #fff;
-    background: #603bbb;
+    background: $color-orange;
     transition: background 0.3s linear;
     margin-bottom: 10px;
 
@@ -87,7 +89,7 @@
     }
 
     button {
-      color: yellow;
+      color: #ffc400;
       font-weight: 700;
       letter-spacing: 0.5px;
       margin-left: 5px;
@@ -97,7 +99,7 @@
       transition: color 0.3s linear;
 
       &:hover {
-        color: #1a73a8;
+        color: #d6a401;
         transition: color 0.3s linear;
       }
     }
