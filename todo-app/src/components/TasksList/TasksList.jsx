@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Task } from "../../components";
+// import { Task } from "../../components";
 
 const TasksList = ({ list }) => {
   return (

@@ -5,7 +5,7 @@ const user = (state = null, { type, payload }) => {
   switch (type) {
     case authTypes.SIGN_IN_SUCCESS:
     case authTypes.SIGN_UP_SUCCESS:
-      return payload.response;
+      return payload.response.user;
 
     case authTypes.SIGN_OUT_SUCCESS:
       return null;
@@ -33,7 +33,7 @@ const token = (state = null, { type, payload }) => {
   switch (type) {
     case authTypes.SIGN_IN_SUCCESS:
     case authTypes.SIGN_UP_SUCCESS:
-      return payload.response;
+      return payload.response.user.refreshToken;
 
     case authTypes.SIGN_OUT_SUCCESS:
       return null;

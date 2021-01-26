@@ -20,6 +20,7 @@ export const signIn = (email, password) => (dispatch) => {
   firebaseAuth
     .signInWithEmailAndPassword(email, password)
     .then((response) => {
+      // console.log("response", response.user);
       dispatch(signInSuccess(response));
       dispatch(clearError());
     })
@@ -37,6 +38,7 @@ export const signUp = (email, password) => (dispatch) => {
   firebaseAuth
     .createUserWithEmailAndPassword(email, password)
     .then((response) => {
+      // console.log("response", response.user);
       dispatch(signUpSuccess(response));
       dispatch(clearError());
     })

@@ -1,13 +1,13 @@
 import React from "react";
 
-import { SidebarHeader, SidebarList, SidebarFooter } from "../../../components";
+// import { SidebarHeader, SidebarList, SidebarFooter } from "../../../components";
 
 const AsideLayout = () => {
   return (
     <aside className="sidebar">
-      <SidebarHeader />
-      <SidebarList />
-      <SidebarFooter />
+      {/* <SidebarHeader /> */}
+      {/* <SidebarList /> */}
+      {/* <SidebarFooter /> */}
     </aside>
   );
 };

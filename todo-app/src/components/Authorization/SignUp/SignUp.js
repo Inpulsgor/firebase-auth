@@ -72,7 +72,7 @@ const SignUp = ({ signInType, setSignInType }) => {
       </div>
 
       <button className="form__button" type="submit">
-        SignUp
+        Sign Up
       </button>
 
       <div className="form__footer">

@@ -14,16 +14,16 @@ const SidebarList = ({ lists, handleRemoveList, activeList }) => {
     // setActiveList(list);
   };
 
-  const handleRemove = (id) => {
-    // api.deleteList(id);
-    // const updatedList = lists.filter((list) => list.id !== id);
-    // setLists(updatedList);
-  };
+  // const handleRemove = (id) => {
+  // api.deleteList(id);
+  // const updatedList = lists.filter((list) => list.id !== id);
+  // setLists(updatedList);
+  // };
 
-  const addToList = (modifiedObject) => {
-    // const updatedList = [...lists, modifiedObject];
-    // setLists(updatedList);
-  };
+  // const addToList = (modifiedObject) => {
+  // const updatedList = [...lists, modifiedObject];
+  // setLists(updatedList);
+  // };
 
   // useEffect(() => {
   //   const listId = history.location.pathname.split("lists/")[1];
@@ -52,7 +52,7 @@ const SidebarList = ({ lists, handleRemoveList, activeList }) => {
             <button
               className="list__remove"
               type="button"
-              onClick={() => handleRemoveList(list.id)}
+              // onClick={() => handleRemoveList(list.id)}
             >
               <RemoveSvg />
             </button>

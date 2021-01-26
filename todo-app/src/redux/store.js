@@ -12,4 +12,4 @@ const enhancer = applyMiddleware(...middleware);
 
 // STORE
 export const store = createStore(rootReducer, composeWithDevTools(enhancer));
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);

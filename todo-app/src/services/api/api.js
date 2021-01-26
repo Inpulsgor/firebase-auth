@@ -6,7 +6,7 @@ const instance = axios.create({
 });
 
 // TOKEN
-const token = {
+export const token = {
   set(token) {
     instance.headers.common.Authorization = `Bearer ${token}`;
   },
@@ -16,7 +16,7 @@ const token = {
 };
 
 // AUTHORIZATION REQUESTS
-const login = (credentials) =>
+export const login = (credentials) =>
   instance(
     {
       method: "POST",
@@ -25,13 +25,13 @@ const login = (credentials) =>
     credentials
   );
 
-const logout = () =>
+export const logout = () =>
   instance({
     method: "POST",
     url: "/auth/logout",
   });
 
-const signUp = (credentials) =>
+export const signUp = (credentials) =>
   instance(
     {
       method: "POST",
@@ -41,13 +41,13 @@ const signUp = (credentials) =>
   );
 
 // LISTS REQUESTS
-const getLists = () =>
+export const getLists = () =>
   instance({
     method: "GET",
     url: "/lists",
   });
 
-const createList = (credentials) =>
+export const createList = (credentials) =>
   instance(
     {
       method: "POST",
@@ -56,16 +56,16 @@ const createList = (credentials) =>
     credentials
   );
 
-const deleteList = (id) =>
+export const deleteList = (id) =>
   instance({
     method: "DELETE",
     url: `/lists/${id}`,
   });
 
-const getListsWithExpand = () =>
+export const getListsWithExpand = () =>
   instance({ method: "GET", url: "/lists?_expand=color&_embed=tasks" });
 
-const updateListTitle = (id, list) =>
+export const updateListTitle = (id, list) =>
   instance(
     {
       method: "PATCH",
@@ -75,13 +75,13 @@ const updateListTitle = (id, list) =>
   );
 
 // TASKS REQUESTS
-const getTasks = () =>
+export const getTasks = () =>
   instance({
     method: "GET",
     url: "/tasks",
   });
 
-const createTask = (credentials) =>
+export const createTask = (credentials) =>
   instance(
     {
       method: "POST",
@@ -91,23 +91,8 @@ const createTask = (credentials) =>
   );
 
 // COLORS REQUESTS
-const getColors = () =>
+export const getColors = () =>
   instance({
     method: "GET",
     url: "/colors",
   });
-
-export default {
-  token,
-  login,
-  logout,
-  signUp,
-  getLists,
-  createList,
-  deleteList,
-  getListsWithExpand,
-  updateListTitle,
-  getTasks,
-  createTask,
-  getColors,
-};

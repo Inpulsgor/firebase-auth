@@ -7,9 +7,9 @@ import { SidebarBadge } from "../../components";
 const Modal = ({ colors, handleCloseModal }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleSelectColor = (colorID) => {
-    // setSelectedColor(colorID);
-  };
+  // const handleSelectColor = (colorID) => {
+  // setSelectedColor(colorID);
+  // };
 
   const handleChange = (e) => {
     const value = e.target.value;

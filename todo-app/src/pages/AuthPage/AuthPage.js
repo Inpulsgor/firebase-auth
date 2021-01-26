@@ -7,9 +7,9 @@ const AuthPage = () => {
   return (
     <>
       {signInType ? (
-        <SignIn signInType={signInType} setSignInType={setSignInType} />
-      ) : (
         <SignUp signInType={signInType} setSignInType={setSignInType} />
+      ) : (
+        <SignIn signInType={signInType} setSignInType={setSignInType} />
       )}
     </>
   );

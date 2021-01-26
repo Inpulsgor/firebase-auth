@@ -3,10 +3,10 @@ import { lazy } from "react";
 const routes = [
   {
     path: "/",
-    label: "MainPage",
+    label: "HomePage",
     exact: true,
     component: lazy(() =>
-      import("./MainPage/MainPage" /* webpackChunkName: "MainPage" */)
+      import("./HomePage/HomePage" /* webpackChunkName: "HomePage" */)
     ),
     private: true,
     restricted: false,
@@ -20,16 +20,6 @@ const routes = [
     ),
     private: false,
     restricted: true,
-  },
-  {
-    path: "/lists/:id",
-    label: "ListsPage",
-    exact: false,
-    component: lazy(() =>
-      import("./ListPage/ListPage" /* webpackChunkName: "ListsPage" */)
-    ),
-    private: true,
-    restricted: false,
   },
 ];
 
