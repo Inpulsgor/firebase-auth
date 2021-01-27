@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 // Layout
-import {
-  AppLayout,
-  HeaderLayout,
-  MainLayout,
-  FooterLayout,
-} from "../components/Layout";
+import { AppLayout, MainLayout, FooterLayout } from "../components/Layout";
 // Components
 import { SignIn, SignUp, Footer } from "../components";
 
@@ -14,8 +9,6 @@ const AuthPage = () => {
 
   return (
     <AppLayout>
-      <HeaderLayout></HeaderLayout>
-
       <MainLayout>
         {signInType ? (
           <SignUp signInType={signInType} setSignInType={setSignInType} />

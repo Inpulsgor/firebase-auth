@@ -3,4 +3,11 @@
   width: 100vw;
   display: grid;
   grid-template-rows: auto 1fr auto;
+
+  &__auth {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
 }

@@ -22,7 +22,7 @@ const Modal = ({ colors, onModalClose }) => {
     if (!selectedColor) {
       return;
     }
-    const credentials = { name: inputValue, colorId: selectedColor };
+    // const credentials = { name: inputValue, colorId: selectedColor };
     // api
     //   .createList(credentials)
     //   .then(({ data }) => {

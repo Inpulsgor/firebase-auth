@@ -1,9 +1,19 @@
+@import "../base/variables";
+
 .footer {
   width: 100%;
   min-height: 50px;
   max-height: 50px;
   color: $color-white;
   background: $background-gradient;
+
+  &__auth {
+    width: 100%;
+    min-height: 50px;
+    max-height: 50px;
+    color: $color-dark;
+    background: transparent;
+  }
 
   &__container {
     display: flex;
