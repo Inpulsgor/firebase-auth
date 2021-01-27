@@ -27,6 +27,7 @@ const SignIn = ({ signInType, setSignInType }) => {
     <form className="form" onSubmit={formik.handleSubmit}>
       <div className="form__group group">
         <input
+          required
           id="email"
           type="email"
           name="email"
@@ -42,6 +43,7 @@ const SignIn = ({ signInType, setSignInType }) => {
 
       <div className="form__group group">
         <input
+          required
           id="password"
           type="password"
           name="password"

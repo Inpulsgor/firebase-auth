@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
-import { listsTypes } from "./listsTypes";
+import { categoriesTypes } from "./categoriesTypes";
 
-const listsReducer = (state = [], { type, payload }) => {
+const itemsReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case listsTypes.FETCH_LISTS_SUCCESS:
+    case categoriesTypes.FETCH_CATEGORIES_SUCCESS:
       return payload.lists;
 
-    case listsTypes.DELETE_LIST_SUCCESS:
+    case categoriesTypes.DELETE_CATEGORY_SUCCESS:
       return state.filter((item) => item.id !== payload.id);
 
     default:
@@ -16,11 +16,11 @@ const listsReducer = (state = [], { type, payload }) => {
 
 const loadingReducer = (state = false, { type }) => {
   switch (type) {
-    case listsTypes.FETCH_LISTS_REQUEST:
+    case categoriesTypes.FETCH_CATEGORIES_REQUEST:
       return true;
 
-    case listsTypes.FETCH_LISTS_SUCCESS:
-    case listsTypes.FETCH_LISTS_ERROR:
+    case categoriesTypes.FETCH_CATEGORIES_SUCCESS:
+    case categoriesTypes.FETCH_CATEGORIES_ERROR:
       return false;
 
     default:
@@ -30,11 +30,11 @@ const loadingReducer = (state = false, { type }) => {
 
 const errorReducer = (state = null, { type, payload }) => {
   switch (type) {
-    case listsTypes.FETCH_LISTS_REQUEST:
-    case listsTypes.FETCH_LISTS_SUCCESS:
+    case categoriesTypes.FETCH_CATEGORIES_REQUEST:
+    case categoriesTypes.FETCH_CATEGORIES_SUCCESS:
       return null;
 
-    case listsTypes.FETCH_LISTS_ERROR:
+    case categoriesTypes.FETCH_CATEGORIES_ERROR:
       return payload.error;
 
     default:
@@ -43,7 +43,7 @@ const errorReducer = (state = null, { type, payload }) => {
 };
 
 export default combineReducers({
-  items: listsReducer,
+  items: itemsReducer,
   loading: loadingReducer,
   error: errorReducer,
 });

@@ -40,6 +40,12 @@
     margin-bottom: 20px;
   }
 
+  &__input {
+    font-size: 14px;
+    padding-bottom: 3px;
+    color: #000;
+  }
+
   &__label {
     color: $color-border;
   }

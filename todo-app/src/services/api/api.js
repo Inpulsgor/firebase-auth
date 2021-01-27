@@ -1,5 +1,4 @@
 import axios from "axios";
-import * as firebase from "./firebase";
 
 // INSTANCE
 const instance = axios.create({
@@ -7,59 +6,15 @@ const instance = axios.create({
 });
 
 // CATEGORIES REQUEST
-
-export const createCategory = (credentials) =>
-  instance(
-    {
-      method: "POST",
-      url: "/categories.json",
-    },
-    credentials
-  );
-
-export const getLists = () =>
-  instance({
-    method: "GET",
-    url: "/lists",
-  });
-
-export const deleteList = (id) =>
-  instance({
-    method: "DELETE",
-    url: `/lists/${id}`,
-  });
-
-export const getListsWithExpand = () =>
-  instance({ method: "GET", url: "/lists?_expand=color&_embed=tasks" });
-
-export const updateListTitle = (id, list) =>
-  instance(
-    {
-      method: "PATCH",
-      url: `/lists/${id}`,
-    },
-    list
-  );
+export const getCategories = () => instance.get("/categories.json");
+export const createCategory = (data) => instance.post("/categories.json", data);
+export const deleteCategory = (id) => instance.delete(`/categories.json/${id}`);
+export const updateListTitle = (id, data) =>
+  instance.patch(`/categories.json/${id}`, data);
 
 // TASKS REQUEST
-export const getTasks = () =>
-  instance({
-    method: "GET",
-    url: "/tasks",
-  });
-
-export const createTask = (credentials) =>
-  instance(
-    {
-      method: "POST",
-      url: "/tasks",
-    },
-    credentials
-  );
+export const getTasks = () => instance.get("/tasks.json");
+export const createTask = (data) => instance.post("/tasks.json", data);
 
 // COLORS REQUEST
-export const getColors = () =>
-  instance({
-    method: "GET",
-    url: "/colors",
-  });
+export const getColors = () => instance.get("/colors.json");
