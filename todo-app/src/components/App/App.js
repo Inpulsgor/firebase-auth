@@ -1,8 +1,9 @@
 import React, { Suspense, useEffect } from "react";
-import { Switch, Redirect } from "react-router-dom";
+import { Switch, Redirect, useLocation } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
 import { useSelector } from "react-redux";
 import { CommonLoading } from "react-loadingg";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // local imports
 import routes from "../../pages/routes";
@@ -18,6 +19,7 @@ import "../../scss/main.scss";
 const App = () => {
   const isLoading = useSelector((state) => state.isLoading);
   // const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     firebaseAuth.onAuthStateChanged((user) => {
@@ -36,20 +38,24 @@ const App = () => {
   return (
     <Suspense fallback={<CommonLoading color="orange" size="large" />}>
       {isLoading && <Loader />}
-      <Switch>
-        {routes.map((route) => {
-          return route.private ? (
-            <PrivateRoute key={route.label} {...route} />
-          ) : (
-            <PublicRoute
-              key={route.label}
-              {...route}
-              restricted={route.restricted}
-            />
-          );
-        })}
-        <Redirect to="/auth" />
-      </Switch>
+      <TransitionGroup>
+        <CSSTransition key={location.key} timeout={300} classNames="page">
+          <Switch location={location}>
+            {routes.map((route) => {
+              return route.private ? (
+                <PrivateRoute key={route.label} {...route} />
+              ) : (
+                <PublicRoute
+                  key={route.label}
+                  {...route}
+                  restricted={route.restricted}
+                />
+              );
+            })}
+            <Redirect to="/auth" />
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
     </Suspense>
   );
 };
