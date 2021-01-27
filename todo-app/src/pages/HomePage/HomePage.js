@@ -1,5 +1,5 @@
 import React from "react";
-
+// Layout
 import {
   AppLayout,
   HeaderLayout,
@@ -9,6 +9,7 @@ import {
   SidebarLayout,
   TasksLayout,
 } from "../../components/Layout";
+// Components
 import {
   Header,
   Footer,
