@@ -25,37 +25,37 @@ const SignIn = ({ signInType, setSignInType }) => {
 
   return (
     <form className="form" onSubmit={formik.handleSubmit}>
-      <div className="form__group">
+      <div className="form__group group">
         <input
           id="email"
           type="email"
           name="email"
           placeholder=" "
-          className="form__input"
+          className="form__input input"
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-        <label htmlFor="email" className="form__label">
+        <label htmlFor="email" className="form__label label">
           Email
         </label>
       </div>
 
-      <div className="form__group">
+      <div className="form__group group">
         <input
           id="password"
           type="password"
           name="password"
           placeholder=" "
-          className="form__input"
+          className="form__input input"
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        <label htmlFor="password" className="form__label">
+        <label htmlFor="password" className="form__label label">
           Password
         </label>
       </div>
 
-      <button className="form__button" type="submit">
+      <button className="form__button button" type="submit">
         Sign In
       </button>
 

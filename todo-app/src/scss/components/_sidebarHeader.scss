@@ -1,22 +1,23 @@
-.sidebar {
-  &__heading {
-    margin-bottom: 20px;
+@import "../base/variables";
+
+.sidebar-top {
+  padding-left: 40px;
+  margin-bottom: 30px;
+
+  &__btn {
+    display: flex;
+    border: none;
+    background: transparent;
+    color: $color-white;
   }
 
-  &__header {
-    margin-bottom: 15px;
+  &__icon {
+    fill: $color-orange;
+    margin-right: 8px;
+  }
 
-    &__btn {
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      border: none;
-      background: transparent;
-    }
-
-    &__icon {
-      margin-right: 10px;
-    }
+  &__text {
+    padding-top: 2px;
+    font-size: 16px;
   }
 }

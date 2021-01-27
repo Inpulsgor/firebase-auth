@@ -7,19 +7,17 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // local imports
 import routes from "../../pages/routes";
-import { PrivateRoute, PublicRoute } from "../../services/helpers/helpers";
+import { PrivateRoute, PublicRoute } from "../../services/helpers";
+import { firebaseAuth } from "../../services/api/firebase";
 import { Loader } from "../../components";
-import { firebaseAuth } from "../../services/firebase/firebase";
 // operations
 // import * as listsOperations from "../../redux/lists/listsOperations";
 // import * as colorsOperations from "../../redux/colors/colorsOperations";
-// styles
-import "../../scss/main.scss";
 
 const App = () => {
   const isLoading = useSelector((state) => state.isLoading);
-  // const dispatch = useDispatch();
   const location = useLocation();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     firebaseAuth.onAuthStateChanged((user) => {
@@ -39,7 +37,12 @@ const App = () => {
     <Suspense fallback={<CommonLoading color="orange" size="large" />}>
       {isLoading && <Loader />}
       <TransitionGroup>
-        <CSSTransition key={location.key} timeout={300} classNames="page">
+        <CSSTransition
+          key={location.key}
+          timeout={300}
+          classNames="page"
+          unmountOnExit
+        >
           <Switch location={location}>
             {routes.map((route) => {
               return route.private ? (

@@ -6,7 +6,7 @@ const routes = [
     label: "HomePage",
     exact: true,
     component: lazy(() =>
-      import("./HomePage/HomePage" /* webpackChunkName: "HomePage" */)
+      import("./HomePage" /* webpackChunkName: "HomePage" */)
     ),
     private: true,
     restricted: false,
@@ -16,7 +16,7 @@ const routes = [
     label: "AuthPage",
     exact: false,
     component: lazy(() =>
-      import("./AuthPage/AuthPage" /* webpackChunkName: "MainPage" */)
+      import("./AuthPage" /* webpackChunkName: "MainPage" */)
     ),
     private: false,
     restricted: true,

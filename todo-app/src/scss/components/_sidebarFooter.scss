@@ -1,12 +1,13 @@
-.create-list {
+@import "../base/variables";
+
+.sidebar-bottom {
   position: relative;
-  margin-top: auto;
 
   &__btn {
     display: block;
     margin: 0 auto;
     border: none;
-    color: rgb(83, 83, 83);
+    color: rgb(139, 139, 139);
     background: transparent;
   }
 }

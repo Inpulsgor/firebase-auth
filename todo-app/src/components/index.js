@@ -7,15 +7,16 @@ export { default as SignIn } from "./Authorization/SignIn/SignIn";
 export { default as SignUp } from "./Authorization/SignUp/SignUp";
 
 // Todo-sidebar
-export { default as SidebarHeader } from "./Todo/TodoSidebar/SidebarHeader/SidebarHeader";
-export { default as SidebarList } from "./Todo/TodoSidebar/SidebarList/SidebarList";
-export { default as SidebarBadge } from "./Todo/TodoSidebar/SidebarBadge/SidebarBadge";
-export { default as SidebarModal } from "./Todo/TodoSidebar/SidebarModal/SidebarModal";
-export { default as SidebarFooter } from "./Todo/TodoSidebar/SidebarFooter/SidebarFooter";
+export { default as SidebarHeader } from "./Todo/TodoSidebar/SidebarHeader";
+export { default as SidebarList } from "./Todo/TodoSidebar/SidebarList";
+export { default as SidebarItem } from "./Todo/TodoSidebar/SidebarItem";
+export { default as SidebarBadge } from "./Todo/TodoSidebar/SidebarBadge";
+export { default as SidebarModal } from "./Todo/TodoSidebar/SidebarModal";
+export { default as SidebarFooter } from "./Todo/TodoSidebar/SidebarFooter";
 
 // Todo-tasks
-// export { default as Tasks } from "./Todo/TodoTasks/Tasks/Tasks";
-// export { default as TasksHeader } from "./Todo/TodoTasks/TasksHeader/TasksHeader";
-// export { default as TasksList } from "./Todo/TodoTasks/TasksList/TasksList";
-// export { default as Task } from "./Todo/TodoTasks/Task/Task";
-// export { default as TasksCreator } from "./Todo/TasksCreator/TasksCreator";
+// export { default as Tasks } from "./Todo/TodoTasks/Tasks";
+// export { default as TasksHeader } from "./Todo/TodoTasks/TasksHeader";
+// export { default as TasksList } from "./Todo/TodoTasks/TasksList";
+// export { default as Task } from "./Todo/TodoTasks/Task";
+// export { default as TasksCreator } from "./Todo/TodoTasks/TasksCreator";

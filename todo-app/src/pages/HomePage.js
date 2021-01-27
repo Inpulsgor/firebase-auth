@@ -8,7 +8,7 @@ import {
   TodoLayout,
   SidebarLayout,
   TasksLayout,
-} from "../../components/Layout";
+} from "../components/Layout";
 // Components
 import {
   Header,
@@ -16,7 +16,7 @@ import {
   SidebarHeader,
   SidebarList,
   SidebarFooter,
-} from "../../components";
+} from "../components";
 
 const MainPage = () => {
   return (
@@ -32,6 +32,7 @@ const MainPage = () => {
             <SidebarList />
             <SidebarFooter />
           </SidebarLayout>
+
           <TasksLayout></TasksLayout>
         </TodoLayout>
       </MainLayout>

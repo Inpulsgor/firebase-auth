@@ -4,6 +4,7 @@
 @import "./base/mixins";
 @import "./base/base";
 @import "./base/container";
+@import "./base/transition";
 
 // LAYOUT
 @import "./layout/appLayout";
@@ -11,6 +12,7 @@
 @import "./layout/mainLayout";
 @import "./layout/footerLayout";
 @import "./layout/todoLayout";
+@import "./layout/sidebarLayout";
 
 // COMPONENTS
 @import "./components/sidebarList";

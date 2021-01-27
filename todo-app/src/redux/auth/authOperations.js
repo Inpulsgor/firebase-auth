@@ -1,4 +1,4 @@
-import { firebaseAuth } from "../../services/firebase/firebase";
+import { firebaseAuth } from "../../services/api/firebase";
 import { loaderActive, loaderDisabled } from "../loader/loaderActions";
 import {
   signInRequest,

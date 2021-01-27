@@ -15,13 +15,15 @@
   // height: 700px;
   // height: calc(100vh - 100px);
   overflow: hidden;
+  border: none;
+  outline: none;
   border-radius: 5px;
   background: $color-white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   &__sidebar {
     grid-column: 1 / 4;
-    grid-row: 1 / 11;
+    grid-row: 1 / 10;
     display: flex;
     flex-direction: column;
     padding: 40px 10px;

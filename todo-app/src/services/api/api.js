@@ -1,60 +1,27 @@
 import axios from "axios";
+import * as firebase from "./firebase";
 
 // INSTANCE
 const instance = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://react-todo-app-58350-default-rtdb.firebaseio.com",
 });
 
-// TOKEN
-export const token = {
-  set(token) {
-    instance.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    instance.headers.common.Authorization = "";
-  },
-};
+// CATEGORIES REQUEST
 
-// AUTHORIZATION REQUESTS
-export const login = (credentials) =>
+export const createCategory = (credentials) =>
   instance(
     {
       method: "POST",
-      url: "/auth/login",
+      url: "/categories.json",
     },
     credentials
   );
 
-export const logout = () =>
-  instance({
-    method: "POST",
-    url: "/auth/logout",
-  });
-
-export const signUp = (credentials) =>
-  instance(
-    {
-      method: "POST",
-      url: "/auth/register",
-    },
-    credentials
-  );
-
-// LISTS REQUESTS
 export const getLists = () =>
   instance({
     method: "GET",
     url: "/lists",
   });
-
-export const createList = (credentials) =>
-  instance(
-    {
-      method: "POST",
-      url: "/lists",
-    },
-    credentials
-  );
 
 export const deleteList = (id) =>
   instance({
@@ -74,7 +41,7 @@ export const updateListTitle = (id, list) =>
     list
   );
 
-// TASKS REQUESTS
+// TASKS REQUEST
 export const getTasks = () =>
   instance({
     method: "GET",
@@ -90,7 +57,7 @@ export const createTask = (credentials) =>
     credentials
   );
 
-// COLORS REQUESTS
+// COLORS REQUEST
 export const getColors = () =>
   instance({
     method: "GET",
