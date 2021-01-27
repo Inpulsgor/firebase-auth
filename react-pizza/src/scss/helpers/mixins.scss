@@ -1,0 +1,69 @@
+@mixin for-phone-xs {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin for-phone-sm {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin for-phone-sm-only {
+  @media (min-width: 576px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-md-only {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-lg {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-lg-only {
+  @media (min-width: 1200px) and (max-width: 1499px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-xl {
+  @media (min-width: 1500px) {
+    @content;
+  }
+}
+
+@mixin noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
