@@ -9,5 +9,11 @@
     border: none;
     color: rgb(139, 139, 139);
     background: transparent;
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: $color-quill;
+      transition: color 0.3s linear;
+    }
   }
 }

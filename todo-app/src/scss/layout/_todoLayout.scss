@@ -8,18 +8,15 @@
   min-width: 550px;
   max-width: 750px;
   width: 100%;
-  margin: auto;
   min-height: 600px;
   max-height: max-content;
-  // width: calc(100vw - 50px);
-  // height: 700px;
-  // height: calc(100vh - 100px);
+  // margin: auto;
   overflow: hidden;
   border: none;
   outline: none;
   border-radius: 5px;
   background: $color-white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: $todo-shadow;
 
   &__sidebar {
     grid-column: 1 / 4;

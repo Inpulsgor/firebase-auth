@@ -11,8 +11,9 @@ export { default as SidebarHeader } from "./Todo/TodoSidebar/SidebarHeader";
 export { default as SidebarList } from "./Todo/TodoSidebar/SidebarList";
 export { default as SidebarItem } from "./Todo/TodoSidebar/SidebarItem";
 export { default as SidebarBadge } from "./Todo/TodoSidebar/SidebarBadge";
-export { default as SidebarModal } from "./Todo/TodoSidebar/SidebarModal";
 export { default as SidebarFooter } from "./Todo/TodoSidebar/SidebarFooter";
+export { default as SidebarModal } from "./Todo/TodoSidebar/SidebarModal";
+export { default as SidebarColor } from "./Todo/TodoSidebar/SidebarColor";
 
 // Todo-tasks
 // export { default as Tasks } from "./Todo/TodoTasks/Tasks";

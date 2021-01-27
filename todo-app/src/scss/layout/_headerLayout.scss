@@ -51,7 +51,7 @@
     transition: background 0.3s linear;
 
     &:hover {
-      background: #f8a100;
+      background: $color-btn-hover;
       transition: background 0.3s linear;
     }
   }

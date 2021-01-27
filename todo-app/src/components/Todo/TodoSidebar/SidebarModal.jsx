@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { ReactComponent as CloseSvg } from "../../../assets/icons/close.svg";
-import { SidebarBadge } from "../../../components";
+import { SidebarColor } from "../../../components";
 
 const Modal = ({ colors, onModalClose }) => {
   const [inputValue, setInputValue] = useState("");
@@ -42,24 +42,37 @@ const Modal = ({ colors, onModalClose }) => {
   return (
     <div className="sidebar__modal modal">
       <button type="button" className="modal__btn-close" onClick={onModalClose}>
-        <CloseSvg />
+        <CloseSvg className="modal__btn-svg" />
       </button>
 
-      <form className="modal__form ">
-        <div className="group">
+      <form className="modal__form modal-form">
+        <div className="modal-form__group group">
           <input
             type="text"
             id="category"
             name="category"
-            className="input"
+            className="modal-form__input input"
             placeholder=" "
             value={inputValue}
             onChange={handleChange}
           />
-          <label htmlFor="category" className="form__label">
+          <label htmlFor="category" className="modal-form__label label">
             Enter name...
           </label>
         </div>
+
+        <ul className="modal__list colors">
+          {colors &&
+            colors.map((color) => (
+              <SidebarColor
+                key={color.id}
+                color={color}
+                selectedColor={selectedColor}
+                handleSelectColor={handleSelectColor}
+              />
+            ))}
+        </ul>
+
         <button
           type="submit"
           className="modal__btn-create button"
@@ -68,19 +81,6 @@ const Modal = ({ colors, onModalClose }) => {
           Create
         </button>
       </form>
-
-      <ul className="modal__list colors">
-        {colors &&
-          colors.map((color) => (
-            <li key={color.id} className="colors__item">
-              <SidebarBadge
-                color={color.name}
-                onClick={() => handleSelectColor(color.id)}
-                className={selectedColor === color.id && "active"}
-              />
-            </li>
-          ))}
-      </ul>
     </div>
   );
 };

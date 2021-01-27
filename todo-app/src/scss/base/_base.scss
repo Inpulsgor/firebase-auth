@@ -59,6 +59,11 @@ a {
   color: inherit;
 }
 
+button {
+  border: none;
+  outline: none;
+}
+
 button:hover {
   cursor: pointer;
 }
@@ -142,7 +147,7 @@ button[disabled] {
 
   &:focus,
   &:hover {
-    background: rgba(0, 113, 240, 0.7);
+    background: $color-btn-hover;
     transition: background 0.3s linear;
   }
 }

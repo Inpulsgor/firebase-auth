@@ -1,6 +1,6 @@
 import React from "react";
 
-const SidebarBadge = ({ color, onClick, className }) => {
+const SidebarBadge = ({ color, onClick }) => {
   return <i onClick={onClick} className={`badge badge--${color}`}></i>;
 };
 
