@@ -1,11 +1,13 @@
 .badge {
   position: relative;
   display: inline-block;
-  left: 3px;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
+  top: -1px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
+  margin-right: 8px;
+
+  cursor: pointer;
 
   &--green {
     background-color: #42b883;

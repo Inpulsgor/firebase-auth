@@ -7,26 +7,37 @@
   }
 
   &__item {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 8px 12px;
     border-radius: 3px;
     color: $color-white;
     cursor: pointer;
+    transition: background 0.3s linear;
 
     &:hover {
-      color: $color-dark;
       background: rgba(255, 255, 255, 0.5);
+      transition: background 0.3s linear;
 
-      .categories__btn-remove {
-        opacity: 0.3;
-      }
+      .categories {
+        &__name {
+          font-size: 14px;
+          font-weight: 600;
+        }
 
-      .categories__btn-remove {
-        &:hover {
-          opacity: 1;
-          transform: scale(1.2);
+        &__btn-remove {
+          opacity: 0.3;
+        }
+
+        &__btn-remove {
           transition: transform 0.1s linear;
+
+          &:hover {
+            opacity: 1;
+            transform: scale(1.2);
+            transition: transform 0.1s linear;
+          }
         }
       }
     }
@@ -41,26 +52,19 @@
         opacity: 0.3;
       }
     }
-
-    span {
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    &__icon {
-      margin-right: 10px;
-    }
-
-    &__svg {
-      fill: #7c7c7c;
-    }
   }
 
-  // .badge {
-  //   padding-left: 5px;
-  //   margin-right: 18px;
-  // }
+  &__name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__quantity {
+    position: absolute;
+    right: 35px;
+    color: rgba(255, 255, 255, 0.5);
+  }
 
   &__btn-remove {
     z-index: 20;

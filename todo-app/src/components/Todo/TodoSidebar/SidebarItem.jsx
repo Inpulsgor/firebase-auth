@@ -15,8 +15,10 @@ const sidebarItem = ({ category, onSelect, onRemove }) => {
   return (
     <li className="categories__item" onClick={selectCategory}>
       <SidebarBadge color={category.color} />
-      <span>{category.name}</span>
-      <span>{category.tasks && category.tasks.length}</span>
+      <span className="categories__name">{category.name}</span>
+      <span className="categories__quantity">
+        {category.tasks && category.tasks.length}
+      </span>
 
       <button
         type="button"

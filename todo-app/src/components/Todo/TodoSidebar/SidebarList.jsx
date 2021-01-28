@@ -7,6 +7,7 @@ import { SidebarItem } from "../../../components";
 
 const SidebarList = () => {
   const [categories, setCategories] = useState([]);
+
   console.log(categories);
 
   // const dispatch = useDispatch();
