@@ -1,6 +1,31 @@
 import { categoriesTypes } from "./categoriesTypes";
 
-// GET
+/*
+ * CREATE CATEGORY
+ */
+
+export const createCategoryRequest = () => ({
+  type: categoriesTypes.CREATE_CATEGORY_REQUEST,
+});
+
+export const createCategorySuccess = (category) => ({
+  type: categoriesTypes.CREATE_CATEGORY_SUCCESS,
+  payload: {
+    category,
+  },
+});
+
+export const createCategoryError = (error) => ({
+  type: categoriesTypes.CREATE_CATEGORY_ERROR,
+  payload: {
+    error,
+  },
+});
+
+/*
+ * GET CATEGORIES
+ */
+
 export const fetchCategoriesRequest = () => ({
   type: categoriesTypes.FETCH_CATEGORIES_REQUEST,
 });
@@ -19,7 +44,10 @@ export const fetchCategoriesError = (error) => ({
   },
 });
 
-// DELETE
+/*
+ * DELETE CATEGORY
+ */
+
 export const deleteCategoryRequest = () => ({
   type: categoriesTypes.DELETE_CATEGORY_REQUEST,
 });

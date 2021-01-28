@@ -1,6 +1,9 @@
 import authTypes from "./authTypes";
 
-// SIGN IN
+/*
+ * SIGN IN
+ */
+
 export const signInRequest = () => ({
   type: authTypes.SIGN_IN_REQUEST,
 });
@@ -19,7 +22,10 @@ export const signInError = (error) => ({
   },
 });
 
-// SIGN UP
+/*
+ * SIGN UP
+ */
+
 export const signUpRequest = () => ({
   type: authTypes.SIGN_UP_REQUEST,
 });
@@ -38,7 +44,10 @@ export const signUpError = (error) => ({
   },
 });
 
-// SIGN OUT
+/*
+ * SIGN OUT
+ */
+
 export const signOutSuccess = () => ({
   type: authTypes.SIGN_OUT_SUCCESS,
 });
@@ -49,6 +58,10 @@ export const signOutError = (error) => ({
     error,
   },
 });
+
+/*
+ * CLEAR ERROR
+ */
 
 export const clearError = () => ({
   type: authTypes.CLEAR_ERROR,

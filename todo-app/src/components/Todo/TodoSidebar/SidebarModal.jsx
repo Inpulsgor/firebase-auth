@@ -29,8 +29,11 @@ const SidebarModal = ({ colors, onModalClose }) => {
 
     api
       .createCategory(credentials)
-      .then((response) => console.log(response))
+      .then((response) => response)
       .catch((error) => console.log(error));
+
+    setInputValue("");
+    onModalClose();
 
     //   api
     //     .createList(credentials)
@@ -42,60 +45,52 @@ const SidebarModal = ({ colors, onModalClose }) => {
     //     })
     //     .catch((error) => console.log(error))
     //     .finally(() => setIsLoading(false));
-    // };
-
-    const handleSelectColor = (colorID) => {
-      setSelectedColor(colorID);
-    };
-
-    return (
-      <div className="sidebar__modal modal">
-        <button
-          type="button"
-          className="modal__btn-close"
-          onClick={onModalClose}
-        >
-          <CloseSvg className="modal__btn-svg" />
-        </button>
-
-        <form
-          onSubmit={handleCategoryCreate}
-          className="modal__form modal-form"
-        >
-          <div className="modal-form__group group">
-            <input
-              type="text"
-              id="category"
-              name="category"
-              className="modal-form__input input"
-              placeholder=" "
-              value={inputValue}
-              onChange={handleChange}
-            />
-            <label htmlFor="category" className="modal-form__label label">
-              Enter name...
-            </label>
-          </div>
-
-          <ul className="modal__list colors">
-            {colors &&
-              colors.map((color) => (
-                <SidebarColor
-                  key={color.id}
-                  color={color}
-                  selectedColor={selectedColor}
-                  handleSelectColor={handleSelectColor}
-                />
-              ))}
-          </ul>
-
-          <button type="submit" className="modal__btn-create button">
-            Create
-          </button>
-        </form>
-      </div>
-    );
   };
+
+  const handleSelectColor = (colorID) => {
+    setSelectedColor(colorID);
+  };
+
+  return (
+    <div className="sidebar__modal modal">
+      <button type="button" className="modal__btn-close" onClick={onModalClose}>
+        <CloseSvg className="modal__btn-svg" />
+      </button>
+
+      <form onSubmit={handleCategoryCreate} className="modal__form modal-form">
+        <div className="modal-form__group group">
+          <input
+            type="text"
+            id="category"
+            name="category"
+            className="modal-form__input input"
+            placeholder=" "
+            value={inputValue}
+            onChange={handleChange}
+          />
+          <label htmlFor="category" className="modal-form__label label">
+            Enter name...
+          </label>
+        </div>
+
+        <ul className="modal__list colors">
+          {colors &&
+            colors.map((color) => (
+              <SidebarColor
+                key={color.id}
+                color={color}
+                selectedColor={selectedColor}
+                handleSelectColor={handleSelectColor}
+              />
+            ))}
+        </ul>
+
+        <button type="submit" className="modal__btn-create button">
+          Create
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default SidebarModal;

@@ -86,9 +86,11 @@ button[disabled] {
 }
 
 .loader {
-  position: relative;
   display: block;
-  background-color: $color-quill;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $color-quill;
   width: 100%;
   height: 100%;
   z-index: 999999;

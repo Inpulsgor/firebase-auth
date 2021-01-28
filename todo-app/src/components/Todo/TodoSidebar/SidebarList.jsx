@@ -1,13 +1,22 @@
-import React from "react";
-// import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { firebaseDB } from "../../../services/api/firebase";
 
 // import * as listsOperations from "../../../redux/lists/listsOperations";
 import { SidebarItem } from "../../../components";
 
-const SidebarList = ({ lists, activeList }) => {
+const SidebarList = () => {
+  const [categories, setCategories] = useState([]);
+  console.log(categories);
+
   // const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    firebaseDB.collection("categories").onSnapshot((snapshot) => {
+      setCategories(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
 
   // useEffect(() => {
   //   const listId = history.location.pathname.split("lists/")[1];
@@ -18,8 +27,8 @@ const SidebarList = ({ lists, activeList }) => {
   //   }
   // }, [lists, history.location.pathname]);
 
-  const handleCategorySelect = (list) => {
-    history.push(`/lists/${list.id}`);
+  const handleCategorySelect = (category) => {
+    history.push(`/category/${category.id}`);
     // setActiveList(list);
   };
 
@@ -35,30 +44,20 @@ const SidebarList = ({ lists, activeList }) => {
   // };
 
   return (
-    <section className="sidebar__body categories">
+    <div className="sidebar__body categories">
       <ul className="categories__list">
-        {lists &&
-          lists.length > 0 &&
-          lists.map((list) => (
+        {categories.length > 0 &&
+          categories.map((category) => (
             <SidebarItem
-              key={list.id}
-              list={list}
-              handleCategorySelect={handleCategorySelect}
-              handleCategoryRemove={handleCategoryRemove}
+              key={category.color}
+              category={category}
+              onSelect={handleCategorySelect}
+              onRemove={handleCategoryRemove}
             />
           ))}
       </ul>
-    </section>
+    </div>
   );
 };
-
-// const mapStateToProps = (state) => ({
-//   lists: state.lists.items,
-//   colors: state.colors.items,
-// });
-
-// const mapDispatchToProps = {
-//   handleRemoveList: listsOperations.removeList,
-// };
 
 export default SidebarList;

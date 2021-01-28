@@ -12,7 +12,10 @@ import {
   clearError,
 } from "./authActions";
 
-// SingIn
+/*
+ * SIGN IN
+ */
+
 export const signIn = (email, password) => (dispatch) => {
   dispatch(signInRequest());
   dispatch(loaderActive());
@@ -29,7 +32,10 @@ export const signIn = (email, password) => (dispatch) => {
     .finally(() => dispatch(loaderDisabled()));
 };
 
-// SignUp
+/*
+ * SIGN UP
+ */
+
 export const signUp = (email, password) => (dispatch) => {
   dispatch(signUpRequest());
   dispatch(loaderActive());
@@ -46,7 +52,10 @@ export const signUp = (email, password) => (dispatch) => {
     .finally(() => dispatch(loaderDisabled()));
 };
 
-// SignOut
+/*
+ * SIGN OUT
+ */
+
 export const logOut = () => (dispatch) => {
   dispatch(loaderActive());
 
