@@ -6,6 +6,7 @@ import { persistReducer } from "redux-persist";
 import authReducer from "./auth/authReducer";
 import loaderReducer from "./loader/loaderReducer";
 import categoriesReducer from "./categories/categoriesReducer";
+import colorsReducer from "./colors/colorsReducer";
 
 const authPersistConfig = {
   key: "auth",
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   isLoading: loaderReducer,
   categories: categoriesReducer,
+  colors: colorsReducer,
 });
 
 export default rootReducer;

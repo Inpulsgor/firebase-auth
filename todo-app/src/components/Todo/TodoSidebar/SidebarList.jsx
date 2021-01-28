@@ -10,7 +10,7 @@ const SidebarList = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log(categories);
+  console.log("--- CATEGORIES", categories);
 
   useEffect(() => {
     dispatch(getCategories());

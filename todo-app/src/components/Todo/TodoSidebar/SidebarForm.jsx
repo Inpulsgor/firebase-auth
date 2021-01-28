@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
+import { getColors } from "../../../redux/colors/colorsOperations";
 import { SidebarColor } from "../../../components";
-import { firebaseDB } from "../../../services/api/firebase";
-import * as api from "../../../services/api/api";
 
 const SidebarForm = ({ onModalClose }) => {
   const [inputValue, setInputValue] = useState("");
-  const [colors, setColors] = useState([]);
-  const [selectedColor, setSelectedColor] = useState("orange");
+  const [selectedColor, setSelectedColor] = useState("");
+  const colors = useSelector((state) => state.colors.items);
+  const dispatch = useDispatch();
+
+  console.log("--- COLORS", colors);
 
   useEffect(() => {
-    firebaseDB.collection("colors").onSnapshot((snapshot) => {
-      setColors(snapshot.docs.map((doc) => doc.data()));
-    });
-  }, []);
+    dispatch(getColors());
+  }, [dispatch]);
 
   // useEffect(() => {
   //   if (colors && colors.length > 0 && Array.isArray(colors)) {
@@ -32,12 +33,12 @@ const SidebarForm = ({ onModalClose }) => {
     if (!selectedColor) {
       return;
     }
-    const credentials = { name: inputValue, colorId: selectedColor };
+    // const credentials = { name: inputValue, colorId: selectedColor };
 
-    api
-      .createCategory(credentials)
-      .then((response) => response)
-      .catch((error) => console.log(error));
+    // api
+    //   .createCategory(credentials)
+    //   .then((response) => response)
+    //   .catch((error) => console.log(error));
 
     setInputValue("");
     onModalClose();
@@ -76,7 +77,8 @@ const SidebarForm = ({ onModalClose }) => {
       </div>
 
       <ul className="modal__list colors">
-        {colors.length > 0 &&
+        {colors &&
+          colors.length > 0 &&
           colors.map((color) => (
             <SidebarColor
               key={color.hex}

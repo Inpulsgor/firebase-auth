@@ -1,3 +1,17 @@
 .colors {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
+  .badge {
+    width: 18px;
+    height: 18px;
+
+    &.active {
+      // border: 2px solid #525252;
+      border: 2px solid #fff;
+      box-shadow: 0 0 4px 1px #393dce;
+    }
+  }
 }

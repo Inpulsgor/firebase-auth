@@ -1,17 +1,16 @@
-import api from "../../services/api/api";
+import * as api from "../../services/api/api";
 
 import {
-  fetchColorsRequest,
-  fetchColorsSuccess,
-  fetchColorsError,
+  getColorsRequest,
+  getColorsSuccess,
+  getColorsError,
 } from "./colorsActions";
 
-export const fetchColors = () => (dispatch) => {
-  dispatch(fetchColorsRequest());
+export const getColors = () => (dispatch) => {
+  dispatch(getColorsRequest());
 
-  api.getColors()
-    .then((response) => {
-      dispatch(fetchColorsSuccess(response.data));
-    })
-    .catch((error) => dispatch(fetchColorsError(error)));
+  api
+    .getColors()
+    .then((data) => dispatch(getColorsSuccess(data)))
+    .catch((error) => dispatch(getColorsError(error)));
 };

@@ -37,14 +37,3 @@
     background-color: #ff6464;
   }
 }
-
-.colors {
-  display: flex;
-  justify-content: space-between;
-
-  .badge {
-    &.active {
-      border: 2px solid #525252;
-    }
-  }
-}
