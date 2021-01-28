@@ -1,16 +1,49 @@
 import * as api from "../../services/api/api";
-import { loaderActive, loaderDisabled } from "../loader/loaderActions";
+import { loaderActive, loaderDisabled } from "../../redux/loader/loaderActions";
+import { firebaseDB } from "../../services/api/firebase";
 import {
+  getCategoriesRequest,
+  getCategoriesSuccess,
+  getCategoriesError,
   createCategoryRequest,
   createCategorySuccess,
   createCategoryError,
-  fetchCategoriesRequest,
-  fetchCategoriesSuccess,
-  fetchCategoriesError,
   deleteCategoryRequest,
   deleteCategorySuccess,
   deleteCategoryError,
 } from "./categoriesActions";
+
+/*
+ * GET CATEGORIES
+ */
+
+export const getCategories = () => (dispatch) => {
+  dispatch(getCategoriesRequest());
+  dispatch(loaderActive());
+
+  firebaseDB
+    .collection("categories")
+    .get()
+    .then((snapshot) => {
+      let data = [];
+
+      snapshot.forEach((doc) => {
+        const category = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        data.push(category);
+      });
+
+      dispatch(getCategoriesSuccess(data));
+    })
+    .catch((error) => dispatch(getCategoriesError(error)))
+    .finally(() => dispatch(loaderDisabled()));
+};
+
+/*
+ * CREATE CATEGORY
+ */
 
 export const createCategory = (credentials) => (dispatch) => {
   dispatch(createCategoryRequest());
@@ -23,16 +56,9 @@ export const createCategory = (credentials) => (dispatch) => {
     .finally(() => dispatch(loaderDisabled()));
 };
 
-export const fetchCategories = () => (dispatch) => {
-  dispatch(fetchCategoriesRequest());
-  dispatch(loaderActive());
-
-  api
-    .getCategories()
-    .then((response) => dispatch(fetchCategoriesSuccess(response.data)))
-    .catch((error) => dispatch(fetchCategoriesError(error)))
-    .finally(() => dispatch(loaderDisabled()));
-};
+/*
+ * DELETE CATEGORY
+ */
 
 export const removeCategory = (id) => (dispatch) => {
   dispatch(deleteCategoryRequest());

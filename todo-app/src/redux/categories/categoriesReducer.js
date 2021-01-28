@@ -3,8 +3,8 @@ import { categoriesTypes } from "./categoriesTypes";
 
 const itemsReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case categoriesTypes.FETCH_CATEGORIES_SUCCESS:
-      return [...state, payload.category];
+    case categoriesTypes.GET_CATEGORIES_SUCCESS:
+      return [...payload.categories];
 
     case categoriesTypes.DELETE_CATEGORY_SUCCESS:
       return state.filter((item) => item.id !== payload.id);
@@ -16,8 +16,8 @@ const itemsReducer = (state = [], { type, payload }) => {
 
 const errorReducer = (state = null, { type, payload }) => {
   switch (type) {
-    case categoriesTypes.FETCH_CATEGORIES_REQUEST:
-    case categoriesTypes.FETCH_CATEGORIES_SUCCESS:
+    case categoriesTypes.GET_CATEGORIES_REQUEST:
+    case categoriesTypes.GET_CATEGORIES_SUCCESS:
       return null;
 
     case categoriesTypes.FETCH_CATEGORIES_ERROR:

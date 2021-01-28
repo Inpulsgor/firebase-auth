@@ -26,19 +26,19 @@ export const createCategoryError = (error) => ({
  * GET CATEGORIES
  */
 
-export const fetchCategoriesRequest = () => ({
-  type: categoriesTypes.FETCH_CATEGORIES_REQUEST,
+export const getCategoriesRequest = () => ({
+  type: categoriesTypes.GET_CATEGORIES_REQUEST,
 });
 
-export const fetchCategoriesSuccess = (categories) => ({
-  type: categoriesTypes.FETCH_CATEGORIES_SUCCESS,
+export const getCategoriesSuccess = (categories) => ({
+  type: categoriesTypes.GET_CATEGORIES_SUCCESS,
   payload: {
     categories,
   },
 });
 
-export const fetchCategoriesError = (error) => ({
-  type: categoriesTypes.FETCH_CATEGORIES_ERROR,
+export const getCategoriesError = (error) => ({
+  type: categoriesTypes.GET_CATEGORIES_ERROR,
   payload: {
     error,
   },

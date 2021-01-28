@@ -1,8 +1,4 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-
-// import * as colorsOperations from "../../redux/colors/colorsOperations";
-import * as categoriesOperations from "../redux/categories/categoriesOperations";
+import React from "react";
 // Layout
 import {
   AppLayout,
@@ -23,16 +19,6 @@ import {
 } from "../components";
 
 const MainPage = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(categoriesOperations.fetchCategories());
-  }, [dispatch]);
-
-  // useEffect(() => {
-  //   dispatch(colorsOperations.fetchColors());
-  // }, [dispatch]);
-
   return (
     <AppLayout>
       <HeaderLayout>

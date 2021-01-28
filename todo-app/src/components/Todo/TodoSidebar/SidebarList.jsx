@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { firebaseDB } from "../../../services/api/firebase";
+import { useDispatch, useSelector } from "react-redux";
 
-// import * as listsOperations from "../../../redux/lists/listsOperations";
+import { getCategories } from "../../../redux/categories/categoriesOperations";
 import { SidebarItem } from "../../../components";
 
 const SidebarList = () => {
-  const [categories, setCategories] = useState([]);
+  const categories = useSelector((state) => state.categories.items);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   console.log(categories);
 
-  // const dispatch = useDispatch();
-  const history = useHistory();
-
   useEffect(() => {
-    firebaseDB.collection("categories").onSnapshot((snapshot) => {
-      setCategories(snapshot.docs.map((doc) => doc.data()));
-    });
-  }, []);
+    dispatch(getCategories());
+  }, [dispatch]);
 
   // useEffect(() => {
   //   const listId = history.location.pathname.split("lists/")[1];
