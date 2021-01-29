@@ -12,22 +12,36 @@ const SidebarList = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  /*
+   * useEffect || fetch categories from firebase
+   */
   useEffect(() => {
     dispatch(categoriesOperations.getCategories());
   }, [dispatch]);
 
+  /*
+   * useEffect || get colors from firebase
+   */
   useEffect(() => {
     dispatch(colorsOperations.getColors());
   }, [dispatch]);
 
+  /*
+   * useEffect || set active category on location path change
+   */
+
   useEffect(() => {
     const locationID = history.location.pathname.split("categories/")[1];
 
-    if (categories && locationID) {
+    if (locationID && categories) {
       const category = categories.find((item) => item.id === locationID);
       setActiveCategory(category);
     }
   }, [categories, history.location.pathname]);
+
+  /*
+   * set category ID to location pathname
+   */
 
   const handleCategorySelect = (category) => {
     history.push(`/categories/${category.id}`);

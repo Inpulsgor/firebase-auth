@@ -8,15 +8,28 @@ const SidebarForm = ({ onModalClose }) => {
   const [selectedColor, setSelectedColor] = useState("");
   const colors = useSelector((state) => state.colors.items);
 
-  console.log("%cCOLORS", "color: yellow;", colors);
+  // console.log("%cCOLORS", "color: yellow;", colors);
+  console.log("%cSelectedColor", "color: yellow;", selectedColor);
+
+  /*
+   * useEffect || set first list-item(color) as selected color(active)
+   */
 
   useEffect(() => {
     if (colors && colors.length > 0 && Array.isArray(colors)) {
-      setSelectedColor(colors[0].id);
+      setSelectedColor(colors[0].name);
     }
   }, [colors]);
 
+  /*
+   * useEffect || get input value && set value to state
+   */
+
   const handleChange = ({ target }) => setInputValue(target.value);
+
+  /*
+   * useEffect || create new category / post data to firebase db && update redux store
+   */
 
   const handleCategoryCreate = (e) => {
     e.preventDefault();
@@ -27,7 +40,8 @@ const SidebarForm = ({ onModalClose }) => {
     if (!selectedColor) {
       return;
     }
-    // const credentials = { name: inputValue, colorId: selectedColor };
+
+    const credentials = { name: inputValue, color: selectedColor, tasks: [] };
 
     // api
     //   .createCategory(credentials)
@@ -36,21 +50,10 @@ const SidebarForm = ({ onModalClose }) => {
 
     setInputValue("");
     onModalClose();
-
-    //   api
-    //     .createList(credentials)
-    //     .then(({ data }) => {
-    //       const color = colors.filter((col) => col.id === selectedColor)[0].name;
-    //       const modifiedData = { ...data, color: { name: color } };
-    //       onAdd(modifiedData);
-    //       onModalClose();
-    //     })
-    //     .catch((error) => console.log(error))
-    //     .finally(() => setIsLoading(false));
   };
 
-  const handleSelectColor = (colorID) => {
-    setSelectedColor(colorID);
+  const handleSelectColor = (color) => {
+    setSelectedColor(color);
   };
 
   return (
