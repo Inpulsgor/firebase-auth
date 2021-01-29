@@ -1,33 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getCategories } from "redux/categories/categoriesOperations";
+import * as categoriesOperations from "redux/categories/categoriesOperations";
+import * as colorsOperations from "redux/colors/colorsOperations";
 import { SidebarItem } from "components";
 
 const SidebarList = () => {
+  const [activeCategory, setActiveCategory] = useState(null);
   const categories = useSelector((state) => state.categories.items);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log("%c CATEGORIES --->", "color: green", categories);
-
   useEffect(() => {
-    dispatch(getCategories());
+    dispatch(categoriesOperations.getCategories());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const listId = history.location.pathname.split("lists/")[1];
+  useEffect(() => {
+    dispatch(colorsOperations.getColors());
+  }, [dispatch]);
 
-  //   if (lists) {
-  //     const list = lists.find((list) => list.id === Number(listId));
-  //     setActiveList(list);
-  //   }
-  // }, [lists, history.location.pathname]);
+  useEffect(() => {
+    const locationID = history.location.pathname.split("categories/")[1];
+
+    if (categories && locationID) {
+      const category = categories.find((item) => item.id === locationID);
+      setActiveCategory(category);
+    }
+  }, [categories, history.location.pathname]);
 
   const handleCategorySelect = (category) => {
-    history.push(`/category/${category.id}`);
-    // setActiveList(list);
+    history.push(`/categories/${category.id}`);
   };
 
   const handleCategoryRemove = (id) => {
@@ -49,6 +52,7 @@ const SidebarList = () => {
             <SidebarItem
               key={category.color}
               category={category}
+              activeCategory={activeCategory}
               onSelect={handleCategorySelect}
               onRemove={handleCategoryRemove}
             />

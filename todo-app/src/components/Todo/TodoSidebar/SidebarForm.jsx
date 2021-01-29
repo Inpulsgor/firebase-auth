@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import * as colorsOperations from "redux/colors/colorsOperations";
 import { SidebarColor } from "components";
 
 const SidebarForm = ({ onModalClose }) => {
   const [inputValue, setInputValue] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const colors = useSelector((state) => state.colors.items);
-  const dispatch = useDispatch();
 
   console.log("%cCOLORS", "color: yellow;", colors);
-
-  useEffect(() => {
-    dispatch(colorsOperations.getColors());
-  }, [dispatch]);
 
   useEffect(() => {
     if (colors && colors.length > 0 && Array.isArray(colors)) {

@@ -2,6 +2,16 @@ import { lazy } from "react";
 
 const routes = [
   {
+    path: "/auth",
+    label: "AuthPage",
+    exact: false,
+    component: lazy(() =>
+      import("./AuthPage" /* webpackChunkName: "MainPage" */)
+    ),
+    private: false,
+    restricted: true,
+  },
+  {
     path: "/",
     label: "HomePage",
     exact: true,
@@ -12,14 +22,14 @@ const routes = [
     restricted: false,
   },
   {
-    path: "/auth",
-    label: "AuthPage",
+    path: "/categories/:id",
+    label: "HomePage",
     exact: false,
     component: lazy(() =>
-      import("./AuthPage" /* webpackChunkName: "MainPage" */)
+      import("./HomePage" /* webpackChunkName: "HomePage" */)
     ),
-    private: false,
-    restricted: true,
+    private: true,
+    restricted: false,
   },
 ];
 
