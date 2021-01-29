@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ReactComponent as PenSvg } from "../../assets/icons/pen.svg";
+import { ReactComponent as PenSvg } from "assets/icons/pen.svg";
 
 const TasksHeader = ({ color, name }) => {
   // const handleEditTitle = (id, newTitle) => {

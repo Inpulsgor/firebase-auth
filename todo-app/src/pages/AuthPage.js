@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-// Layout
-import { AppLayout, MainLayout, FooterLayout } from "../components/Layout";
-// Components
-import { SignIn, SignUp, Footer } from "../components";
+
+import { AppLayout, MainLayout, FooterLayout } from "components/Layout";
+import { SignIn, SignUp, Footer } from "components";
 
 const AuthPage = () => {
   const [signInType, setSignInType] = useState(false);

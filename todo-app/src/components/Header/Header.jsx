@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { logOut } from "../../redux/auth/authOperations";
+import { logOut } from "redux/auth/authOperations";
 
 const Header = () => {
   const currentUser = useSelector((state) => state.auth.user.email);
@@ -18,7 +18,7 @@ const Header = () => {
         Todo-app
       </Link>
       <nav className="header__nav nav">
-        <span className="nav__user">{currentUser}</span>
+        <span className="nav__user">{currentUser ? currentUser : null}</span>
         <button className="nav__btn" type="button" onClick={handleLogOut}>
           SignOut
         </button>

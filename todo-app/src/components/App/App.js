@@ -5,9 +5,9 @@ import { CommonLoading } from "react-loadingg";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // local imports
-import routes from "../../pages/routes";
-import { PrivateRoute, PublicRoute } from "../../services/helpers";
-import { Loader } from "../../components";
+import routes from "pages/routes";
+import { PrivateRoute, PublicRoute } from "services/helpers";
+import { Loader } from "components";
 
 const App = () => {
   const isLoading = useSelector((state) => state.isLoading);

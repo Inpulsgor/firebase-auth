@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getCategories } from "../../../redux/categories/categoriesOperations";
-import { SidebarItem } from "../../../components";
+import { getCategories } from "redux/categories/categoriesOperations";
+import { SidebarItem } from "components";
 
 const SidebarList = () => {
   const categories = useSelector((state) => state.categories.items);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log("--- CATEGORIES", categories);
+  console.log("%c CATEGORIES --->", "color: green", categories);
 
   useEffect(() => {
     dispatch(getCategories());

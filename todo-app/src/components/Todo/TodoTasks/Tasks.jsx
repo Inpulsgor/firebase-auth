@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TasksHeader, TasksList, TasksCreator } from "../../components";
+import { TasksHeader, TasksList, TasksCreator } from "components";
 
 const Tasks = () => {
   return (

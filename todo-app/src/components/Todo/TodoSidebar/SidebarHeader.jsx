@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ReactComponent as TasksSvg } from "../../../assets/icons/list.svg";
+import { ReactComponent as TasksSvg } from "assets/icons/list.svg";
 
 const SidebarHeader = () => {
   return (

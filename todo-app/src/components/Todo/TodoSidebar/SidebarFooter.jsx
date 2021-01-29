@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { SidebarModal } from "../../../components";
+import { SidebarModal } from "components";
 
 const SidebarFooter = () => {
   const [openModal, setOpenModal] = useState(false);

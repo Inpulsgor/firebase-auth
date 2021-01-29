@@ -58,7 +58,10 @@
   }
 }
 
-// font
+/*
+* FONT 
+*/
+
 @mixin font($ff: "Raleway", $fw: 400, $fs: 16px, $lh: 1.2, $color: inherit) {
   font-family: $ff;
   font-weight: $fw;
@@ -67,12 +70,18 @@
   color: $color;
 }
 
-// font size (rem)
+/*
+* FONT SIZE (PX to REM)
+*/
+
 @function rem($px) {
   @return ($px / 16) + rem;
 }
 
-// font family
+/*
+* FONT FAMILY MIXIN
+*/
+
 @mixin font-face($font-family, $url, $weight) {
   @font-face {
     font-family: "#{$font-family}";

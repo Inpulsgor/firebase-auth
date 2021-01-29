@@ -1,4 +1,7 @@
-// BASE
+/*
+* BASE STYLES
+*/
+
 @import "./base/normalize";
 @import "./base/variables";
 @import "./base/mixins";
@@ -6,7 +9,10 @@
 @import "./base/container";
 @import "./base/transition";
 
-// LAYOUT
+/*
+* LAYOUT STYLES
+*/
+
 @import "./layout/appLayout";
 @import "./layout/headerLayout";
 @import "./layout/mainLayout";
@@ -14,7 +20,10 @@
 @import "./layout/todoLayout";
 @import "./layout/sidebarLayout";
 
-// COMPONENTS
+/*
+* COMPONENTS STYLES
+*/
+
 @import "./components/sidebarList";
 @import "./components/sidebarHeader";
 @import "./components/sidebarBadge";

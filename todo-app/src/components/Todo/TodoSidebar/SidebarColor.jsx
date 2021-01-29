@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SidebarBadge } from "../../../components";
+import { SidebarBadge } from "components";
 
 const SidebarColor = ({ color, handleSelectColor, selectedColor }) => {
   const colorSelect = () => handleSelectColor(color.id);

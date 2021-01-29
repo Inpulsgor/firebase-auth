@@ -1,4 +1,4 @@
-import * as api from "../../services/api/api";
+import * as api from "services/api/api";
 
 import {
   getColorsRequest,

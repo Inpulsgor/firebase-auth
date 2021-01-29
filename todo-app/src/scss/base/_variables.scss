@@ -1,8 +1,14 @@
-// fonts
+/*
+* FONT
+*/
+
 $font-family-primary: "Nunito", sans-serif;
 $font-size: 14px;
 
-// background
+/*
+* BACKGROUND 
+*/
+
 $background-gradient: radial-gradient(
   ellipse at left bottom,
   rgba(22, 24, 47, 1) 0%,
@@ -10,7 +16,10 @@ $background-gradient: radial-gradient(
   rgba(17, 27, 75, 0.9) 100%
 );
 
-// colors
+/*
+* COLORS 
+*/
+
 $color-orange: #da8d00;
 $color-red: #ff0000;
 $color-dark: #151515;
@@ -21,6 +30,9 @@ $color-tundora: #454545;
 $color-border: #2b305c;
 $color-btn-hover: #0071f0b3;
 
-// shadow
+/*
+* SHADOW 
+*/
+
 $todo-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 $form-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);

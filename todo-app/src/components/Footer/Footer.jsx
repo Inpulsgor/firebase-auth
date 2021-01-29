@@ -1,5 +1,6 @@
 import React from "react";
-import { ReactComponent as HeartLogo } from "../../assets/icons/heart.svg";
+
+import { ReactComponent as HeartLogo } from "assets/icons/heart.svg";
 
 const Footer = () => {
   return (

@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const SignUpSchema = Yup.object().shape({
+const SignUpSchema = Yup.object().shape({
   firstName: Yup.string()
     .required("Your first name is required")
     .min(3, "To short")
@@ -15,3 +15,5 @@ export const SignUpSchema = Yup.object().shape({
     .oneOf([Yup.ref("password"), null], `Password doesn't match`)
     .required("You need to confirm your password"),
 });
+
+export default SignUpSchema;

@@ -1,5 +1,5 @@
 import React from "react";
-// Layout
+
 import {
   AppLayout,
   HeaderLayout,
@@ -8,15 +8,15 @@ import {
   TodoLayout,
   SidebarLayout,
   TasksLayout,
-} from "../components/Layout";
-// Components
+} from "components/Layout";
+
 import {
   Header,
   Footer,
   SidebarHeader,
   SidebarList,
   SidebarFooter,
-} from "../components";
+} from "components";
 
 const MainPage = () => {
   return (

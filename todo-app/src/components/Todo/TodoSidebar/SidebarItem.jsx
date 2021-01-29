@@ -1,7 +1,7 @@
 import React from "react";
 
-import { SidebarBadge } from "../../../components";
-import { ReactComponent as RemoveSvg } from "../../../assets/icons/remove.svg";
+import { SidebarBadge } from "components";
+import { ReactComponent as RemoveSvg } from "assets/icons/remove.svg";
 
 const sidebarItem = ({ category, onSelect, onRemove }) => {
   const selectCategory = () => {

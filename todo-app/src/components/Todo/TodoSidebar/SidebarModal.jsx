@@ -1,7 +1,7 @@
 import React from "react";
 
-import { ReactComponent as CloseSvg } from "../../../assets/icons/close.svg";
-import { SidebarForm } from "../../../components";
+import { ReactComponent as CloseSvg } from "assets/icons/close.svg";
+import { SidebarForm } from "components";
 
 const SidebarModal = ({ onModalClose }) => {
   return (

@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 
-import { SignUpSchema } from "./SignUpSchema";
-import { signUp } from "../../../redux/auth/authOperations";
+import SignUpSchema from "./SignUpSchema";
+import * as authOperations from "redux/auth/authOperations";
 
 const SignUp = ({ signInType, setSignInType }) => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const SignUp = ({ signInType, setSignInType }) => {
     SignUpSchema,
     onSubmit: (values, { setSubmitting }) => {
       if (values.email && values.password === values.passwordConfirmation) {
-        dispatch(signUp(values.email, values.password));
+        dispatch(authOperations.signUp(values.email, values.password));
       } else {
         return;
       }

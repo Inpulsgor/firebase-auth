@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getColors } from "../../../redux/colors/colorsOperations";
-import { SidebarColor } from "../../../components";
+import * as colorsOperations from "redux/colors/colorsOperations";
+import { SidebarColor } from "components";
 
 const SidebarForm = ({ onModalClose }) => {
   const [inputValue, setInputValue] = useState("");
@@ -10,17 +10,17 @@ const SidebarForm = ({ onModalClose }) => {
   const colors = useSelector((state) => state.colors.items);
   const dispatch = useDispatch();
 
-  console.log("--- COLORS", colors);
+  console.log("%cCOLORS", "color: yellow;", colors);
 
   useEffect(() => {
-    dispatch(getColors());
+    dispatch(colorsOperations.getColors());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (colors && colors.length > 0 && Array.isArray(colors)) {
-  //     setSelectedColor(colors[0].id);
-  //   }
-  // }, [colors]);
+  useEffect(() => {
+    if (colors && colors.length > 0 && Array.isArray(colors)) {
+      setSelectedColor(colors[0].id);
+    }
+  }, [colors]);
 
   const handleChange = ({ target }) => setInputValue(target.value);
 
