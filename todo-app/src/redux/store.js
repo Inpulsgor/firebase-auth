@@ -3,7 +3,7 @@ import { persistStore } from "redux-persist";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
-// import { logger } from "redux-logger";
+import { logger } from "redux-logger";
 
 // REDUCERS
 import authReducer from "./auth/authReducer";
@@ -25,7 +25,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     colors: colorsReducer,
   },
-  middleware: [thunk],
+  middleware: [thunk, logger],
 });
 
 export const persistor = persistStore(store);

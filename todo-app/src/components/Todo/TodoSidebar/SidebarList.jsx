@@ -42,11 +42,6 @@ const SidebarList = () => {
     dispatch(categoriesOperations.removeCategory(categoryID));
   };
 
-  // const addToList = (modifiedObject) => {
-  // const updatedList = [...lists, modifiedObject];
-  // setLists(updatedList);
-  // };
-
   return (
     <div className="sidebar__body categories">
       <ul className="categories__list">
