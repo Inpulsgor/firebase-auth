@@ -1,16 +1,9 @@
-import loaderTypes from "./loaderTypes";
+import { createReducer } from "@reduxjs/toolkit";
+import * as loaderActions from "./loaderActions";
 
-const loaderReducer = (state = false, { type }) => {
-  switch (type) {
-    case loaderTypes.SET_LOADER_ACTIVE:
-      return true;
-
-    case loaderTypes.SET_LOADER_DISABLED:
-      return false;
-
-    default:
-      return state;
-  }
-};
+const loaderReducer = createReducer(false, {
+  [loaderActions.loaderActive]: (state, action) => true,
+  [loaderActions.loaderDisabled]: (state, action) => false,
+});
 
 export default loaderReducer;

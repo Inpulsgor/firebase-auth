@@ -1,32 +1,22 @@
 import { combineReducers } from "redux";
-import { categoriesTypes } from "./categoriesTypes";
+import { createReducer } from "@reduxjs/toolkit";
 
-const itemsReducer = (state = [], { type, payload }) => {
-  switch (type) {
-    case categoriesTypes.GET_CATEGORIES_SUCCESS:
-      return [...payload.categories];
+import * as categoriesActions from "./categoriesActions";
 
-    case categoriesTypes.DELETE_CATEGORY_SUCCESS:
-      return state.filter((item) => item.id !== payload.id);
+const itemsReducer = createReducer([], {
+  [categoriesActions.getCategoriesSuccess]: (state, action) => [
+    ...action.payload.categories,
+  ],
+  [categoriesActions.deleteCategorySuccess]: (state, action) =>
+    state.filter((item) => item.id !== action.payload.id),
+});
 
-    default:
-      return state;
-  }
-};
-
-const errorReducer = (state = null, { type, payload }) => {
-  switch (type) {
-    case categoriesTypes.GET_CATEGORIES_REQUEST:
-    case categoriesTypes.GET_CATEGORIES_SUCCESS:
-      return null;
-
-    case categoriesTypes.FETCH_CATEGORIES_ERROR:
-      return payload.error;
-
-    default:
-      return state;
-  }
-};
+const errorReducer = createReducer(null, {
+  [categoriesActions.getCategoriesRequest]: (state, action) => null,
+  [categoriesActions.getCategoriesSuccess]: (state, action) => null,
+  [categoriesActions.getCategoriesError]: (state, action) =>
+    action.payload.error,
+});
 
 export default combineReducers({
   items: itemsReducer,

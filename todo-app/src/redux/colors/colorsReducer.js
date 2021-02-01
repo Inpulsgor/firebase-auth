@@ -1,29 +1,19 @@
 import { combineReducers } from "redux";
-import { colorsTypes } from "./colorsTypes";
+import { createReducer } from "@reduxjs/toolkit";
 
-const colorsReducer = (state = [], { type, payload }) => {
-  switch (type) {
-    case colorsTypes.GET_COLORS_SUCCESS:
-      return [...payload.colors];
+import * as colorsActions from "./colorsActions";
 
-    default:
-      return state;
-  }
-};
+const colorsReducer = createReducer([], {
+  [colorsActions.getColorsSuccess]: (state, action) => [
+    ...action.payload.colors,
+  ],
+});
 
-const errorReducer = (state = null, { type, payload }) => {
-  switch (type) {
-    case colorsTypes.GET_COLORS_REQUEST:
-    case colorsTypes.GET_COLORS_SUCCESS:
-      return null;
-
-    case colorsTypes.GET_COLORS_ERROR:
-      return payload.error;
-
-    default:
-      return state;
-  }
-};
+const errorReducer = createReducer(null, {
+  [colorsActions.getColorsRequest]: (state, action) => null,
+  [colorsActions.getColorsSuccess]: (state, action) => null,
+  [colorsActions.getColorsError]: (state, action) => action.payload.error,
+});
 
 export default combineReducers({
   items: colorsReducer,

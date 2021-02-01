@@ -1,67 +1,58 @@
-import { categoriesTypes } from "./categoriesTypes";
+import { createAction } from "@reduxjs/toolkit";
 
-/*
- * CREATE CATEGORY
- */
+// CREATE CATEGORY
 
-export const createCategoryRequest = () => ({
-  type: categoriesTypes.CREATE_CATEGORY_REQUEST,
-});
+export const createCategoryRequest = createAction(
+  "categories/CREATE_CATEGORY_REQUEST"
+);
 
-export const createCategorySuccess = (category) => ({
-  type: categoriesTypes.CREATE_CATEGORY_SUCCESS,
-  payload: {
-    category,
-  },
-});
+export const createCategorySuccess = createAction(
+  "categories/CREATE_CATEGORY_SUCCESS",
+  (category) => ({
+    payload: {
+      category,
+    },
+  })
+);
 
-export const createCategoryError = (error) => ({
-  type: categoriesTypes.CREATE_CATEGORY_ERROR,
-  payload: {
-    error,
-  },
-});
+export const createCategoryError = createAction(
+  "categories/CREATE_CATEGORY_ERROR"
+);
 
-/*
- * GET CATEGORIES
- */
+// GET CATEGORIES
 
-export const getCategoriesRequest = () => ({
-  type: categoriesTypes.GET_CATEGORIES_REQUEST,
-});
+export const getCategoriesRequest = createAction(
+  "categories/GET_CATEGORIES_REQUEST"
+);
 
-export const getCategoriesSuccess = (categories) => ({
-  type: categoriesTypes.GET_CATEGORIES_SUCCESS,
-  payload: {
-    categories,
-  },
-});
+export const getCategoriesSuccess = createAction(
+  "categories/GET_CATEGORIES_SUCCESS",
+  (categories) => ({
+    payload: {
+      categories,
+    },
+  })
+);
 
-export const getCategoriesError = (error) => ({
-  type: categoriesTypes.GET_CATEGORIES_ERROR,
-  payload: {
-    error,
-  },
-});
+export const getCategoriesError = createAction(
+  "categories/GET_CATEGORIES_ERROR"
+);
 
-/*
- * DELETE CATEGORY
- */
+// DELETE CATEGORY
 
-export const deleteCategoryRequest = () => ({
-  type: categoriesTypes.DELETE_CATEGORY_REQUEST,
-});
+export const deleteCategoryRequest = createAction(
+  "categories/DELETE_CATEGORY_REQUEST"
+);
 
-export const deleteCategorySuccess = (id) => ({
-  type: categoriesTypes.DELETE_CATEGORY_SUCCESS,
-  payload: {
-    id,
-  },
-});
+export const deleteCategorySuccess = createAction(
+  "categories/DELETE_CATEGORY_SUCCESS",
+  (id) => ({
+    payload: {
+      id,
+    },
+  })
+);
 
-export const deleteCategoryError = (error) => ({
-  type: categoriesTypes.DELETE_CATEGORY_ERROR,
-  payload: {
-    error,
-  },
-});
+export const deleteCategoryError = createAction(
+  "categories/DELETE_CATEGORY_ERROR"
+);

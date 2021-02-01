@@ -1,5 +1,0 @@
-export const colorsTypes = {
-  GET_COLORS_REQUEST: "colors/GET_COLORS_REQUEST",
-  GET_COLORS_SUCCESS: "colors/GET_COLORS_SUCCESS",
-  GET_COLORS_ERROR: "colors/GET_COLORS_ERROR",
-};

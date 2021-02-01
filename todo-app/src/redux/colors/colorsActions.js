@@ -1,19 +1,23 @@
-import { colorsTypes } from "./colorsTypes";
+import { createAction } from "@reduxjs/toolkit";
 
-export const getColorsRequest = () => ({
-  type: colorsTypes.GET_COLORS_REQUEST,
-});
+// GET COLORS
 
-export const getColorsSuccess = (colors) => ({
-  type: colorsTypes.GET_COLORS_SUCCESS,
-  payload: {
-    colors,
-  },
-});
+export const getColorsRequest = createAction("colors/GET_COLORS_REQUEST");
 
-export const getColorsError = (error) => ({
-  type: colorsTypes.GET_COLORS_ERROR,
-  payload: {
-    error,
-  },
-});
+export const getColorsSuccess = createAction(
+  "colors/GET_COLORS_SUCCESS",
+  (colors) => ({
+    payload: {
+      colors,
+    },
+  })
+);
+
+export const getColorsError = createAction(
+  "colors/GET_COLORS_ERROR",
+  (error) => ({
+    payload: {
+      error,
+    },
+  })
+);
