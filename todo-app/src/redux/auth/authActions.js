@@ -1,68 +1,48 @@
-import authTypes from "./authTypes";
+import { createAction } from "@reduxjs/toolkit";
 
 /*
  * SIGN IN
  */
 
-export const signInRequest = () => ({
-  type: authTypes.SIGN_IN_REQUEST,
-});
+export const signInRequest = createAction("auth/SIGN_IN_REQUEST");
 
-export const signInSuccess = (response) => ({
-  type: authTypes.SIGN_IN_SUCCESS,
-  payload: {
-    response,
-  },
-});
+export const signInSuccess = createAction(
+  "auth/SIGN_IN_SUCCESS",
+  (response) => ({
+    payload: {
+      response,
+    },
+  })
+);
 
-export const signInError = (error) => ({
-  type: authTypes.SIGN_IN_ERROR,
-  payload: {
-    error,
-  },
-});
+export const signInError = createAction("auth/SIGN_IN_ERROR");
 
 /*
  * SIGN UP
  */
 
-export const signUpRequest = () => ({
-  type: authTypes.SIGN_UP_REQUEST,
-});
+export const signUpRequest = createAction("auth/SIGN_UP_REQUEST");
 
-export const signUpSuccess = (response) => ({
-  type: authTypes.SIGN_UP_SUCCESS,
-  payload: {
-    response,
-  },
-});
+export const signUpSuccess = createAction(
+  "auth/SIGN_UP_SUCCESS",
+  (response) => ({
+    payload: {
+      response,
+    },
+  })
+);
 
-export const signUpError = (error) => ({
-  type: authTypes.SIGN_UP_ERROR,
-  payload: {
-    error,
-  },
-});
+export const signUpError = createAction("auth/SIGN_UP_ERROR");
 
 /*
  * SIGN OUT
  */
 
-export const signOutSuccess = () => ({
-  type: authTypes.SIGN_OUT_SUCCESS,
-});
-
-export const signOutError = (error) => ({
-  type: authTypes.SIGN_OUT_ERROR,
-  payload: {
-    error,
-  },
-});
+export const signOutSuccess = createAction("auth/SIGN_OUT_SUCCESS");
+export const signOutError = createAction("auth/SIGN_OUT_ERROR");
 
 /*
  * CLEAR ERROR
  */
 
-export const clearError = () => ({
-  type: authTypes.CLEAR_ERROR,
-});
+export const clearError = createAction("auth/CLEAR_ERROR");

@@ -1,15 +1,31 @@
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore } from "@reduxjs/toolkit";
 import { persistStore } from "redux-persist";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 // import { logger } from "redux-logger";
 import thunk from "redux-thunk";
 
-import rootReducer from "./rootReducer";
+// REDUCERS
+import authReducer from "./auth/authReducer";
+import loaderReducer from "./loader/loaderReducer";
+import categoriesReducer from "./categories/categoriesReducer";
+import colorsReducer from "./colors/colorsReducer";
 
-// MIDDLEWARE
-const middleware = [thunk]; // [thunk,logger ...] <- middleware goes here
-const enhancer = applyMiddleware(...middleware);
+// PERSIST CONFIG
+const authPersistConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["token", "user", "isAuthenticated"],
+};
 
-// STORE
-export const store = createStore(rootReducer, composeWithDevTools(enhancer));
+export const store = configureStore({
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+    isLoading: loaderReducer,
+    categories: categoriesReducer,
+    colors: colorsReducer,
+  },
+  middleware: [thunk],
+});
+
 export const persistor = persistStore(store);

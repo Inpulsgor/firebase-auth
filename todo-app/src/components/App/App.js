@@ -14,7 +14,6 @@ const App = () => {
   return (
     <Suspense fallback={<CommonLoading color="orange" size="large" />}>
       {isLoading && <Loader />}
-
       <Switch location={location}>
         {routes.map((route) => {
           return route.private ? (
