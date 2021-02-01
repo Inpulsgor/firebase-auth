@@ -8,17 +8,22 @@ import { SidebarItem } from "components";
 
 const SidebarList = () => {
   const [activeCategory, setActiveCategory] = useState(null);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const categories = useSelector((state) => state.categories.items);
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(categoriesOperations.getCategories());
-  }, [dispatch]);
+    if (isAuthenticated) {
+      dispatch(categoriesOperations.getCategories());
+    }
+  }, [isAuthenticated, dispatch]);
 
   useEffect(() => {
-    dispatch(colorsOperations.getColors());
-  }, [dispatch]);
+    if (isAuthenticated) {
+      dispatch(colorsOperations.getColors());
+    }
+  }, [isAuthenticated, dispatch]);
 
   useEffect(() => {
     const locationID = history.location.pathname.split("categories/")[1];
@@ -33,10 +38,8 @@ const SidebarList = () => {
     history.push(`/categories/${category.id}`);
   };
 
-  const handleCategoryRemove = (id) => {
-    // api.deleteList(id);
-    // const updatedList = lists.filter((list) => list.id !== id);
-    // setLists(updatedList);
+  const handleCategoryRemove = (categoryID) => {
+    dispatch(categoriesOperations.removeCategory(categoryID));
   };
 
   // const addToList = (modifiedObject) => {

@@ -1,7 +1,7 @@
 import { firebaseDB } from "./firebase";
 
 /*
- * CATEGORIES REQUEST
+ * CATEGORIES REQUESTS
  */
 export const getCategories = async () => {
   const data = [];
@@ -22,6 +22,26 @@ export const getCategories = async () => {
   return data;
 };
 
+export const createCategory = async (category) => {
+  return await firebaseDB
+    .collection("categories")
+    .doc()
+    .set(category)
+    .then(() => console.log("category successfully created"))
+    .catch((error) => console.log(error));
+};
+
+export const deleteCategory = async (categoryID) => {
+  return await firebaseDB
+    .collection("categories")
+    .doc(categoryID)
+    .delete()
+    .then(() => {
+      console.log("category deleted");
+    })
+    .catch((error) => console.log(error));
+};
+
 // export const getCategories = () => instance.get("/categories.json");
 // export const createCategory = (data) => instance.post("/categories.json", data);
 // export const deleteCategory = (id) => instance.delete(`/categories.json/${id}`);
@@ -29,13 +49,13 @@ export const getCategories = async () => {
 //   instance.patch(`/categories.json/${id}`, data);
 
 /*
- * TASKS REQUEST
+ * TASKS REQUESTS
  */
 // export const getTasks = () => instance.get("/tasks.json");
 // export const createTask = (data) => instance.post("/tasks.json", data);
 
 /*
- * COLORS REQUEST
+ * COLORS REQUESTS
  */
 export const getColors = async () => {
   const data = [];

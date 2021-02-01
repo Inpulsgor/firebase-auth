@@ -4,12 +4,12 @@ import {
   getCategoriesRequest,
   getCategoriesSuccess,
   getCategoriesError,
-  // createCategoryRequest,
-  // createCategorySuccess,
-  // createCategoryError,
-  // deleteCategoryRequest,
-  // deleteCategorySuccess,
-  // deleteCategoryError,
+  createCategoryRequest,
+  createCategorySuccess,
+  createCategoryError,
+  deleteCategoryRequest,
+  deleteCategorySuccess,
+  deleteCategoryError,
 } from "./categoriesActions";
 
 /*
@@ -29,28 +29,24 @@ export const getCategories = () => (dispatch) => {
  * CREATE CATEGORY
  */
 
-// export const createCategory = (credentials) => (dispatch) => {
-//   dispatch(createCategoryRequest());
-//   dispatch(loaderActive());
+export const createCategory = (category) => (dispatch) => {
+  dispatch(createCategoryRequest());
 
-//   api
-//     .createCategory(credentials)
-//     .then((response) => dispatch(createCategorySuccess(response.data)))
-//     .catch((error) => dispatch(createCategoryError(error)))
-//     .finally(() => dispatch(loaderDisabled()));
-// };
+  api
+    .createCategory(category)
+    .then(() => dispatch(createCategorySuccess(category)))
+    .catch((error) => dispatch(createCategoryError(error)));
+};
 
 /*
  * DELETE CATEGORY
  */
 
-// export const removeCategory = (id) => (dispatch) => {
-//   dispatch(deleteCategoryRequest());
-//   dispatch(loaderActive());
+export const removeCategory = (categoryID) => (dispatch) => {
+  dispatch(deleteCategoryRequest());
 
-//   api
-//     .deleteCategory(id)
-//     .then((response) => dispatch(deleteCategorySuccess(id)))
-//     .catch((error) => dispatch(deleteCategoryError(error)))
-//     .finally(() => dispatch(loaderDisabled()));
-// };
+  api
+    .deleteCategory(categoryID)
+    .then(() => dispatch(deleteCategorySuccess(categoryID)))
+    .catch((error) => dispatch(deleteCategoryError(error)));
+};

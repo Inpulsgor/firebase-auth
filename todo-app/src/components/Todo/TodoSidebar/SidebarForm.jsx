@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+import * as categoriesOperations from "redux/categories/categoriesOperations";
 import { SidebarColor } from "components";
 
 const SidebarForm = ({ onModalClose }) => {
   const [inputValue, setInputValue] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const colors = useSelector((state) => state.colors.items);
-
-  // console.log("%cCOLORS", "color: yellow;", colors);
-  console.log("%cSelectedColor", "color: yellow;", selectedColor);
-
-  /*
-   * useEffect || set first list-item(color) as selected color(active)
-   */
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (colors && colors.length > 0 && Array.isArray(colors)) {
@@ -21,15 +16,7 @@ const SidebarForm = ({ onModalClose }) => {
     }
   }, [colors]);
 
-  /*
-   * useEffect || get input value && set value to state
-   */
-
   const handleChange = ({ target }) => setInputValue(target.value);
-
-  /*
-   * useEffect || create new category / post data to firebase db && update redux store
-   */
 
   const handleCategoryCreate = (e) => {
     e.preventDefault();
@@ -41,12 +28,9 @@ const SidebarForm = ({ onModalClose }) => {
       return;
     }
 
-    const credentials = { name: inputValue, color: selectedColor, tasks: [] };
+    const category = { name: inputValue, color: selectedColor, tasks: [] };
 
-    // api
-    //   .createCategory(credentials)
-    //   .then((response) => response)
-    //   .catch((error) => console.log(error));
+    dispatch(categoriesOperations.createCategory(category));
 
     setInputValue("");
     onModalClose();
@@ -78,7 +62,7 @@ const SidebarForm = ({ onModalClose }) => {
           colors.length > 0 &&
           colors.map((color) => (
             <SidebarColor
-              key={color.hex}
+              key={color.id}
               color={color}
               selectedColor={selectedColor}
               handleSelectColor={handleSelectColor}
