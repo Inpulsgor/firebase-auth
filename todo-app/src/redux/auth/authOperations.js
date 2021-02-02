@@ -1,5 +1,7 @@
 import { firebaseAuth } from "../../services/api/firebase";
 import { loaderActive, loaderDisabled } from "../loader/loaderActions";
+import * as categoriesActions from "../categories/categoriesActions";
+import * as colorsActions from "../colors/colorsActions";
 import {
   signInRequest,
   signInSuccess,
@@ -64,6 +66,9 @@ export const logOut = () => (dispatch) => {
     .then(() => {
       dispatch(signOutSuccess());
       dispatch(clearError());
+      dispatch(categoriesActions.setSelectedCategory(null));
+      dispatch(categoriesActions.resetCategories());
+      dispatch(colorsActions.resetColors());
     })
     .catch((error) => {
       dispatch(signOutError(error));

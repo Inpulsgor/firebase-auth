@@ -19,10 +19,12 @@
 @import "./layout/footerLayout";
 @import "./layout/todoLayout";
 @import "./layout/sidebarLayout";
+@import "./layout/tasksLayout";
 
 /*
 * COMPONENTS STYLES
 */
+@import "./components/authForm";
 
 @import "./components/sidebarList";
 @import "./components/sidebarHeader";
@@ -31,9 +33,7 @@
 @import "./components/sidebarModal";
 @import "./components/sidebarColors";
 
-@import "./components/tasks";
-@import "./components/task";
 @import "./components/tasksCreator";
 @import "./components/tasksHeader";
 @import "./components/tasksList";
-@import "./components/authForm";
+@import "./components/tasksItem";

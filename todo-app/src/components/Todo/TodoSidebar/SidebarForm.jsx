@@ -28,7 +28,7 @@ const SidebarForm = ({ onModalClose }) => {
       return;
     }
 
-    const category = { name: inputValue, color: selectedColor, tasks: [] };
+    const category = { name: inputValue, color: selectedColor };
 
     dispatch(categoriesOperations.createCategory(category));
 

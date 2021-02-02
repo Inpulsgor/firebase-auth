@@ -1,23 +1,17 @@
 import { createAction } from "@reduxjs/toolkit";
 
-// GET COLORS
+/*
+ * ------- GET COLORS -------
+ */
 
 export const getColorsRequest = createAction("colors/GET_COLORS_REQUEST");
 
-export const getColorsSuccess = createAction(
-  "colors/GET_COLORS_SUCCESS",
-  (colors) => ({
-    payload: {
-      colors,
-    },
-  })
-);
+export const getColorsSuccess = createAction("colors/GET_COLORS_SUCCESS");
 
-export const getColorsError = createAction(
-  "colors/GET_COLORS_ERROR",
-  (error) => ({
-    payload: {
-      error,
-    },
-  })
-);
+export const getColorsError = createAction("colors/GET_COLORS_ERROR");
+
+/*
+ * ------- RESET COLORS -------
+ */
+
+export const resetColors = createAction("colors/RESET_COLORS");

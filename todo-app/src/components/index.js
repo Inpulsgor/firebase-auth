@@ -25,8 +25,6 @@ export { default as SidebarColor } from "./Todo/TodoSidebar/SidebarColor";
  * Todo-tasks
  */
 
-// export { default as Tasks } from "./Todo/TodoTasks/Tasks";
-// export { default as TasksHeader } from "./Todo/TodoTasks/TasksHeader";
-// export { default as TasksList } from "./Todo/TodoTasks/TasksList";
-// export { default as Task } from "./Todo/TodoTasks/Task";
-// export { default as TasksCreator } from "./Todo/TodoTasks/TasksCreator";
+export { default as TasksHeader } from "./Todo/TodoTasks/TasksHeader";
+export { default as TasksList } from "./Todo/TodoTasks/TasksList";
+export { default as TasksItem } from "./Todo/TodoTasks/TasksItem";

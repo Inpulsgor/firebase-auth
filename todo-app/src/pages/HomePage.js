@@ -16,6 +16,8 @@ import {
   SidebarHeader,
   SidebarList,
   SidebarFooter,
+  TasksHeader,
+  TasksList,
 } from "components";
 
 const MainPage = () => {
@@ -33,7 +35,10 @@ const MainPage = () => {
             <SidebarFooter />
           </SidebarLayout>
 
-          <TasksLayout></TasksLayout>
+          <TasksLayout>
+            <TasksHeader />
+            <TasksList />
+          </TasksLayout>
         </TodoLayout>
       </MainLayout>
 

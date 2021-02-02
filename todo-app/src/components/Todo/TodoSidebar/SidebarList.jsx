@@ -41,6 +41,7 @@ const SidebarList = () => {
 
   const handleCategoryRemove = (categoryID) => {
     dispatch(categoriesOperations.removeCategory(categoryID));
+    dispatch(categoriesActions.setSelectedCategory(null));
   };
 
   return (

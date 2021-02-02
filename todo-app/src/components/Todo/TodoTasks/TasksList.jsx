@@ -1,12 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-// import { Task } from "components";
+import { TasksItem } from "components";
 
-const TasksList = ({ list }) => {
+const TasksList = () => {
+  const selectedCategory = useSelector((state) => state.categories.selected);
+
   return (
     <ul className="tasks__list task">
-      {/* {list.items.length > 0 &&
-        list.items.map((task) => <Task key={task.id} {...task} />)} */}
+      {/* {selectedCategory &&
+        selectedCategory.tasks.map((task) => (
+          <TasksItem key={task} task={task} />
+        ))} */}
     </ul>
   );
 };

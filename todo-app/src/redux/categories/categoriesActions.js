@@ -1,6 +1,24 @@
 import { createAction } from "@reduxjs/toolkit";
 
-// CREATE CATEGORY
+/*
+ * ------- GET CATEGORIES -------
+ */
+
+export const getCategoriesRequest = createAction(
+  "categories/GET_CATEGORIES_REQUEST"
+);
+
+export const getCategoriesSuccess = createAction(
+  "categories/GET_CATEGORIES_SUCCESS"
+);
+
+export const getCategoriesError = createAction(
+  "categories/GET_CATEGORIES_ERROR"
+);
+
+/*
+ * ------- CREATE CATEGORY -------
+ */
 
 export const createCategoryRequest = createAction(
   "categories/CREATE_CATEGORY_REQUEST"
@@ -14,26 +32,9 @@ export const createCategoryError = createAction(
   "categories/CREATE_CATEGORY_ERROR"
 );
 
-// GET CATEGORIES
-
-export const getCategoriesRequest = createAction(
-  "categories/GET_CATEGORIES_REQUEST"
-);
-
-export const getCategoriesSuccess = createAction(
-  "categories/GET_CATEGORIES_SUCCESS",
-  (categories) => ({
-    payload: {
-      categories,
-    },
-  })
-);
-
-export const getCategoriesError = createAction(
-  "categories/GET_CATEGORIES_ERROR"
-);
-
-// DELETE CATEGORY
+/*
+ * ------- DELETE CATEGORY -------
+ */
 
 export const deleteCategoryRequest = createAction(
   "categories/DELETE_CATEGORY_REQUEST"
@@ -52,13 +53,16 @@ export const deleteCategoryError = createAction(
   "categories/DELETE_CATEGORY_ERROR"
 );
 
-// SET ACTIVE CATEGORY
+/*
+ * ------- SET ACTIVE CATEGORY -------
+ */
 
 export const setSelectedCategory = createAction(
-  "categories/SET_SELECTED_CATEGORY",
-  (category) => ({
-    payload: {
-      category,
-    },
-  })
+  "categories/SET_SELECTED_CATEGORY"
 );
+
+/*
+ * ------- RESET CATEGORIES -------
+ */
+
+export const resetCategories = createAction("categories/RESET_CATEGORIES");

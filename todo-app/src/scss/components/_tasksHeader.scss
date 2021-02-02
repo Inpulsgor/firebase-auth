@@ -1,0 +1,36 @@
+.tasks-top {
+  position: relative;
+  display: flex;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 39px;
+    color: #64c4ed;
+    margin-right: 15px;
+  }
+
+  &__edit {
+    opacity: 0.2;
+    border: none;
+    background: transparent;
+    transition: opacity 0.3s linear;
+
+    &:hover {
+      opacity: 0.6;
+      transition: opacity 0.3s linear;
+    }
+  }
+}

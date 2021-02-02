@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
 import { ReactComponent as PlusSvg } from "assets/icons/plus.svg";
-import * as api from "services/api/api";
 
-const TasksCreator = ({ list }) => {
+const TasksFooter = ({ list }) => {
   const [visibleForm, setVisibleForm] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -13,28 +12,26 @@ const TasksCreator = ({ list }) => {
   };
 
   const toggleOpenForm = () => {
-    setVisibleForm(!visibleForm);
-    setInputValue("");
+    // setVisibleForm(!visibleForm);
+    // setInputValue("");
   };
 
   const handleCreateTask = () => {
-    const obj = {
-      listId: list.id,
-      text: inputValue,
-      comleted: false,
-    };
-
-    setIsLoading(true);
-    api
-
-      .createTask(obj)
-      .then(({ data }) => {
-        console.log(data);
-        handleAddTask(list.id, data);
-        toggleOpenForm();
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
+    // const obj = {
+    //   listId: list.id,
+    //   text: inputValue,
+    //   comleted: false,
+    // };
+    // setIsLoading(true);
+    // api
+    //   .createTask(obj)
+    //   .then(({ data }) => {
+    //     console.log(data);
+    //     handleAddTask(list.id, data);
+    //     toggleOpenForm();
+    //   })
+    //   .catch((error) => console.log(error))
+    //   .finally(() => setIsLoading(false));
   };
 
   const handleAddTask = (id, object) => {
@@ -82,4 +79,4 @@ const TasksCreator = ({ list }) => {
   );
 };
 
-export default TasksCreator;
+export default TasksFooter;

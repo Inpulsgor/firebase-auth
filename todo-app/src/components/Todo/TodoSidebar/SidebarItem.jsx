@@ -4,12 +4,14 @@ import { SidebarBadge } from "components";
 import { ReactComponent as RemoveSvg } from "assets/icons/remove.svg";
 
 const sidebarItem = ({ category, selectedCategory, onSelect, onRemove }) => {
-  const selectCategory = () => {
+  const selectCategory = (e) => {
+    if (e.target.nodeName !== "LI") return;
     onSelect(category);
   };
 
-  const RemoveCategory = () => {
-    onRemove(category.id);
+  const RemoveCategory = (e) => {
+    if (e.currentTarget && e.target.nodeName !== "BUTTON")
+      onRemove(category.id);
   };
 
   return (
@@ -23,9 +25,7 @@ const sidebarItem = ({ category, selectedCategory, onSelect, onRemove }) => {
     >
       <SidebarBadge color={category.color} />
       <span className="categories__name">{category.name}</span>
-      <span className="categories__quantity">
-        {category.tasks && category.tasks.length}
-      </span>
+      <span className="categories__quantity"></span>
 
       <button
         type="button"
