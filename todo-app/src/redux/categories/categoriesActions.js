@@ -6,14 +6,7 @@ export const createCategoryRequest = createAction(
   "categories/CREATE_CATEGORY_REQUEST"
 );
 
-export const createCategorySuccess = createAction(
-  "categories/CREATE_CATEGORY_SUCCESS",
-  (category) => ({
-    payload: {
-      category,
-    },
-  })
-);
+export const createCategorySuccess = createAction("categories/CREATE_CATEGORY_SUCCESS");
 
 export const createCategoryError = createAction(
   "categories/CREATE_CATEGORY_ERROR"

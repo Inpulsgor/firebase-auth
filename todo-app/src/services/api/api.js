@@ -3,6 +3,7 @@ import { firebaseDB } from "./firebase";
 /*
  * CATEGORIES REQUESTS
  */
+
 export const getCategories = async () => {
   const data = [];
 
@@ -27,7 +28,7 @@ export const createCategory = async (category) => {
     .collection("categories")
     .doc()
     .set(category)
-    .then(() => console.log("category successfully created"))
+    .then()
     .catch((error) => console.log(error));
 };
 
@@ -51,12 +52,14 @@ export const deleteCategory = async (categoryID) => {
 /*
  * TASKS REQUESTS
  */
+
 // export const getTasks = () => instance.get("/tasks.json");
 // export const createTask = (data) => instance.post("/tasks.json", data);
 
 /*
  * COLORS REQUESTS
  */
+
 export const getColors = async () => {
   const data = [];
 
@@ -75,5 +78,3 @@ export const getColors = async () => {
 
   return data;
 };
-
-// export const getColors = () => instance.get("/colors.json");

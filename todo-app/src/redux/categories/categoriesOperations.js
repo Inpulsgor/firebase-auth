@@ -34,7 +34,7 @@ export const createCategory = (category) => (dispatch) => {
 
   api
     .createCategory(category)
-    .then(() => dispatch(createCategorySuccess(category)))
+    .then(() => dispatch(createCategorySuccess()))
     .catch((error) => dispatch(createCategoryError(error)));
 };
 

@@ -7,10 +7,7 @@ const itemsReducer = createReducer([], {
   [categoriesActions.getCategoriesSuccess]: (state, action) => [
     ...action.payload.categories,
   ],
-  [categoriesActions.createCategorySuccess]: (state, action) => [
-    ...state,
-    action.payload.category,
-  ],
+  [categoriesActions.createCategorySuccess]: (state, action) => action.payload,
   [categoriesActions.deleteCategorySuccess]: (state, action) =>
     state.filter((item) => item.id !== action.payload.id),
 });
