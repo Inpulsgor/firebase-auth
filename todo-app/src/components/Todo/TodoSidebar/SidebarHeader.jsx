@@ -1,11 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { ReactComponent as TasksSvg } from "assets/icons/list.svg";
-import { useHistory } from "react-router-dom";
+import * as categoriesActions from "redux/categories/categoriesActions";
 
 const SidebarHeader = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
-  const handleClick = () => history.push("/");
+
+  const handleClick = () => {
+    history.push("/");
+    dispatch(categoriesActions.setSelectedCategory(null));
+  };
 
   return (
     <header className="sidebar__header sidebar-top">

@@ -19,7 +19,13 @@ const errorReducer = createReducer(null, {
     action.payload.error,
 });
 
+const selectedCategoryReducer = createReducer(null, {
+  [categoriesActions.setSelectedCategory]: (state, action) =>
+    action.payload.category,
+});
+
 export default combineReducers({
   items: itemsReducer,
   error: errorReducer,
+  selected: selectedCategoryReducer,
 });

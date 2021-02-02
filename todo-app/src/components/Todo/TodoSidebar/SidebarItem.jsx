@@ -3,7 +3,7 @@ import React from "react";
 import { SidebarBadge } from "components";
 import { ReactComponent as RemoveSvg } from "assets/icons/remove.svg";
 
-const sidebarItem = ({ category, activeCategory, onSelect, onRemove }) => {
+const sidebarItem = ({ category, selectedCategory, onSelect, onRemove }) => {
   const selectCategory = () => {
     onSelect(category);
   };
@@ -15,7 +15,7 @@ const sidebarItem = ({ category, activeCategory, onSelect, onRemove }) => {
   return (
     <li
       className={
-        activeCategory && activeCategory.id === category.id
+        selectedCategory && selectedCategory.id === category.id
           ? `categories__item active`
           : `categories__item`
       }

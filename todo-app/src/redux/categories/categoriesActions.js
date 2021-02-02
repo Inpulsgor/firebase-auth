@@ -6,7 +6,9 @@ export const createCategoryRequest = createAction(
   "categories/CREATE_CATEGORY_REQUEST"
 );
 
-export const createCategorySuccess = createAction("categories/CREATE_CATEGORY_SUCCESS");
+export const createCategorySuccess = createAction(
+  "categories/CREATE_CATEGORY_SUCCESS"
+);
 
 export const createCategoryError = createAction(
   "categories/CREATE_CATEGORY_ERROR"
@@ -48,4 +50,15 @@ export const deleteCategorySuccess = createAction(
 
 export const deleteCategoryError = createAction(
   "categories/DELETE_CATEGORY_ERROR"
+);
+
+// SET ACTIVE CATEGORY
+
+export const setSelectedCategory = createAction(
+  "categories/SET_SELECTED_CATEGORY",
+  (category) => ({
+    payload: {
+      category,
+    },
+  })
 );

@@ -3,8 +3,6 @@ import { persistStore } from "redux-persist";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
-// import { logger } from "redux-logger";
-
 // REDUCERS
 import authReducer from "./auth/authReducer";
 import loaderReducer from "./loader/loaderReducer";
