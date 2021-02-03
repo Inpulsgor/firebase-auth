@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   items: [],
   error: null,
+  loading: false,
 };
 
 const tasksSlice = createSlice({
@@ -34,6 +35,14 @@ const tasksSlice = createSlice({
       error: payload,
     }),
     resetTasks: (state, { payload }) => initialState,
+    loadingActive: (state, { payload }) => ({
+      ...state,
+      loading: true,
+    }),
+    loadingDisabled: (state, { payload }) => ({
+      ...state,
+      loading: false,
+    }),
   },
 });
 

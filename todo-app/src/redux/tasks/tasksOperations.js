@@ -17,6 +17,8 @@ export const getTasksByID = (id) => (dispatch) => {
  */
 
 export const createTask = (id, task) => (dispatch) => {
+  dispatch(tasksSlice.actions.loadingActive());
+
   api
     .createTask(id, task)
     .then((responseID) => {
@@ -24,7 +26,8 @@ export const createTask = (id, task) => (dispatch) => {
         tasksSlice.actions.createTaskSuccess({ id: responseID, ...task })
       );
     })
-    .catch((error) => dispatch(tasksSlice.actions.createTaskError(error)));
+    .catch((error) => dispatch(tasksSlice.actions.createTaskError(error)))
+    .finally(() => dispatch(tasksSlice.actions.loadingDisabled()));
 };
 
 /*
@@ -32,8 +35,11 @@ export const createTask = (id, task) => (dispatch) => {
  */
 
 export const removeTask = (taskID) => (dispatch) => {
+  dispatch(tasksSlice.actions.loadingActive());
+
   api
     .deleteTask(taskID)
     .then(() => dispatch(tasksSlice.actions.deleteTaskSuccess(taskID)))
-    .catch((error) => dispatch(tasksSlice.actions.deleteTaskError(error)));
+    .catch((error) => dispatch(tasksSlice.actions.deleteTaskError(error)))
+    .finally(() => dispatch(tasksSlice.actions.loadingDisabled()));
 };

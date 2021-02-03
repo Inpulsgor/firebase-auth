@@ -19,7 +19,8 @@ const TasksList = () => {
   return (
     <div>
       <ul className="tasks__list task">
-        {tasks.length > 0 &&
+        {tasks &&
+          tasks.length > 0 &&
           tasks.map((task) => <TasksItem key={task.id} {...task} />)}
       </ul>
       <TasksForm />

@@ -7,8 +7,8 @@ import { TaskCreateBtn } from "components";
 const TasksFooter = ({ list }) => {
   const [visibleForm, setVisibleForm] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const selectedCategory = useSelector((state) => state.categories.selected);
+  const isLoading = useSelector((state) => state.tasks.loading);
   const dispatch = useDispatch();
 
   const handleChange = ({ target: { value } }) => {
