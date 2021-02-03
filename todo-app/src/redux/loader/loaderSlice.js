@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const categoriesSlice = createSlice({
-  name: "isLoading",
-  initialState: false,
+const initialState = {
+  isLoading: false,
+};
+
+const loaderSlice = createSlice({
+  name: "loader",
+  initialState,
   reducers: {
-    loaderActive: (state, { payload }) => true,
-    loaderDisabled: (state, { payload }) => false,
+    loaderActive: (state) => ({ ...state, isLoading: true }),
+    loaderDisabled: (state) => ({ ...state, isLoading: false }),
   },
 });
 
-export default categoriesSlice;
+export default loaderSlice;

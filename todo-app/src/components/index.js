@@ -29,3 +29,4 @@ export { default as TasksHeader } from "./Todo/TodoTasks/TasksHeader";
 export { default as TasksList } from "./Todo/TodoTasks/TasksList";
 export { default as TasksItem } from "./Todo/TodoTasks/TasksItem";
 export { default as TasksForm } from "./Todo/TodoTasks/TasksForm";
+export { default as TaskCreateBtn } from "./Todo/TodoTasks/TaskCreateBtn";

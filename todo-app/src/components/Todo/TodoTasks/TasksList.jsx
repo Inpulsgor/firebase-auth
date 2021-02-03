@@ -6,11 +6,15 @@ import * as tasksOperations from "redux/tasks/tasksOperations";
 
 const TasksList = () => {
   const tasks = useSelector((state) => state.tasks.items);
+  const selectedCategory = useSelector((state) => state.categories.selected);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(tasksOperations.getTasks());
-  }, [dispatch]);
+    if (selectedCategory) {
+      const id = selectedCategory.id;
+      dispatch(tasksOperations.getTasksByID(id));
+    }
+  }, [selectedCategory, dispatch]);
 
   return (
     <div>

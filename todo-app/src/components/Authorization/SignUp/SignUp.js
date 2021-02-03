@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 
 import SignUpSchema from "./SignUpSchema";
-import * as authOperations from "redux/auth/authOperations";
+import * as authOperations from "redux/session/sessionOperations";
 
 const SignUp = ({ signInType, setSignInType }) => {
   const dispatch = useDispatch();

@@ -8,7 +8,7 @@ import * as colorsOperations from "redux/colors/colorsOperations";
 import { SidebarItem } from "components";
 
 const SidebarList = () => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.session.isAuthenticated);
   const selectedCategory = useSelector((state) => state.categories.selected);
   const categories = useSelector((state) => state.categories.items);
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ const SidebarList = () => {
   };
 
   const handleCategoryRemove = (categoryID) => {
-    dispatch(categoriesSlice.actions.deleteCategorySuccess(categoryID));
+    dispatch(categoriesOperations.removeCategory(categoryID));
     dispatch(categoriesSlice.actions.setSelectedCategory(null));
   };
 

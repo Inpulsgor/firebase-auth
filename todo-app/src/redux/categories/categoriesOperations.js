@@ -1,5 +1,4 @@
 import * as api from "services/api/api";
-
 import categoriesSlice from "./categoriesSlice";
 
 /*
@@ -24,7 +23,11 @@ export const getCategories = () => (dispatch) => {
 export const createCategory = (category) => (dispatch) => {
   api
     .createCategory(category)
-    .then(() => dispatch(categoriesSlice.actions.createCategorySuccess()))
+    .then((id) =>
+      dispatch(
+        categoriesSlice.actions.createCategorySuccess({ id, ...category })
+      )
+    )
     .catch((error) =>
       dispatch(categoriesSlice.actions.createCategoryError(error))
     );

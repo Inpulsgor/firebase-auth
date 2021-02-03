@@ -1,5 +1,8 @@
 import { firebaseDB } from "./firebase";
 
+const categoriesRef = firebaseDB.collection("categories");
+const colorsRef = firebaseDB.collection("colors");
+
 /*
  * CATEGORIES REQUESTS
  */
@@ -7,8 +10,46 @@ import { firebaseDB } from "./firebase";
 export const getCategories = async () => {
   let data = [];
 
-  await firebaseDB
-    .collection("categories")
+  await categoriesRef.get().then((snapshot) => {
+    snapshot.forEach((doc) => {
+      const category = {
+        id: doc.id,
+        ...doc.data(),
+      };
+      data.push(category);
+    });
+  });
+
+  return data;
+};
+
+export const createCategory = async (category) => {
+  return await categoriesRef
+    .add(category)
+    .then((res) => res.id)
+    .catch((error) => console.log(error));
+};
+
+export const deleteCategory = async (categoryID) => {
+  return await categoriesRef
+    .doc(categoryID)
+    .delete()
+    .then(() => {
+      console.log("category deleted");
+    })
+    .catch((error) => console.log(error));
+};
+
+/*
+ * TASKS REQUESTS
+ */
+
+export const getTasksByID = async (id) => {
+  let data = [];
+
+  await categoriesRef
+    .doc(id)
+    .collection("tasks")
     .get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
@@ -23,55 +64,12 @@ export const getCategories = async () => {
   return data;
 };
 
-export const createCategory = async (category) => {
-  return await firebaseDB
-    .collection("categories")
-    .doc()
-    .set(category)
-    .then()
-    .catch((error) => console.log(error));
-};
-
-export const deleteCategory = async (categoryID) => {
-  return await firebaseDB
-    .collection("categories")
-    .doc(categoryID)
-    .delete()
-    .then(() => {
-      console.log("category deleted");
-    })
-    .catch((error) => console.log(error));
-};
-
-/*
- * TASKS REQUESTS
- */
-
-export const getTasks = async () => {
-  const data = [];
-
-  // await firebaseDB
-  //   .collection("tasks")
-  //   .get()
-  //   .then((snapshot) => {
-  //     snapshot.forEach((doc) => {
-  //       const task = {
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       };
-  //       data.push(task);
-  //     });
-  //   });
-
-  return data;
-};
-
-export const createTask = async (task) => {
-  return await firebaseDB
-    .collection("categories")
-    .doc()
-    .set(task)
-    .then()
+export const createTask = async (id, task) => {
+  return await categoriesRef
+    .doc(id)
+    .collection("tasks")
+    .add(task)
+    .then((res) => res.id)
     .catch((error) => console.log(error));
 };
 
@@ -84,18 +82,15 @@ export const deleteTask = async () => {};
 export const getColors = async () => {
   const data = [];
 
-  await firebaseDB
-    .collection("colors")
-    .get()
-    .then((snapshot) => {
-      snapshot.forEach((doc) => {
-        const color = {
-          id: doc.id,
-          ...doc.data(),
-        };
-        data.push(color);
-      });
+  await colorsRef.get().then((snapshot) => {
+    snapshot.forEach((doc) => {
+      const color = {
+        id: doc.id,
+        ...doc.data(),
+      };
+      data.push(color);
     });
+  });
 
   return data;
 };

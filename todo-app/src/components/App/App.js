@@ -8,7 +8,7 @@ import { PrivateRoute, PublicRoute } from "services/helpers";
 import { Loader } from "components";
 
 const App = () => {
-  const isLoading = useSelector((state) => state.isLoading);
+  const isLoading = useSelector((state) => state.loader.isLoading);
   const location = useLocation();
 
   return (

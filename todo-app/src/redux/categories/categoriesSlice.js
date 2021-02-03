@@ -18,14 +18,17 @@ const categoriesSlice = createSlice({
       ...state,
       error: payload,
     }),
-    createCategorySuccess: (state, { payload }) => ({}),
+    createCategorySuccess: (state, { payload }) => ({
+      ...state,
+      items: [...state.items, payload],
+    }),
     createCategoryError: (state, { payload }) => ({
       ...state,
       error: payload,
     }),
     deleteCategorySuccess: (state, { payload }) => ({
       ...state,
-      items: state.items.filter((item) => item.id !== payload.id),
+      items: state.items.filter((item) => item.id !== payload),
     }),
     deleteCategoryError: (state, { payload }) => ({
       ...state,

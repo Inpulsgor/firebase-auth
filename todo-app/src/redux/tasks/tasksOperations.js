@@ -1,41 +1,30 @@
 import * as api from "services/api/api";
-
-import {
-  getTasksRequest,
-  getTasksSuccess,
-  getTasksError,
-  createTaskRequest,
-  createTaskSuccess,
-  createTaskError,
-  deleteTaskRequest,
-  deleteTaskSuccess,
-  deleteTaskError,
-} from "./tasksActions";
+import tasksSlice from "./tasksSlice";
 
 /*
  * GET TASKS
  */
 
-export const getTasks = () => (dispatch) => {
-  dispatch(getTasksRequest());
-
+export const getTasksByID = (id) => (dispatch) => {
   api
-    .getTasks()
-    .then((data) => dispatch(getTasksSuccess(data)))
-    .catch((error) => dispatch(getTasksError(error)));
+    .getTasksByID(id)
+    .then((data) => dispatch(tasksSlice.actions.getTasksSuccess(data)))
+    .catch((error) => dispatch(tasksSlice.actions.getTasksError(error)));
 };
 
 /*
  * CREATE TASK
  */
 
-export const createTask = (task) => (dispatch) => {
-  dispatch(createTaskRequest());
-
+export const createTask = (id, task) => (dispatch) => {
   api
-    .createTask(task)
-    .then(() => dispatch(createTaskSuccess()))
-    .catch((error) => dispatch(createTaskError(error)));
+    .createTask(id, task)
+    .then((responseID) => {
+      dispatch(
+        tasksSlice.actions.createTaskSuccess({ id: responseID, ...task })
+      );
+    })
+    .catch((error) => dispatch(tasksSlice.actions.createTaskError(error)));
 };
 
 /*
@@ -43,10 +32,8 @@ export const createTask = (task) => (dispatch) => {
  */
 
 export const removeTask = (taskID) => (dispatch) => {
-  dispatch(deleteTaskRequest());
-
   api
     .deleteTask(taskID)
-    .then(() => dispatch(deleteTaskSuccess(taskID)))
-    .catch((error) => dispatch(deleteTaskError(error)));
+    .then(() => dispatch(tasksSlice.actions.deleteTaskSuccess(taskID)))
+    .catch((error) => dispatch(tasksSlice.actions.deleteTaskError(error)));
 };

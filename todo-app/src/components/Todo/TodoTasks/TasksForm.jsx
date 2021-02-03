@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { ReactComponent as PlusSvg } from "assets/icons/plus.svg";
+import * as tasksOperations from "redux/tasks/tasksOperations";
+import { TaskCreateBtn } from "components";
 
 const TasksFooter = ({ list }) => {
   const [visibleForm, setVisibleForm] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const selectedCategory = useSelector((state) => state.categories.selected);
+  const dispatch = useDispatch();
 
   const handleChange = ({ target: { value } }) => {
     setInputValue(value);
@@ -16,23 +20,27 @@ const TasksFooter = ({ list }) => {
     setInputValue("");
   };
 
-  const handleCreateTask = () => {
-    const newTask = {
-      relatedID: list.id,
-      text: inputValue,
-      comleted: false,
-    };
+  const handleCreateTask = (e) => {
+    e.preventDefault();
+
+    if (selectedCategory && inputValue) {
+      const id = selectedCategory.id;
+      const newTask = {
+        text: inputValue,
+        completed: false,
+      };
+
+      dispatch(tasksOperations.createTask(id, newTask));
+      setVisibleForm(false);
+    }
   };
 
   return (
-    <div className="tasks__creator creator">
+    <div className="tasks__body tasks">
       {!visibleForm ? (
-        <button onClick={toggleOpenForm} className="creator__btn">
-          <PlusSvg className="creator__icon" />
-          <span className="creator__text">New Task</span>
-        </button>
+        <TaskCreateBtn onToggle={toggleOpenForm} />
       ) : (
-        <form className="creator__form form">
+        <form onSubmit={handleCreateTask} className="creator__form form">
           <input
             type="text"
             className="form__field field"
@@ -41,13 +49,14 @@ const TasksFooter = ({ list }) => {
             onChange={handleChange}
           />
           <button
+            type="submit"
             disabled={isLoading}
-            onClick={handleCreateTask}
             className="form__btn button"
           >
             {isLoading ? "Adding..." : "Add task"}
           </button>
           <button
+            type="button"
             onClick={toggleOpenForm}
             className="form__btn button button--grey"
           >

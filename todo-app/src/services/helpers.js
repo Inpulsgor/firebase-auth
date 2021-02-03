@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
  */
 
 export const PrivateRoute = ({ component: Component, ...routeProps }) => {
-  const isAuthenticated = useSelector((state) => state.auth.token);
+  const isAuthenticated = useSelector((state) => state.session.token);
 
   return (
     <Route
@@ -24,7 +24,7 @@ export const PrivateRoute = ({ component: Component, ...routeProps }) => {
  */
 
 export const PublicRoute = ({ component: Component, ...routeProps }) => {
-  const isAuthenticated = useSelector((state) => state.auth.token);
+  const isAuthenticated = useSelector((state) => state.session.token);
 
   return (
     <Route

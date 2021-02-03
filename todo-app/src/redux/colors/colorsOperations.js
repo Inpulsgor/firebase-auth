@@ -1,16 +1,9 @@
 import * as api from "services/api/api";
-
-import {
-  getColorsRequest,
-  getColorsSuccess,
-  getColorsError,
-} from "./colorsActions";
+import colorsSlice from "./colorsSlice";
 
 export const getColors = () => (dispatch) => {
-  dispatch(getColorsRequest());
-
   api
     .getColors()
-    .then((data) => dispatch(getColorsSuccess(data)))
-    .catch((error) => dispatch(getColorsError(error)));
+    .then((data) => dispatch(colorsSlice.actions.getColorsSuccess(data)))
+    .catch((error) => dispatch(colorsSlice.actions.getColorsError(error)));
 };
