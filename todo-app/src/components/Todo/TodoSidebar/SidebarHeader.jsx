@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { ReactComponent as TasksSvg } from "assets/icons/list.svg";
-import * as categoriesActions from "redux/categories/categoriesActions";
+import categoriesSlice from "redux/categories/categoriesSlice";
 
 const SidebarHeader = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const SidebarHeader = () => {
 
   const handleClick = () => {
     history.push("/");
-    dispatch(categoriesActions.setSelectedCategory(null));
+    dispatch(categoriesSlice.actions.setSelectedCategory(null));
   };
 
   return (

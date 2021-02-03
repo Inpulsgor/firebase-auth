@@ -1,6 +1,7 @@
 import { firebaseAuth } from "../../services/api/firebase";
+
 import { loaderActive, loaderDisabled } from "../loader/loaderActions";
-import * as categoriesActions from "../categories/categoriesActions";
+import categoriesSlice from "../categories/categoriesSlice";
 import * as colorsActions from "../colors/colorsActions";
 import {
   signInRequest,
@@ -29,7 +30,7 @@ export const signIn = (email, password) => (dispatch) => {
       dispatch(clearError());
     })
     .catch((error) => {
-      dispatch(signInError(error));
+      dispatch(signInError(error.message));
     })
     .finally(() => dispatch(loaderDisabled()));
 };
@@ -49,7 +50,7 @@ export const signUp = (email, password) => (dispatch) => {
       dispatch(clearError());
     })
     .catch((error) => {
-      dispatch(signUpError(error));
+      dispatch(signUpError(error.message));
     })
     .finally(() => dispatch(loaderDisabled()));
 };
@@ -66,12 +67,11 @@ export const logOut = () => (dispatch) => {
     .then(() => {
       dispatch(signOutSuccess());
       dispatch(clearError());
-      dispatch(categoriesActions.setSelectedCategory(null));
-      dispatch(categoriesActions.resetCategories());
+      dispatch(categoriesSlice.actions.resetCategories());
       dispatch(colorsActions.resetColors());
     })
     .catch((error) => {
-      dispatch(signOutError(error));
+      dispatch(signOutError(error.message));
     })
     .finally(() => dispatch(loaderDisabled()));
 };

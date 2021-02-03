@@ -20,7 +20,7 @@ export const getTasks = () => (dispatch) => {
   dispatch(getTasksRequest());
 
   api
-    .getTask()
+    .getTasks()
     .then((data) => dispatch(getTasksSuccess(data)))
     .catch((error) => dispatch(getTasksError(error)));
 };

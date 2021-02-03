@@ -9,7 +9,7 @@ const TasksHeader = () => {
   return (
     <header className="tasks__header tasks-top">
       <h2
-        style={{ color: selectedCategory && selectedCategory.color }}
+        style={{ color: selectedCategory ? selectedCategory.color : null }}
         className="tasks-top__title"
       >
         {selectedCategory && selectedCategory.name}

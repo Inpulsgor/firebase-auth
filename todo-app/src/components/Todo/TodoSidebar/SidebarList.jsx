@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import categoriesSlice from "redux/categories/categoriesSlice";
 import * as categoriesOperations from "redux/categories/categoriesOperations";
-import * as categoriesActions from "redux/categories/categoriesActions";
 import * as colorsOperations from "redux/colors/colorsOperations";
 import { SidebarItem } from "components";
 
@@ -31,7 +31,7 @@ const SidebarList = () => {
 
     if (locationID && categories) {
       const category = categories.find((item) => item.id === locationID);
-      dispatch(categoriesActions.setSelectedCategory(category));
+      dispatch(categoriesSlice.actions.setSelectedCategory(category));
     }
   }, [dispatch, categories, history.location.pathname]);
 
@@ -40,14 +40,15 @@ const SidebarList = () => {
   };
 
   const handleCategoryRemove = (categoryID) => {
-    dispatch(categoriesOperations.removeCategory(categoryID));
-    dispatch(categoriesActions.setSelectedCategory(null));
+    dispatch(categoriesSlice.actions.deleteCategorySuccess(categoryID));
+    dispatch(categoriesSlice.actions.setSelectedCategory(null));
   };
 
   return (
     <div className="sidebar__body categories">
       <ul className="categories__list">
-        {categories.length > 0 &&
+        {categories &&
+          categories.length > 0 &&
           categories.map((category) => (
             <SidebarItem
               key={category.id}

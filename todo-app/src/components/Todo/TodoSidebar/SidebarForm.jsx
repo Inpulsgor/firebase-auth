@@ -30,7 +30,7 @@ const SidebarForm = ({ onModalClose }) => {
 
     const category = { name: inputValue, color: selectedColor };
 
-    dispatch(categoriesOperations.createCategory(category));
+    // dispatch(categoriesOperations.createCategory(category));
 
     setInputValue("");
     onModalClose();

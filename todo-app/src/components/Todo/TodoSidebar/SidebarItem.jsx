@@ -3,15 +3,14 @@ import React from "react";
 import { SidebarBadge } from "components";
 import { ReactComponent as RemoveSvg } from "assets/icons/remove.svg";
 
-const sidebarItem = ({ category, selectedCategory, onSelect, onRemove }) => {
-  const selectCategory = (e) => {
-    if (e.target.nodeName !== "LI") return;
+const SidebarItem = ({ category, selectedCategory, onSelect, onRemove }) => {
+  const selectCategory = () => {
     onSelect(category);
   };
 
   const RemoveCategory = (e) => {
-    if (e.currentTarget && e.target.nodeName !== "BUTTON")
-      onRemove(category.id);
+    e.stopPropagation();
+    onRemove(category.id);
   };
 
   return (
@@ -25,7 +24,7 @@ const sidebarItem = ({ category, selectedCategory, onSelect, onRemove }) => {
     >
       <SidebarBadge color={category.color} />
       <span className="categories__name">{category.name}</span>
-      <span className="categories__quantity"></span>
+      {/* <span className="categories__quantity"></span> */}
 
       <button
         type="button"
@@ -38,4 +37,4 @@ const sidebarItem = ({ category, selectedCategory, onSelect, onRemove }) => {
   );
 };
 
-export default sidebarItem;
+export default SidebarItem;

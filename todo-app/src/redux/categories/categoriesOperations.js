@@ -1,28 +1,20 @@
 import * as api from "services/api/api";
 
-import {
-  getCategoriesRequest,
-  getCategoriesSuccess,
-  getCategoriesError,
-  createCategoryRequest,
-  createCategorySuccess,
-  createCategoryError,
-  deleteCategoryRequest,
-  deleteCategorySuccess,
-  deleteCategoryError,
-} from "./categoriesActions";
+import categoriesSlice from "./categoriesSlice";
 
 /*
  * GET CATEGORIES
  */
 
 export const getCategories = () => (dispatch) => {
-  dispatch(getCategoriesRequest());
-
   api
     .getCategories()
-    .then((data) => dispatch(getCategoriesSuccess(data)))
-    .catch((error) => dispatch(getCategoriesError(error)));
+    .then((data) =>
+      dispatch(categoriesSlice.actions.getCategoriesSuccess(data))
+    )
+    .catch((error) =>
+      dispatch(categoriesSlice.actions.getCategoriesError(error))
+    );
 };
 
 /*
@@ -30,12 +22,12 @@ export const getCategories = () => (dispatch) => {
  */
 
 export const createCategory = (category) => (dispatch) => {
-  dispatch(createCategoryRequest());
-
   api
     .createCategory(category)
-    .then(() => dispatch(createCategorySuccess()))
-    .catch((error) => dispatch(createCategoryError(error)));
+    .then(() => dispatch(categoriesSlice.actions.createCategorySuccess()))
+    .catch((error) =>
+      dispatch(categoriesSlice.actions.createCategoryError(error))
+    );
 };
 
 /*
@@ -43,10 +35,12 @@ export const createCategory = (category) => (dispatch) => {
  */
 
 export const removeCategory = (categoryID) => (dispatch) => {
-  dispatch(deleteCategoryRequest());
-
   api
     .deleteCategory(categoryID)
-    .then(() => dispatch(deleteCategorySuccess(categoryID)))
-    .catch((error) => dispatch(deleteCategoryError(error)));
+    .then(() =>
+      dispatch(categoriesSlice.actions.deleteCategorySuccess(categoryID))
+    )
+    .catch((error) =>
+      dispatch(categoriesSlice.actions.deleteCategoryError(error))
+    );
 };

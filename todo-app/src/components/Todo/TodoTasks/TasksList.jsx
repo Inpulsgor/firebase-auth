@@ -1,18 +1,25 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { TasksItem } from "components";
+import { TasksItem, TasksForm } from "components";
+import * as tasksOperations from "redux/tasks/tasksOperations";
 
 const TasksList = () => {
-  const selectedCategory = useSelector((state) => state.categories.selected);
+  const tasks = useSelector((state) => state.tasks.items);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(tasksOperations.getTasks());
+  }, [dispatch]);
 
   return (
-    <ul className="tasks__list task">
-      {/* {selectedCategory &&
-        selectedCategory.tasks.map((task) => (
-          <TasksItem key={task} task={task} />
-        ))} */}
-    </ul>
+    <div>
+      <ul className="tasks__list task">
+        {tasks.length > 0 &&
+          tasks.map((task) => <TasksItem key={task.id} {...task} />)}
+      </ul>
+      <TasksForm />
+    </div>
   );
 };
 

@@ -12,36 +12,16 @@ const TasksFooter = ({ list }) => {
   };
 
   const toggleOpenForm = () => {
-    // setVisibleForm(!visibleForm);
-    // setInputValue("");
+    setVisibleForm(!visibleForm);
+    setInputValue("");
   };
 
   const handleCreateTask = () => {
-    // const obj = {
-    //   listId: list.id,
-    //   text: inputValue,
-    //   comleted: false,
-    // };
-    // setIsLoading(true);
-    // api
-    //   .createTask(obj)
-    //   .then(({ data }) => {
-    //     console.log(data);
-    //     handleAddTask(list.id, data);
-    //     toggleOpenForm();
-    //   })
-    //   .catch((error) => console.log(error))
-    //   .finally(() => setIsLoading(false));
-  };
-
-  const handleAddTask = (id, object) => {
-    // const newList = lists.map((list) => {
-    //   if (list.id === id) {
-    //     list.tasks = [...list.tasks, object];
-    //   }
-    //   return list;
-    // });
-    // setLists(newList);
+    const newTask = {
+      relatedID: list.id,
+      text: inputValue,
+      comleted: false,
+    };
   };
 
   return (
@@ -52,7 +32,7 @@ const TasksFooter = ({ list }) => {
           <span className="creator__text">New Task</span>
         </button>
       ) : (
-        <div className="creator__form form">
+        <form className="creator__form form">
           <input
             type="text"
             className="form__field field"
@@ -73,7 +53,7 @@ const TasksFooter = ({ list }) => {
           >
             Cancel
           </button>
-        </div>
+        </form>
       )}
     </div>
   );
