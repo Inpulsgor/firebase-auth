@@ -17,11 +17,13 @@ const TasksList = () => {
   }, [selectedCategory, dispatch]);
 
   return (
-    <div>
-      <ul className="tasks__list task">
-        {tasks &&
-          tasks.length > 0 &&
-          tasks.map((task) => <TasksItem key={task.id} {...task} />)}
+    <div className="tasks__body">
+      <ul className="tasks__list tasks-list">
+        {tasks && tasks.length > 0 ? (
+          tasks.map((task) => <TasksItem key={task.id} {...task} />)
+        ) : (
+          <li className="tasks-list__empty">Tasks list is empty :( </li>
+        )}
       </ul>
       <TasksForm />
     </div>

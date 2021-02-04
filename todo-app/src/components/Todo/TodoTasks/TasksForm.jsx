@@ -11,14 +11,8 @@ const TasksFooter = ({ list }) => {
   const isLoading = useSelector((state) => state.tasks.loading);
   const dispatch = useDispatch();
 
-  const handleChange = ({ target: { value } }) => {
-    setInputValue(value);
-  };
-
-  const toggleOpenForm = () => {
-    setVisibleForm(!visibleForm);
-    setInputValue("");
-  };
+  const handleChange = ({ target: { value } }) => setInputValue(value);
+  const toggleOpenForm = () => setVisibleForm(!visibleForm);
 
   const handleCreateTask = (e) => {
     e.preventDefault();
@@ -32,39 +26,48 @@ const TasksFooter = ({ list }) => {
 
       dispatch(tasksOperations.createTask(id, newTask));
       setVisibleForm(false);
+      setInputValue("");
     }
   };
 
   return (
-    <div className="tasks__body tasks">
-      {!visibleForm ? (
-        <TaskCreateBtn onToggle={toggleOpenForm} />
-      ) : (
-        <form onSubmit={handleCreateTask} className="creator__form form">
-          <input
-            type="text"
-            className="form__field field"
-            placeholder="Task text..."
-            value={inputValue}
-            onChange={handleChange}
-          />
+    <>
+      <TaskCreateBtn onToggle={toggleOpenForm} />
+      {visibleForm && (
+        <form
+          onSubmit={handleCreateTask}
+          className="tasks__form tasks-form form"
+        >
+          <div className="group">
+            <input
+              type="text"
+              id="task"
+              className="tasks-form__field input"
+              placeholder=" "
+              value={inputValue}
+              onChange={handleChange}
+            />
+            <label htmlFor="task" className="label">
+              Task text..
+            </label>
+          </div>
           <button
             type="submit"
             disabled={isLoading}
-            className="form__btn button"
+            className="tasks-form__btn-submit button"
           >
             {isLoading ? "Adding..." : "Add task"}
           </button>
           <button
             type="button"
             onClick={toggleOpenForm}
-            className="form__btn button button--grey"
+            className="tasks-form__btn-close button button--grey"
           >
             Cancel
           </button>
         </form>
       )}
-    </div>
+    </>
   );
 };
 

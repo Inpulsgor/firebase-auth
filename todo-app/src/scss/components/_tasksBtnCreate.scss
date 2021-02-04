@@ -1,0 +1,21 @@
+.btn-create {
+  opacity: 0.3;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  transition: opacity 0.3s linear;
+
+  &:hover {
+    opacity: 0.6;
+    transition: opacity 0.3s linear;
+  }
+
+  &__icon {
+    margin-right: 8px;
+  }
+
+  &__text {
+    font-size: 14px;
+  }
+}

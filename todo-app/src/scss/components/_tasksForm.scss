@@ -1,0 +1,12 @@
+.tasks-form {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 70px 40px 40px;
+  border-radius: 5px;
+  background-color: #fff;
+
+  &__field {
+    margin-bottom: 20px;
+  }
+}

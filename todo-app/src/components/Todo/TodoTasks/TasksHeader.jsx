@@ -7,14 +7,14 @@ const TasksHeader = () => {
   const selectedCategory = useSelector(({ categories }) => categories.selected);
 
   return (
-    <header className="tasks__header tasks-top">
+    <header className="tasks__header">
       <h2
         style={{ color: selectedCategory ? selectedCategory.color : null }}
-        className="tasks-top__title"
+        className="tasks__title"
       >
         {selectedCategory && selectedCategory.name}
       </h2>
-      <button className="tasks-top__edit">
+      <button className="tasks__edit">
         <PenSvg />
       </button>
     </header>
