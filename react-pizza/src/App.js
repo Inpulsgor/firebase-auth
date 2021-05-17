@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { CommonLoading } from "react-loadingg";
 // import { useSelector } from "react-redux";
 
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import routes from "./routes";
 
 const App = () => {
