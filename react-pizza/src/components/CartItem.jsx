@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Cart";
+import { Button } from "./";
 
 const CartItem = ({
   id,
