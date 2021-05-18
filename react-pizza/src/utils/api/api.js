@@ -2,11 +2,12 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3004/";
 
-const getData = () => {
-  const request = axios
+const getData = async () => {
+  const request = await axios
     .get("/pizzas")
     .then((response) => response)
     .catch((error) => console.log(error));
+
   return request;
 };
 

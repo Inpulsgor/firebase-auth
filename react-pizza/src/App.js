@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { CommonLoading } from "react-loadingg";
+import { CommonLoading as Loader } from "react-loadingg";
 // import { useSelector } from "react-redux";
 
 import Header from "./components/Header";
@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <>
-      <Suspense fallback={<CommonLoading color="orange" size="large" />}>
+      <Suspense fallback={<Loader color="orange" size="large" />}>
         {/* {isLoading && (
           <div className="app__overlay">
             <CommonLoading color="orange" size="large" />
