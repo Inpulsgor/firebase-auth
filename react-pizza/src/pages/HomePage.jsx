@@ -6,10 +6,10 @@ import {
   SortPopup,
   PizzaBlock,
   PizzaLoadingBlock,
-} from "../../components";
-import { setCategory, setSortBy } from "../../redux/actions/filters";
-import { fetchPizzas } from "../../redux/actions/pizzas";
-import helpers from "../../services/helpers";
+} from "../components";
+import { setCategory, setSortBy } from "../redux/actions/filters";
+import { fetchPizzas } from "../redux/actions/pizzas";
+import helpers from "../services/helpers";
 
 const Home = () => {
   const items = useSelector(({ pizzas }) => pizzas.items);

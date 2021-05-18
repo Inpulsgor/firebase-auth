@@ -2,14 +2,14 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import cartEmptyImage from "../../assets/img/empty-cart.png";
-import { CartItem, Button } from "../../components";
+import cartEmptyImage from "../assets/images/empty-cart.png";
+import { CartItem, Button } from "../components";
 import {
   clearCart,
   removeCartItem,
   plusCartItem,
   minusCartItem,
-} from "../../redux/actions/cart";
+} from "../redux/actions/cart";
 
 function Cart() {
   const dispatch = useDispatch();
