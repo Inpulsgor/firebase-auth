@@ -3,15 +3,21 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { CommonLoading as Loader } from "react-loadingg";
 // import { useSelector } from "react-redux";
 
-import { Header } from "./components/";
+import { Header } from "./components";
 import routes from "./routes";
 
-const App = () => {
+const App = (): JSX.Element => {
   // const isLoading = useSelector((state) => state.isLoading.isLoading);
 
   return (
     <>
-      <Suspense fallback={<Loader color="orange" size="large" />}>
+      <Suspense
+	  	fallback={
+		  <Loader
+			color="orange"
+			size="large"
+			className="loader"
+		  />}>
         {/* {isLoading && (
           <div className="app__overlay">
             <CommonLoading color="orange" size="large" />
