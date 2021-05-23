@@ -5,9 +5,7 @@ const Categories = React.memo(function Categories({
   activeCategory,
   onSelectCategory,
 }) {
-	const onSelect = () => {
-		onSelectCategory(null)
-	};
+	const onSelect = () => onSelectCategory(null);
 
   return (
     <div className="categories">
