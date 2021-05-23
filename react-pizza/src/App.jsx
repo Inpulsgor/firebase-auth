@@ -6,7 +6,7 @@ import { CommonLoading as Loader } from "react-loadingg";
 import { Header } from "./components";
 import routes from "./routes";
 
-const App = (): JSX.Element => {
+const App = () => {
   // const isLoading = useSelector((state) => state.isLoading.isLoading);
 
   return (
