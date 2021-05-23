@@ -11,8 +11,7 @@ const App = (): JSX.Element => {
 
   return (
     <>
-      <Suspense
-	  	fallback={
+      <Suspense fallback={
 		  <Loader
 			color="orange"
 			size="large"
