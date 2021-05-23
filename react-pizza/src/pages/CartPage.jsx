@@ -15,9 +15,7 @@ function Cart() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
 
-  const addedPizzas = Object.keys(items).map((key) => {
-    return items[key].items[0];
-  });
+  const addedPizzas = Object.keys(items).map((key) => items[key].items[0]);
 
   const onClearCart = () => {
     if (window.confirm("Вы действительно хотите очистить корзину?")) {

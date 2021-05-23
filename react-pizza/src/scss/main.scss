@@ -1,19 +1,23 @@
 // UTILS
-@import "utils/mixins.scss";
-@import "utils/variables.scss";
+@import "utils/variables";
+@import "utils/mixins";
 
 // VENDORS
-@import "vendors/normalize.scss";
+@import-normalize;
+// @import "vendors/normalize";
 
 // BASE
-@import "base/fonts.scss";
-
-// COMPONENTS
-@import "components/app.scss";
-@import "components/button.scss";
-@import "components/categories.scss";
-@import "components/header.scss";
-@import "components/pizza-block.scss";
-@import "components/sort.scss";
+@import "base/fonts";
+@import "base/base";
 
 // LAYOUT
+
+// COMPONENTS
+@import "components/button";
+@import "components/categories";
+@import "components/header";
+@import "components/pizza-block";
+@import "components/sort";
+
+// PAGES
+@import "pages/not-found";
