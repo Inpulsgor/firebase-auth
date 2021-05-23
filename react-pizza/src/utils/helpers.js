@@ -1,15 +1,15 @@
 const categoryNames = [
-  "Мясные",
-  "Вегетарианская",
-  "Гриль",
-  "Острые",
-  "Закрытые",
+  "Meat",
+  "Vegetarian",
+  "Grill",
+  "Spicy",
+  "Calzone",
 ];
 
 const sortItems = [
-  { name: "популярности", type: "popular", order: "desc" },
-  { name: "цене", type: "price", order: "desc" },
-  { name: "алфавит", type: "name", order: "asc" },
+  { name: "name", type: "name", order: "asc" },
+  { name: "price", type: "price", order: "desc" },
+  { name: "popular", type: "popular", order: "desc" },
 ];
 
 export default {

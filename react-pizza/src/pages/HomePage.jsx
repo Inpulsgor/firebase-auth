@@ -11,6 +11,7 @@ import { setCategory, setSortBy } from "../redux/actions/filters";
 import { fetchPizzas } from "../redux/actions/pizzas";
 import helpers from "../utils/helpers";
 
+/** */
 const Home = () => {
   const items = useSelector(({ pizzas }) => pizzas.items);
   const cartItems = useSelector(({ cart }) => cart.items);
@@ -18,24 +19,14 @@ const Home = () => {
   const { category, sortBy } = useSelector(({ filters }) => filters);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchPizzas(sortBy, category));
-  }, [category, sortBy, dispatch]);
+  /** */
+  useEffect(() => dispatch(fetchPizzas(sortBy, category)), [category, sortBy, dispatch]);
 
-  const onSelectCategory = useCallback(
-    (index) => {
-      dispatch(setCategory(index));
-    },
-    [dispatch]
-  );
+  /** */
+  const onSelectCategory = useCallback((index) => dispatch(setCategory(index)), [dispatch]);
+  const onSelectSortType = useCallback((type) => dispatch(setSortBy(type)), [dispatch]);
 
-  const onSelectSortType = useCallback(
-    (type) => {
-      dispatch(setSortBy(type));
-    },
-    [dispatch]
-  );
-
+  /** */
   const handleAddPizzaToCart = (obj) => {
     dispatch({
       type: "ADD_PIZZA_CART",
@@ -43,6 +34,7 @@ const Home = () => {
     });
   };
 
+  /** */
   return (
     <div className="container">
       <div className="content__top">

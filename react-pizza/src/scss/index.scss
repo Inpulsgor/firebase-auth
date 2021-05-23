@@ -11,11 +11,12 @@
 @import "base/base";
 
 // LAYOUT
+@import "components/layout/header";
+@import "components/layout/main";
 
 // COMPONENTS
 @import "components/button";
 @import "components/categories";
-@import "components/header";
 @import "components/pizza-block";
 @import "components/sort";
 

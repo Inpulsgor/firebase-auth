@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const SortPopup = React.memo(function SortPopup({
   items,
@@ -10,6 +9,7 @@ const SortPopup = React.memo(function SortPopup({
   const sortRef = React.useRef();
   const activeLabel = items.find((obj) => obj.type === activeSortType).name;
 
+/** */
   const toggleVisiblePopup = () => {
     setVisiblePopup(!visiblePopup);
   };
@@ -48,7 +48,7 @@ const SortPopup = React.memo(function SortPopup({
             fill="#2C2C2C"
           />
         </svg>
-        <b>Сортировка по:</b>
+        <b>Sort by:</b>
         <span onClick={toggleVisiblePopup}>{activeLabel}</span>
       </div>
       {visiblePopup && (
@@ -70,15 +70,5 @@ const SortPopup = React.memo(function SortPopup({
     </div>
   );
 });
-
-SortPopup.propTypes = {
-  activeSortType: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onClickSortType: PropTypes.func.isRequired,
-};
-
-SortPopup.defaultProps = {
-  items: [],
-};
 
 export default SortPopup;

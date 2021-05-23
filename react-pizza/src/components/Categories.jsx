@@ -5,17 +5,21 @@ const Categories = React.memo(function Categories({
   activeCategory,
   onSelectCategory,
 }) {
+	const onSelect = () => {
+		onSelectCategory(null)
+	};
+
   return (
     <div className="categories">
       <ul>
         <li
           className={activeCategory === null ? "active" : ""}
-          onClick={() => onSelectCategory(null)}
+          onClick={onSelect}
         >
-          Все
+          All
         </li>
 
-        {items.length > 0 &&
+        {items.length &&
           items.map((item, index) => (
             <li
               key={item}

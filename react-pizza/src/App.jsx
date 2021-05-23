@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { CommonLoading as Loader } from "react-loadingg";
 // import { useSelector } from "react-redux";
 
-import { Header } from "./components";
+import { Header, Main } from "./components";
 import routes from "./routes";
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
         )} */}
 
         <Header />
-        <main className="content">
+		<Main>
           <Switch>
             {routes.map((route) => {
               return (
@@ -38,7 +38,7 @@ const App = () => {
             })}
             <Redirect to="/" />
           </Switch>
-        </main>
+		</Main>
       </Suspense>
     </>
   );
